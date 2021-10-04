@@ -5,7 +5,7 @@ session_start();
 // echo $_SESSION['MM_Username'];
 // echo "<hr>";
 
-$query_pf ="SELECT * FROM tbl_member WHERE m_user";
+$query_pf ="SELECT * FROM user WHERE user_email";
 $pf = mysqli_query($conn, $query_pf) or die ("Error in query: $query_pf " . mysqli_error());
 $row_pf = mysqli_fetch_assoc($pf);
 $totalRows_pf = mysqli_num_rows($pf);
