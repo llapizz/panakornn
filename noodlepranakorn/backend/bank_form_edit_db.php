@@ -14,7 +14,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database 
 	
-	$sql = "UPDATE tbl_bank SET  
+	$sql = "UPDATE bank SET  
 			b_name='$b_name', 
 			b_type='$b_type', 
 			b_number='$b_number', 

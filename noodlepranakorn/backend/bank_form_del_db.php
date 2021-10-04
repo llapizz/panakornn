@@ -7,7 +7,7 @@ $b_id = $_REQUEST["ID"];
 
 //ลบข้อมูลออกจาก database ตาม member_id ที่ส่งมา
 
-$sql = "DELETE FROM tbl_bank WHERE b_id='$b_id' ";
+$sql = "DELETE FROM bank WHERE b_id='$b_id' ";
 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 
 //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม

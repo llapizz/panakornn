@@ -3,7 +3,7 @@
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 $b_id = $_REQUEST["ID"];
 //2. query ข้อมูลจากตาราง:
-$sql = "SELECT * FROM tbl_bank WHERE b_id='$b_id' ";
+$sql = "SELECT * FROM bank WHERE b_id='$b_id' ";
 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result);
 extract($row);
