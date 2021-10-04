@@ -4,7 +4,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 	$type_name = $_REQUEST["type_name"];
 	
 	//เพิ่มเข้าไปในฐานข้อมูล
-	$sql = "INSERT INTO tbl_type(type_name)
+	$sql = "INSERT INTO type(type_name)
 			 VALUES('$type_name')";
 
 	$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());

@@ -9,7 +9,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 	
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database
 	
-	$sql = "UPDATE tbl_type SET
+	$sql = "UPDATE type SET
 			type_name='$type_name'
 			WHERE type_id='$type_id' ";
 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
