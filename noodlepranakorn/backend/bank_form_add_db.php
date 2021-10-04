@@ -17,7 +17,7 @@ $bn_name = $_REQUEST['bn_name'];
 //img
 	// เพิ่มไฟล์เข้าไปในตาราง uploadfile
 	
-		$sql = "INSERT INTO tbl_bank
+		$sql = "INSERT INTO bank
 		(
 		b_name,
 		b_type,
