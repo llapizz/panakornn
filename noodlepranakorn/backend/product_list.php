@@ -4,9 +4,9 @@ error_reporting( error_reporting() & ~E_NOTICE );
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 //2. query ข้อมูลจากตาราง tb_admin:
 $query = "
-SELECT * FROM tbl_product as p 
-INNER JOIN tbl_type  as t ON p.type_id=t.type_id 
-ORDER BY p.p_id DESC" or die("Error:" . mysqli_error());
+SELECT * FROM foods as p 
+INNER JOIN type  as t ON p.type_id=t.type_id 
+ORDER BY p.f_id DESC" or die("Error:" . mysqli_error());
 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
 $result = mysqli_query($con, $query);
 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:
@@ -27,12 +27,12 @@ echo ' <table id="example1" class="table table-striped">';
   echo "</thead>";
   while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-    echo "<td>" .$row["p_id"] .  "</td> ";
+    echo "<td>" .$row["f_id"] .  "</td> ";
     echo "<td align='left'>" .$row["type_name"] .  "</td> ";
-    echo "<td align='left'>" .$row["p_name"] .  "</td> ";
-    echo "<td>" ."ราคา"." ".$row["p_price"] ." บาท".  "</td> ";
-    echo "<td>" .$row["p_qty"] ." ".$row["p_unit"].  "</td> ";
-     echo "<td align=center>"."<img src='img/".$row['p_img']."' width='100%'>"."</td>";
+    echo "<td align='left'>" .$row["f_name"] .  "</td> ";
+    echo "<td>" ."ราคา"." ".$row["f_price"] ." บาท".  "</td> ";
+    echo "<td>" .$row["f_qty"] ." ".$row["f_unit"].  "</td> ";
+     echo "<td align=center>"."<img src='img/".$row['f_img']."' width='100%'>"."</td>";
 
     //แก้ไขข้อมูล
     echo "<td><a href='product.php?act=edit&ID=$row[0]' class='btn btn-warning btn-xs n-radius'>แก้ไข</a></td> ";

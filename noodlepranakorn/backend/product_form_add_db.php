@@ -15,48 +15,48 @@ date_default_timezone_set('Asia/Bangkok');
 	//สร้างตัวแปรสุ่มตัวเลขเพื่อเอาไปตั้งชื่อไฟล์ที่อัพโหลดไม่ให้ชื่อไฟล์ซ้ำกัน
 	$numrand = (mt_rand());
 	//รับค่าไฟล์จากฟอร์ม
-$p_name = $_POST['p_name'];
+$f_name = $_POST['f_name'];
 $type_id = $_POST['type_id'];
-$p_qty = $_POST['p_qty'];
-$p_unit = $_POST['p_unit'];
-$p_detail = $_POST['p_detail'];
-$p_price = $_POST['p_price'];
-$p_img =(isset($_POST['p_img']) ? $_POST['p_img'] :'');
+$f_qty = $_POST['f_qty'];
+$f_unit = $_POST['f_unit'];
+
+$f_price = $_POST['f_price'];
+$f_img =(isset($_POST['f_img']) ? $_POST['f_img'] :'');
 //img
-	$upload=$_FILES['p_img'];
+	$upload=$_FILES['f_img'];
 	if($upload <> '') {
 
 	//โฟลเดอร์ที่เก็บไฟล์
 	$path="img/";
 	//ตัวขื่อกับนามสกุลภาพออกจากกัน
-	$type = strrchr($_FILES['p_img']['name'],".");
+	$type = strrchr($_FILES['f_img']['name'],".");
 	//ตั้งชื่อไฟล์ใหม่เป็น สุ่มตัวเลข+วันที่
 	$newname ='img'.$numrand.$date1.$type;
 	$path_copy=$path.$newname;
 	$path_link="img/".$newname;
 	//คัดลอกไฟล์ไปยังโฟลเดอร์
-	move_uploaded_file($_FILES['p_img']['tmp_name'],$path_copy);
+	move_uploaded_file($_FILES['f_img']['tmp_name'],$path_copy);
 	}
 	// เพิ่มไฟล์เข้าไปในตาราง uploadfile
 	
-		$sql = "INSERT INTO tbl_product
+		$sql = "INSERT INTO foods
 		(
-		p_name,
+		f_name,
 		type_id,
-		p_qty,
-		p_unit,
-		p_detail,
-		p_price,
-		p_img
+		f_qty,
+		f_unit,
+		
+		f_price,
+		f_img
 		)
 		VALUES
 		(
-		'$p_name',
+		'$f_name',
 		'$type_id',
-		'$p_qty',
-		'$p_unit',
-		'$p_detail',
-		'$p_price',
+		'$f_qty',
+		'$f_unit',
+	
+		'$f_price',
 		'$newname')";
 		
 		$result = mysqli_query($con, $sql);// or die ("Error in query: $sql " . mysqli_error());
