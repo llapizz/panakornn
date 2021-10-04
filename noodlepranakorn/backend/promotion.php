@@ -1,11 +1,11 @@
 <?php 
 include('h.php');
 
-$sql_type = "SELECT * FROM tbl_type";
+$sql_type = "SELECT * FROM type";
 $type = mysqli_query($con, $sql_type)or die($sql_type);
 $row_type = mysqli_fetch_assoc($type);
 
-$sql_promotion = "SELECT * FROM tbl_promotion p LEFT JOIN tbl_type t ON p.type_id = t.type_id";
+$sql_promotion = "SELECT * FROM promotion p LEFT JOIN type t ON p.type_id = t.type_id";
 $promotion = mysqli_query($con, $sql_promotion)or die($sql_promotion);
 $row_promotion = mysqli_fetch_assoc($promotion);
 
@@ -15,7 +15,7 @@ if(isset($_POST['btn_add'])){
   $price = $_POST['pro_price'];
   $discount = $_POST['pro_discount'];
 
-  $insert_sql = "INSERT INTO tbl_promotion VALUES(null,'$type','$name','$price','$discount')";
+  $insert_sql = "INSERT INTO promotion VALUES(null,'$type','$name','$price','$discount')";
   mysqli_query($con, $insert_sql)or die($insert_sql);
 
   header("Location: promotion.php");
@@ -23,7 +23,7 @@ if(isset($_POST['btn_add'])){
 
 if(isset($_POST['btn_del'])){
   $del = $_POST['btn_del'];
-  $del_sql = "DELETE FROM tbl_promotion WHERE pro_id = $del";
+  $del_sql = "DELETE FROM promotion WHERE pro_id = $del";
   mysqli_query($con, $del_sql)or die($del_sql);
 
   header("Location: promotion.php");

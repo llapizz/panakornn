@@ -5,11 +5,11 @@ if(isset($_GET['id'])){
   $col_id = $_GET['id'];
 }
 
-$sql_type = "SELECT * FROM tbl_type";
+$sql_type = "SELECT * FROM type";
 $type = mysqli_query($con, $sql_type)or die($sql_type);
 $row_type = mysqli_fetch_assoc($type);
 
-$sql_promotion = "SELECT * FROM tbl_promotion WHERE pro_id = '$col_id'";
+$sql_promotion = "SELECT * FROM promotion WHERE pro_id = '$col_id'";
 $promotion = mysqli_query($con, $sql_promotion)or die($sql_promotion);
 $row_promotion = mysqli_fetch_assoc($promotion);
 
@@ -19,7 +19,7 @@ if(isset($_POST['btn_edit'])){
   $price = $_POST['pro_price'];
   $discount = $_POST['pro_discount'];
 
-  $update_sql = "UPDATE tbl_promotion SET 
+  $update_sql = "UPDATE promotion SET 
                 type_id='$type',
                 pro_name='$name',
                 pro_price='$price',
