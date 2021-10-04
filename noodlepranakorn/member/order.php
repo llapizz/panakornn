@@ -66,7 +66,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
         $row_check = mysqli_fetch_assoc($check);
             echo "<tr>";
             echo "<td colspan='3'></td>";
-            echo "<td><button type='submit' class='btn btn-success btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ใช้สิทธินี้</button></td>";
+            echo "<td><button type='submit' class='btn btn-warning btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ไม่ใช้สิทธิ</button></td>";
             echo "<td align='right' height='70'><b>รวม</b></td>";
             echo "<td align='right'><b>".number_format($total,2)."</b></td>";
             echo "</tr>";
