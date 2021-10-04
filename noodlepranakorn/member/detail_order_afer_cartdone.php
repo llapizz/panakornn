@@ -116,9 +116,9 @@ input[type='radio']:checked:before {
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
       </tr> 
       <?php 
-          $sum  = $row_cartdone['p_price']*$row_cartdone['f_c_qty'];
+          $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
           $total  += $sum;
-          //echo $total;
+          // echo $total;
           ?>
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
       <tr>
@@ -126,7 +126,7 @@ input[type='radio']:checked:before {
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
     <?php if($pro_id!="none"&&isset($_GET['pro_id'])){ 
-      $sql_check = "SELECT * FROM tbl_promotion WHERE pro_id = $pro_id";
+      $sql_check = "SELECT * FROM promotion WHERE pro_id = $pro_id";
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
