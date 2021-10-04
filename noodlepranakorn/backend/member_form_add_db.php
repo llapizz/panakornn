@@ -1,16 +1,17 @@
 <?php
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
-	$m_level = $_REQUEST["m_level"];
-	$m_user = $_REQUEST["m_user"];
-	$m_pass = $_REQUEST["m_pass"];
-	$m_name = $_REQUEST["m_name"];
-	$m_email = $_REQUEST["m_email"];
-	$m_tel = $_REQUEST["m_tel"];
-	$m_address = $_REQUEST["m_address"];
+	$type_id_user = $_REQUEST["type_id_user"];
+
+	
+	$user_password = $_REQUEST["user_password"];
+	$user_name = $_REQUEST["user_name"];
+	$user_email = $_REQUEST["user_email"];
+	$user_tel = $_REQUEST["user_tel"];
+	$user_address = $_REQUEST["user_address"];
 	//เพิ่มเข้าไปในฐานข้อมูล
-	$sql = "INSERT INTO tbl_member(m_level,m_user, m_pass, m_name, m_email, m_tel, m_address)
-			 VALUES('$m_level','$m_user', '$m_pass', '$m_name', '$m_email', '$m_tel', '$m_address')";
+	$sql = "INSERT INTO user(type_id_user, user_password, user_name, user_email, user_tel, user_address)
+			 VALUES('$type_id_user', '$user_password', '$user_name', '$user_email', '$user_tel', '$user_address')";
 
 	$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 	

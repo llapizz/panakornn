@@ -16,24 +16,18 @@
     </div>
   </div>
 
-  
-  <div class="form-group">
-    <div class="col-md-4" align="right"> ชื่อผู้ใช้ </div>
-    <div class="col-md-6" align="left">
-      <input  name="m_user" type="text" required class="form-control" id="m_user" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2"  />
-    </div>
-  </div>
+ 
   
   <div class="form-group">
     <div class="col-md-4" align="right"> รหัสผ่าน </div>
     <div class="col-md-6" align="left">
-      <input  name="m_pass" type="password" required class="form-control" id="m_pass" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" minlength="2" />
+      <input  name="user_password" type="password" required class="form-control" id="user_password" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" minlength="2" />
     </div>
   </div>
   <div class="form-group">
     <div class="col-md-4" align="right"> ชื่อ-สกุล  </div>
     <div class="col-md-6" align="left">
-      <input  name="m_name" type="text" required class="form-control" id="m_name" placeholder="ภาษาอังกฤษหรือภาษาไทย" />
+      <input  name="user_name" type="text" required class="form-control" id="user_name" placeholder="ภาษาอังกฤษหรือภาษาไทย" />
     </div>
   </div>
   
@@ -41,19 +35,19 @@
   <div class="form-group">
     <div class="col-md-4" align="right"> E-mail  </div>
     <div class="col-md-6" align="left">
-      <input  name="m_email" type="email" class="form-control" id="m_email"   placeholder="name@hotmail.com"/>
+      <input  name="user_email" type="email" class="form-control" id="user_email"   placeholder="name@hotmail.com"/>
     </div>
   </div>
   <div class="form-group">
     <div class="col-md-4" align="right"> เบอร์โทร  </div>
     <div class="col-md-6" align="left">
-      <input  name="m_tel" type="text" class="form-control" id="m_tel"  placeholder="ตัวเลขเท่านั้น" />
+      <input  name="user_tel" type="text" class="form-control" id="user_tel"  placeholder="ตัวเลขเท่านั้น" />
     </div>
   </div>
   <div class="form-group">
     <div class="col-md-4" align="right"> ที่อยู่  </div>
     <div class="col-md-6" align="left">
-      <textarea name="m_address" class="form-control" id="m_address" required></textarea>
+      <textarea name="user_address" class="form-control" id="user_address" required></textarea>
     </div>
   </div>
   <div class="form-group">
