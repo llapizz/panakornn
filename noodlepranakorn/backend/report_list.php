@@ -1,7 +1,7 @@
 
 <?php
 $query = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%d-%M-%Y') AS o_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y-%m-%d')
 ORDER BY DATE_FORMAT(datesave, '%Y-%m-%d') DESC
 ";
@@ -9,7 +9,7 @@ $result = mysqli_query($con, $query);
 $resultchart = mysqli_query($con, $query);
 
 $query2 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%d-%M-%Y') AS o_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y-%m-%d')
 ORDER BY DATE_FORMAT(datesave, '%Y-%m-%d') DESC
 ";
@@ -17,7 +17,7 @@ $result2 = mysqli_query($con, $query2);
 $resultchart = mysqli_query($con, $query2);
 
 $query3 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%M-%Y') AS o_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y-%m')
 ORDER BY DATE_FORMAT(datesave, '%Y-%m') DESC
 ";
@@ -25,7 +25,7 @@ $result3 = mysqli_query($con, $query3);
 $resultchart = mysqli_query($con, $query3);
 
 $query4 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%M-%Y') AS o_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y-%m')
 ORDER BY DATE_FORMAT(datesave, '%Y-%m') DESC
 ";
@@ -33,7 +33,7 @@ $result4 = mysqli_query($con, $query4);
 $resultchart = mysqli_query($con, $query3);
 
 $query5 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%Y') AS d_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y')
 ORDER BY DATE_FORMAT(datesave, '%Y') DESC
 ";
@@ -42,7 +42,7 @@ $resultchart = mysqli_query($con, $query5);
 // echo $query5;
 // exit();
 $query6 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%Y') AS o_date 
-FROM tbl_order_detail
+FROM order_detail
 GROUP BY DATE_FORMAT(datesave, '%Y')
 ORDER BY DATE_FORMAT(datesave, '%Y') DESC
 ";
