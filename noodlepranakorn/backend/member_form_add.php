@@ -16,12 +16,10 @@
     </div>
   </div>
 
- 
-  
-  <div class="form-group">
-    <div class="col-md-4" align="right"> รหัสผ่าน </div>
+ <div class="form-group">
+    <div class="col-md-4" align="right"> E-mail  </div>
     <div class="col-md-6" align="left">
-      <input  name="user_password" type="password" required class="form-control" id="user_password" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" minlength="2" />
+      <input  name="user_email" type="email" class="form-control" id="user_email"   placeholder="name@hotmail.com"/>
     </div>
   </div>
   <div class="form-group">
@@ -31,13 +29,17 @@
     </div>
   </div>
   
-  
   <div class="form-group">
-    <div class="col-md-4" align="right"> E-mail  </div>
+    <div class="col-md-4" align="right"> รหัสผ่าน </div>
     <div class="col-md-6" align="left">
-      <input  name="user_email" type="email" class="form-control" id="user_email"   placeholder="name@hotmail.com"/>
+      <input  name="user_password" type="password" required class="form-control" id="user_password" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" minlength="2" />
     </div>
   </div>
+
+  
+  
+  
+  
   <div class="form-group">
     <div class="col-md-4" align="right"> เบอร์โทร  </div>
     <div class="col-md-6" align="left">
