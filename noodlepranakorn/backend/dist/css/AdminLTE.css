@@ -4471,8 +4471,8 @@ table.text-center th {
   background-color: #00c0ef !important;
 }
 .bg-blue {
-  background-image: url("/backend/img/78.png") !important;
-  /* background-color: #0073b7 !important; */
+  /* background-image: url("/backend/img/78.png") !important; */
+  background-color: #0073b7 !important;
 }
 .bg-light-blue,
 .label-primary,
