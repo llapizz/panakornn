@@ -98,6 +98,7 @@ if(isset($_POST['btn_del'])){
               <thead>
                 <tr align="center">
                   <td>ชื่อโปรโมชั่น</td>
+                  <td>สินค้า</td>
                   <td>เมื่อซื้อมากกว่า</td>
                   <td>ส่วนลด</td>
                   <td colspan="2">จัดการ</td>
@@ -108,6 +109,7 @@ if(isset($_POST['btn_del'])){
                 <form method="post" action="">
                   <tr>
                     <td><?=$row_promotion['pro_name']?></td>
+                    <td><?=$row_promotion['type_name']?></td>
                     <td align="right"><?=$row_promotion['pro_price']?> บาท</td>
                     <td align="right"><?=$row_promotion['pro_discount']?></td>
                     <td>
