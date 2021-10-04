@@ -3,7 +3,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
 //1. เชื่อมต่อ database:
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 //2. query ข้อมูลจากตาราง tb_admin:
-$query = "SELECT * FROM tbl_member ORDER BY member_id DESC" or die("Error:" . mysqli_error());
+$query = "SELECT * FROM user ORDER BY user_id DESC" or die("Error:" . mysqli_error());
 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
 $result = mysqli_query($con, $query);
 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:
@@ -12,8 +12,6 @@ echo ' <table id="example1" class="table table-striped">';
   echo "<thead>";
     echo "<tr>
       <th>รหัสสมาชิก</th>
-      <th width=15%>ชื่อผู้ใช้</th>
-      <th>สิทธิ</th>
       <th width=20%>ชื่อ-สกุล</th>
       <th>E-mail</th>
       <th>เบอร์ติดต่อ</th>
@@ -24,13 +22,11 @@ echo ' <table id="example1" class="table table-striped">';
   echo "</thead>";
   while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
-    echo "<td>" .$row["member_id"]."</td>";
-    echo "<td align='left'>".$row["m_user"]."</td>";
-    echo "<td>" .$row["m_level"]."</td>";
-    echo "<td align='left'>" .$row["m_name"]."</td>";
-    echo "<td align='left'>" .$row["m_email"]."</td>";
-    echo "<td>" .$row["m_tel"]."</td>";
-    echo "<td align='left'>" .$row["m_address"]."</td>";
+    echo "<td>" .$row["user_id"]."</td>";
+    echo "<td align='left'>" .$row["user_name"]."</td>"; 
+    echo "<td align='left'>" .$row["user_email"]."</td>";
+    echo "<td>" .$row["user_tel"]."</td>";
+    echo "<td align='left'>" .$row["user_address"]."</td>";
     //แก้ไขข้อมูล
     echo "<td><a href='member.php?act=edit&ID=$row[0]' class='btn btn-warning btn-xs n-radius'>แก้ไข</a></td> ";
     
