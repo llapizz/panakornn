@@ -1,0 +1,70 @@
+
+<?php
+include('h.php');
+include("../condb.php");
+$p_id = $_GET["id"];
+?>
+<!DOCTYPE html>
+<head>
+  <?php include('boot4.php');?>
+  <style>
+  * {
+  box-sizing: border-box;
+  }
+  .zoom {
+  padding: 50px;
+  transition: transform .2s;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  }
+  .zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+  }
+  </style>
+</head>
+<body>
+<?php include('navbar.php');?>
+  <div class="row">
+    <?php
+    $sql = "SELECT * FROM tbl_product as p 
+        INNER JOIN tbl_type  as t ON p.type_id=t.type_id 
+    AND p_id = $p_id
+    ";
+    $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
+    $row = mysqli_fetch_array($result);
+    ?>
+    <div class="col-md-12">
+      <div class="container" style="margin-top: 50px">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="zoom">
+              <?php echo"<img src='../backend/img/".$row['p_img']."'width='100%'>";?>
+            </div>
+          </div>
+          <div class="col-md-6"><br><br>
+            <h3 class="n-link"><?php echo $row["p_name"];?></h3>
+            <p>
+              ประเภท <?php echo $row["type_name"];?><br>
+              ราคา <font color="red"> <?php echo $row["p_price"];?> </font><br>
+              <b>คงเหลือ</b> <?php echo $row["p_qty"];?> <?php echo $row["p_unit"];?> 
+            </p>
+            <?php echo $row["p_detail"];?>
+            <p> <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5500ee80057fdb99"></script>
+              <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+            <div class="addthis_inline_share_toolbox_sf2w"></div>
+            </p>
+            <a href="index.php?p_id=<?php echo $row['p_id'];?>&act=add" class="btn btn-danger btn-xs n-radius">
+              <span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<?php include('script4.php');?>
