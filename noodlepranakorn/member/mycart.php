@@ -2,21 +2,21 @@
 require_once('../connect.php');
 require_once('../backend/trandate.php');
 // $m_user = $_GET['m_user'];
-$query_mm ="SELECT * FROM tbl_member WHERE member_id = $member_id";
+$query_mm ="SELECT * FROM user WHERE user_id = $user_id";
 $mm = mysqli_query($conn, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
 $row_mm = mysqli_fetch_assoc($mm);
 $totalRows_mm = mysqli_num_rows($mm);
 // echo ($query_mm);
 // exit();
 
-$member_id = $row_mm['member_id'];
+$user_id = $row_mm['user_id'];
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.member_id, o.order_status, o.order_date,
+o.order_id as oid, o.user_id, o.order_status, o.order_date,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM tbl_order  as o, tbl_order_detail as d
-WHERE o.member_id =$member_id 
+WHERE o.user_id =$user_id 
 AND o.order_id=d.order_id
 GROUP BY o.order_id
 ORDER BY o.order_id DESC";
