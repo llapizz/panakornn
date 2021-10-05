@@ -72,7 +72,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             echo "</tr>";
         $j=0;
         do{
-            echo $mode = substr($row_check['pro_discount'],-1);
+             $mode = substr($row_check['pro_discount'],-1);
             if($mode=="%"){
               $totalsum[$j] = $total-$total/100*intval(substr($row_check['pro_discount'],0,-1));
             }else{

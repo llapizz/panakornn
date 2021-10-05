@@ -130,7 +130,7 @@ input[type='radio']:checked:before {
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
-      echo $mode = substr($row_check['pro_discount'],-1);
+       $mode = substr($row_check['pro_discount'],-1);
       if($mode=="%"){
         $total -= $total/100*intval(substr($row_check['pro_discount'],0,-1));
       }else{
@@ -149,7 +149,7 @@ input[type='radio']:checked:before {
     // $status =  $row_cartdone['order_status'];
       if($status > 1){ }else{ ?> 
   <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
-    <?php if($m_name!="พนักงาน"){ ?>
+    <?php if($user_name!="พนักงาน"){ ?>
     <tr>
       <td colspan="6">
         <h4>รายละเอียดการโอนเงิน<br>

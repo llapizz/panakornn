@@ -3,7 +3,7 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
   //print_r($_SESSION);
-$query_buyer ="SELECT * FROM tbl_member WHERE  member_id = $member_id";
+$query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
 $buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
 $row_buyer = mysqli_fetch_assoc($buyer);
 $totalRows_buyer = mysqli_num_rows($buyer);
@@ -14,12 +14,12 @@ $query_cartdone ="
 SELECT * FROM
 tbl_order as o,
 tbl_order_detail as d,
-tbl_product as p,
-tbl_member  as m
+foods as p,
+user  as m
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id
-AND d.p_id=p.p_id
-AND o.member_id = m.member_id
+AND d.f_id=p.f_id
+AND o.user_id = m.user_id
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($con, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
  // echo($query_cartdone);
@@ -35,9 +35,9 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
     <td width="1558" colspan="5" align="center">
       
       
-      <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['m_name'];?>    <br />
-      เบอร์โทร :  <?php echo $row_cartdone['phone'];?> <br />
-      ที่อยู่ :<?php echo $row_cartdone['address'];?>  <br />
+      <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['user_name'];?>    <br />
+      เบอร์โทร :  <?php echo $row_cartdone['user_tel'];?> <br />
+      ที่อยู่ :<?php echo $row_cartdone['user_address'];?>  <br />
       วันที่ทำรายการ :   <?php echo $row_cartdone['order_date'];?> <br />
       <font color="red">  สถานะ :
       <?php
@@ -81,13 +81,13 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <?php do { ?>
   <tr>
     <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-    <td><?php echo $row_cartdone['p_name'];?></td>
-    <td align="center"><?php echo $row_cartdone['p_price'];?></td>
-    <td align="center"><?php echo $row_cartdone['p_c_qty'];?></td>
+    <td><?php echo $row_cartdone['f_name'];?></td>
+    <td align="center"><?php echo $row_cartdone['f_price'];?></td>
+    <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
     <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
   </tr>
   <?php
-  $sum  = $row_cartdone['p_price']*$row_cartdone['p_c_qty'];
+  $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
   $total  += $sum;
   //echo $total;
   ?>

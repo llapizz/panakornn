@@ -32,7 +32,7 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
   </div>
   <form class="form-inline my-2 my-lg-0" name="qp" action="index.php" method="GET">
     <?php 
-    if ($member_id!='') {
+    if ($user_id!='') {
     ?>
     <small>ยินดีต้อนรับ<span class="text-warning"><br>คุณ <?php echo $row["user_name"]; ?></span></small>&nbsp;
     <a class="btn btn-danger" href="../logout.php" role="button" onclick="return confirm('คุณต้องการออกจากระบบหรือไม่ ?')">ออกจากระบบ</a>

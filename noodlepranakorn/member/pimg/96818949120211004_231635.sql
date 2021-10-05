@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_order_detail` (
   `d_id` int(10) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL,
-  `p_name` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
-  `p_c_qty` int(11) NOT NULL,
+  `f_id` int(11) NOT NULL,
+  `f_name` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `f_c_qty` int(11) NOT NULL,
   `total` float NOT NULL,
   `datesave` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_order_detail` (
 -- Dumping data for table `tbl_order_detail`
 --
 
-INSERT INTO `tbl_order_detail` (`d_id`, `order_id`, `p_id`, `p_name`, `p_c_qty`, `total`, `datesave`) VALUES
+INSERT INTO `tbl_order_detail` (`d_id`, `order_id`, `f_id`, `f_name`, `f_c_qty`, `total`, `datesave`) VALUES
 (1, 1, 34, 'ผัดกระเพราหมูกรอบ', 1, 50, '2021-10-02 09:19:44'),
 (2, 1, 33, 'โค้กขวดแก้ว', 1, 15, '2021-10-02 09:19:44'),
 (3, 2, 34, 'ผัดกระเพราหมูกรอบ', 1, 50, '2021-10-02 09:21:39'),

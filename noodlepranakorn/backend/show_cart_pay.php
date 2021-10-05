@@ -3,16 +3,16 @@ error_reporting( error_reporting() & ~E_NOTICE );
 //1. เชื่อมต่อ database:
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 //2. query ข้อมูลจากตาราง tb_admin:
-$query_mm = "SELECT * FROM tbl_member WHERE member_id = $member_id";
+$query_mm = "SELECT * FROM user WHERE user_id = $user_id";
 $mm = mysqli_query($con, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
 $row_mm = mysqli_fetch_assoc($mm);
 $totalRows_mm = mysqli_num_rows($mm);
 
-$member_id = $row_mm['member_id'];
+$user_id = $row_mm['user_id'];
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.member_id, o.order_status, o.order_date, o.name,
+o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM tbl_order  as o, tbl_order_detail as d 
 WHERE o.order_id=d.order_id

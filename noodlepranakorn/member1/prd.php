@@ -2,7 +2,7 @@
 <?php
 include('h.php');
 include("../condb.php");
-$p_id = $_GET["id"];
+$f_id = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <head>
@@ -29,9 +29,9 @@ $p_id = $_GET["id"];
 <?php include('navbar.php');?>
   <div class="row">
     <?php
-    $sql = "SELECT * FROM tbl_product as p 
+    $sql = "SELECT * FROM foods as p 
         INNER JOIN tbl_type  as t ON p.type_id=t.type_id 
-    AND p_id = $p_id
+    AND f_ids = $f_ids
     ";
     $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
     $row = mysqli_fetch_array($result);
@@ -41,23 +41,23 @@ $p_id = $_GET["id"];
         <div class="row">
           <div class="col-md-5">
             <div class="zoom">
-              <?php echo"<img src='../backend/img/".$row['p_img']."'width='100%'>";?>
+              <?php echo"<img src='../backend/img/".$row['f_img']."'width='100%'>";?>
             </div>
           </div>
           <div class="col-md-6"><br><br>
-            <h3 class="n-link"><?php echo $row["p_name"];?></h3>
+            <h3 class="n-link"><?php echo $row["f_name"];?></h3>
             <p>
               ประเภท <?php echo $row["type_name"];?><br>
-              ราคา <font color="red"> <?php echo $row["p_price"];?> </font><br>
-              <b>คงเหลือ</b> <?php echo $row["p_qty"];?> <?php echo $row["p_unit"];?> 
+              ราคา <font color="red"> <?php echo $row["f_price"];?> </font><br>
+              <b>คงเหลือ</b> <?php echo $row["f_qty"];?> <?php echo $row["f_unit"];?> 
             </p>
-            <?php echo $row["p_detail"];?>
+            <?php echo $row["f_detail"];?>
             <p> <!-- Go to www.addthis.com/dashboard to customize your tools --> 
               <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5500ee80057fdb99"></script>
               <!-- Go to www.addthis.com/dashboard to customize your tools --> 
             <div class="addthis_inline_share_toolbox_sf2w"></div>
             </p>
-            <a href="index.php?p_id=<?php echo $row['p_id'];?>&act=add" class="btn btn-danger btn-xs n-radius">
+            <a href="index.php?f_ids=<?php echo $row['f_ids'];?>&act=add" class="btn btn-danger btn-xs n-radius">
               <span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า
             </a>
           </div>

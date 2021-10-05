@@ -20,7 +20,7 @@ $f_id = $_GET["id"];
       <?php
       $sql = "SELECT * FROM foods as f 
           INNER JOIN type  as t ON f.type_id=t.type_id 
-      AND f_id = $p_id
+      AND f_id = $f_id
       ";
       $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
       $row = mysqli_fetch_array($result);

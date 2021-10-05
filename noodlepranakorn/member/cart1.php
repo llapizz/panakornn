@@ -1,32 +1,32 @@
 <?php
     error_reporting( error_reporting() & ~E_NOTICE );
     @session_start(); 
-    $p_id = $_GET['p_id']; 
+    $f_id = $_GET['f_id']; 
 	$act = $_GET['act'];
 
-	if($act=='add' && !empty($p_id)){
+	if($act=='add' && !empty($f_id)){
 		if(!isset($_SESSION['shopping_cart'])){
 			$_SESSION['shopping_cart']=array();
 		}
-		if(isset($_SESSION['shopping_cart'][$p_id])){
-			$_SESSION['shopping_cart'][$p_id]++;
+		if(isset($_SESSION['shopping_cart'][$f_id])){
+			$_SESSION['shopping_cart'][$f_id]++;
 		}else{
-			$_SESSION['shopping_cart'][$p_id]=1;
+			$_SESSION['shopping_cart'][$f_id]=1;
 		}
 		echo "<script>";
 		echo "window.location ='index.php'; ";
 		echo "</script>";
 	}
 
-	if($act=='remove' && !empty($p_id))  //ยกเลิกการสั่งซื้อ
+	if($act=='remove' && !empty($f_id))  //ยกเลิกการสั่งซื้อ
 	{
-		unset($_SESSION['shopping_cart'][$p_id]);
+		unset($_SESSION['shopping_cart'][$f_id]);
 	}
 
 	if($act=='update'){
 		$amount_array = $_POST['amount'];
-		foreach($amount_array as $p_id=>$amount){
-			$_SESSION['shopping_cart'][$p_id]=$amount;
+		foreach($amount_array as $f_id=>$amount){
+			$_SESSION['shopping_cart'][$f_id]=$amount;
 		}
 	}
 	?>
@@ -45,30 +45,30 @@
     <?php
 		if(!empty($_SESSION['shopping_cart'])){
 			require_once('../condb.php');
-			foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty){
-				$sql = "select * from tbl_product where p_id=$p_id";
+			foreach($_SESSION['shopping_cart'] as $f_id=>$f_qty){
+				$sql = "select * from foods where f_id=$f_id";
 				$query = mysqli_query($conn, $sql);
 				while($row = mysqli_fetch_array($query)){
 				
-				$sum = $row['p_price'] * $p_qty;
-				$pqty = $row['p_qty'];
+				$sum = $row['f_price'] * $p_qty;
+				$pqty = $row['f_qty'];
 				$total += $sum;
 				echo "<tr align='center'>";
 				echo "<td>";
-				echo "<img src='../backend/img/".$row['p_img']."' width='70'>";
+				echo "<img src='../backend/img/".$row['f_img']."' width='70'>";
 				echo "</td>";
 				//echo "<td width='334'>"." " . $row["p_name"] . "</td>";
-				echo "<td>" .number_format($row["p_price"]) . "</td>";
+				echo "<td>" .number_format($row["f_price"]) . "</td>";
 				
 				echo "<td>";  
-				echo "<input type='number' name='amount[$p_id]' value='$p_qty' max='$pqty'  width='20px'/></td>";
+				echo "<input type='number' name='amount[$f_id]' value='$p_qty' max='$pqty'  width='20px'/></td>";
 				
 				echo "<td>";
 				echo  number_format($sum). ' &nbsp; ';
-				// echo "<a href='index.php?p_id=$p_id&act=remove' class='btn btn-danger btn-sm'>
+				// echo "<a href='index.php?f_id=$f_id&act=remove' class='btn btn-danger btn-sm'>
 				// ลบ</a>";
 				echo "</td>";
-				echo "<td align='center'><a href='index.php?p_id=$p_id&act=remove' class='btn btn-danger btn-sm n-radius'>x</a></td>";
+				echo "<td align='center'><a href='index.php?f_id=$f_id&act=remove' class='btn btn-danger btn-sm n-radius'>x</a></td>";
 				
 				echo "</tr>";
 				}

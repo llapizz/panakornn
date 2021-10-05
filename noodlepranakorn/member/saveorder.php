@@ -23,11 +23,11 @@ require_once('../connect.php');
 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
     date_default_timezone_set('Asia/Bangkok');
 	$user_id = $_POST['user_id'];
-	$name = $_POST["name"]; 
-	$address = $_POST["address"];
-	$email = $_POST["email"];
-	$phone = $_POST["phone"];
-	$p_qty = $_POST["p_qty"];
+	$user_name = $_POST["user_name"]; 
+	$address = $_POST["user_address"];
+	$email = $_POST["user_email"];
+	$phone = $_POST["user_tel"];
+	$f_qty = $_POST["f_qty"];
 	$total = $_POST['total'];
 	$order_date = date("Y-m-d H:i:s");
 	$status = 1;
@@ -36,7 +36,7 @@ require_once('../connect.php');
 	$b_number ='';
 	$pay_date ='';
 	$pay_amount ='';
-	$p_name = $_POST['p_name'];
+	$f_name = $_POST['f_name'];
 	$postcode='';
 	$pro_id = $_POST['btn_voucher'];
 
@@ -46,7 +46,7 @@ require_once('../connect.php');
 	$sql1 = "INSERT  INTO tbl_order VALUES
 	(NULL,
 	'$user_id',  
-	'$name',
+	'$user_name',
 	'$address',
 	'$email',
 	'$phone',
@@ -128,7 +128,7 @@ require_once('../connect.php');
 	if($query1 && $query4){
 		mysqli_query($conn, "COMMIT");
 		//$msg = "บันทึกข้อมูลเรียบร้อยแล้ว ";
-		foreach($_SESSION['shopping_cart'] as $p_id)
+		foreach($_SESSION['shopping_cart'] as $f_id)
 		{	
 			unset($_SESSION['shopping_cart']);
 			echo "<script>";

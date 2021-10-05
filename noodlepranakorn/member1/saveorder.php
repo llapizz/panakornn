@@ -22,12 +22,12 @@ require_once('../condb.php');
 
 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
     date_default_timezone_set('Asia/Bangkok');
-	$member_id = $_POST['member_id'];
-	$name = $_POST["name"]; 
-	$address = $_POST["address"];
-	$email = $_POST["email"];
-	$phone = $_POST["phone"];
-	$p_qty = $_POST["p_qty"];
+	$user_id = $_POST['user_id'];
+	$user_name = $_POST["user_name"]; 
+	$address = $_POST["user_address"];
+	$email = $_POST["user_email"];
+	$phone = $_POST["user_tel"];
+	$f_qty = $_POST["f_qty"];
 	$total = $_POST['total'];
 	$order_date = date("Y-m-d H:i:s");
 	$status = 1;
@@ -36,7 +36,7 @@ require_once('../condb.php');
 	$b_number ='';
 	$pay_date ='';
 	$pay_amount ='';
-	$p_name = $_POST['p_name'];
+	$f_name = $_POST['f_name'];
 	$postcode='';
 	$pro_id = $_POST['btn_voucher'];
 
@@ -45,8 +45,8 @@ require_once('../condb.php');
 	 mysqli_query($conn, "BEGIN"); 
 	$sql1 = "INSERT  INTO tbl_order VALUES
 	(NULL,
-	'$member_id',  
-	'$name',
+	'$user_id',  
+	'$user_name',
 	'$address',
 	'$email',
 	'$phone',
@@ -64,19 +64,19 @@ require_once('../condb.php');
 
  
  
-	$sql2 = "SELECT MAX(order_id) AS order_id FROM tbl_order  WHERE member_id='$member_id'";
+	$sql2 = "SELECT MAX(order_id) AS order_id FROM tbl_order  WHERE user_id='$user_id'";
 	$query2	= mysqli_query($conn, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
 	$row = mysqli_fetch_array($query2);
 	$order_id = $row['order_id'];
 	
 	
-	foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty)
+	foreach($_SESSION['shopping_cart'] as $f_id=>$f_qty)
 	 
 	{
-		$sql3	= "SELECT * FROM tbl_product where p_id=$p_id";
+		$sql3	= "SELECT * FROM foods where f_id=$f_id";
 		$query3 = mysqli_query($conn, $sql3) or die ("Error in query: $sql3 " . mysqli_error());
 		$row3 = mysqli_fetch_array($query3);
-		$total=$row3['p_price']*$p_qty;
+		$total=$row3['f_price']*$p_qty;
 		$count=mysqli_num_rows($query3);
 		
 	
@@ -87,19 +87,19 @@ require_once('../condb.php');
 		$sql4	= "INSERT INTO  tbl_order_detail 
 		values(null, 
 		'$order_id', 
-		'$p_id',
-		'$p_name', 
-		'$p_qty', 
+		'$f_id',
+		'$f_name', 
+		'$f_qty', 
 		'$total',
 		'$order_date')";
 		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error());
 
 		$sqlpname ="UPDATE tbl_order_detail t2, 
 		(
-		SELECT p_name, p_id FROM tbl_product
+		SELECT f_name, f_id FROM foods
 		) 
 		t1 
-		SET t2.p_name = t1.p_name WHERE t1.p_id = t2.p_id";
+		SET t2.f_name = t1.f_name WHERE t1.f_id = t2.f_id";
 
 	    $querypanem	= mysqli_query($conn, $sqlpname) or die ("Error in query: $querypanem " . mysqli_error());
 
@@ -109,9 +109,9 @@ require_once('../condb.php');
   
   $stc = $have - $p_qty;
   
-  $sql9 = "UPDATE tbl_product SET  
-     p_qty=$stc
-     WHERE  p_id=$p_id ";
+  $sql9 = "UPDATE foods SET  
+     f_qty=$stc
+     WHERE  f_id=$f_id ";
   $query9 = mysqli_query($conn, $sql9) or die ("Error in query: $query9 " . mysqli_error());
  
   }
@@ -128,7 +128,7 @@ require_once('../condb.php');
 	if($query1 && $query4){
 		mysqli_query($conn, "COMMIT");
 		//$msg = "บันทึกข้อมูลเรียบร้อยแล้ว ";
-		foreach($_SESSION['shopping_cart'] as $p_id)
+		foreach($_SESSION['shopping_cart'] as $f_id)
 		{	
 			unset($_SESSION['shopping_cart']);
 			echo "<script>";
