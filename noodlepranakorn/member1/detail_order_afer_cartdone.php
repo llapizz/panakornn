@@ -114,7 +114,7 @@ input[type='radio']:checked:before {
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
       </tr> 
       <?php 
-          $sum  = $row_cartdone['p_price']*$row_cartdone['p_c_qty'];
+          $sum  = $row_cartdone['p_price']*$row_cartdone['f_c_qty'];
           $total  += $sum;
           //echo $total;
           ?>
