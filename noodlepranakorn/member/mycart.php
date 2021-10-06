@@ -2,7 +2,7 @@
 require_once('../connect.php');
 require_once('../backend/trandate.php');
 // $m_user = $_GET['m_user'];
-$query_mm ="SELECT * FROM user WHERE user_id = $user_id";
+$query_mm = "SELECT * FROM user WHERE user_id = $user_id";
 $mm = mysqli_query($conn, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
 $row_mm = mysqli_fetch_assoc($mm);
 $totalRows_mm = mysqli_num_rows($mm);

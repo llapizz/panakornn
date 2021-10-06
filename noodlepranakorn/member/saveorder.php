@@ -23,10 +23,10 @@ require_once('../connect.php');
 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
     date_default_timezone_set('Asia/Bangkok');
 	$user_id = $_POST['user_id'];
-	$user_name = $_POST["user_name"]; 
+	$user_name = $_POST["name"]; 
 	$address = $_POST["user_address"];
 	$email = $_POST["user_email"];
-	$phone = $_POST["user_tel"];
+	$phone = $_POST["phone"];
 	$f_qty = $_POST["f_qty"];
 	$total = $_POST['total'];
 	$order_date = date("Y-m-d H:i:s");

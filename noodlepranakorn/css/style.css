@@ -13,9 +13,16 @@ body {
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
-	color:#fff;
 	background-color:#19050c;
 	overflow-x:hidden;
+}
+
+.box-title,.box-title strong{
+  color: black !important;
+}
+
+h1{
+  color:#fff;
 }
 
 hi,h2,h3,h4,h5,h6 {
@@ -151,7 +158,7 @@ a:hover {
 .box {
 	margin-top:70px;
 	text-align:center;	
-	background:#374850;
+	background:#f8f8f8;
 }
 .box h4 {
 	text-transform:uppercase;
@@ -160,7 +167,7 @@ a:hover {
 	padding:50px;
 }
 .box i {
-	color:#fff;
+	color:#222;
 	border-radius:50%;
 	padding:20px;
 	background:#ED502E;
@@ -1083,8 +1090,16 @@ a.scrollup:hover{
   background-color: #1a2226 !important;
 }
 
+.table-striped>tbody>tr:nth-of-type(even){
+  background-color: #eee !important;
+  color: black;
+  font-weight: bold;
+}
+
 .table-striped>tbody>tr:nth-of-type(odd){
-  background-color: #1E282C !important;
+  background-color: #ccc !important;
+  color: black;
+  font-weight: bold;
 }
 
 .table-striped>tbody>tr{
