@@ -5,13 +5,12 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 error_reporting( error_reporting() & ~E_NOTICE );
  
 
-$postcode = $_POST['postcode'];
+
 $order_id = $_POST['order_id'];
 $order_status = $_POST['order_status'];
 
  
 $sql ="UPDATE orderr SET	 
-		postcode='$postcode',
 		order_status='$order_status'
 		WHERE order_id=$order_id
 	 ";
@@ -24,8 +23,8 @@ $sql ="UPDATE orderr SET
 	
 		if($result){
 			echo "<script>";
-			echo "alert('เพิ่มเลขพัสดุเรียบร้อยแล้วครับ !');";
-			echo "window.location ='index.php?order_id=$order_id&act=show-order'; ";
+			echo "alert('จัดส่งอาหารเรียบร้อยแล้ว !');";
+			echo "window.location ='order.php?act=show-post'; ";
 			echo "</script>";
 		} else {
 			

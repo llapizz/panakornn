@@ -39,8 +39,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
     <td width="100%" colspan="5" align="center">
       <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['user_name'];?>    <br />
       เบอร์โทร :  <?php echo $row_cartdone['phone'];?> <br />
-      ที่อยู่ :<?php echo $row_cartdone['address'];?>  <br />
-      วันที่ทำรายการ :   <?php echo $row_cartdone['order_date'];?> <br />
+      วันที่ทำรายการ :   <?php echo date('d/m/Y',strtotime($row_cartdone['order_date']));?> <br />
       <font color="red">  สถานะ :
       <?php
       $status =  $row_cartdone['order_status'];
@@ -60,8 +59,9 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
             เลขที่ออเดอร์ :  <?php echo $row_cartdone['order_id'];?>
             </strong>
           </td>
+          
           <td>
-          <img src="../member/pimg/<?php echo $row_cartdone['pay_slip'];?>" width="100%"/>
+          <img src="../member/pimg/<?php echo $row_cartdone['pay_slip'];?>" width="45%"/>
         </td>
         </tr>
       </table>
@@ -106,17 +106,11 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
       
       <?php $p =  $_GET['p'];
       if($status==3){ }else{?>
-      <h3> แจ้งเลขจัดส่งอาหาร </h3>
+      <h3><font color="white"> จัดส่งอาหาร</font> </h3>
       <form id="form1" name="form1" method="post" action="add_postcode_db.php">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="11%">เลขจัดส่งอาหาร</td>
-            <td width="42%">
-              
-              <input name="postcode" type="text" id="postcode" size="40"  value="<?php echo $row_cartdone['postcode'];?>" required="required" placeholder="<?php echo $row_cartdone['postcode'];?>"/>
-              <input name="order_id" type="hidden" id="order_id" value="<?php echo $_GET['order_id'];?>" />
-              <input name="order_status" type="hidden" id="order_status" value="3" /></td>
-              <td width="47%">
+              <td width="100%" align="center">
                 <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
               </td>
             </tr>
@@ -129,6 +123,6 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
     
   </table>
 <?php
-mysqli_free_result($buyer);
+
 mysqli_free_result($cartdone);
 ?>

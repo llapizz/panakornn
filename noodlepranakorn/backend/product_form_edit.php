@@ -59,7 +59,6 @@ $result = mysqli_query($con, $query);
               <option value="<?php echo $row["type_id"];?>">
                 <?php echo $row["type_name"]; ?>
               </option>
-              <option value="type_id">ประเภทสินค้า</option>
               <?php foreach($result as $results){?>
               <option value="<?php echo $results["type_id"];?>">
                 <?php echo $results["type_name"]; ?>

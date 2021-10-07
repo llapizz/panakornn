@@ -56,7 +56,6 @@ require_once('../connect.php');
 	'$b_number',
 	'$pay_date',
 	'$pay_amount',
-	'$postcode',
 	'$order_date' 
 	)";
 	

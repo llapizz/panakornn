@@ -41,25 +41,25 @@ echo ' <table id="example1" class="table table-striped">';
   //หัวข้อตาราง
   echo "<thead>";
     echo "<tr align='center'>
-      <th>รหัสสั่งซื้อ</th>
+      <th>วันที่ทำรายการ</th>
       <th width=20%>ลูกค้า</th>
       <th width='10%'>จำนวน</th>
       <th>ราคารวม</th>
       <th>สถานะ</th>
-      <th>วันที่ทำรายการ</th>
+      <th>รหัสสั่งซื้อ</th>
       <th width='5%'>เปิด</th>
     </tr>";
   echo "</thead>";
   while($row = mysqli_fetch_array($mycart)) {
     $oid = $row['oid'];
   echo "<tr>";
-    echo "<td>" .$row["oid"] .  "</td> ";
+    echo "<td>" .tranDate($row["order_date"]).  "</td> ";
     echo "<td align='left'>" .$row["name"] .  "</td> ";
     echo "<td align='right'>" .$row["coid"] .  "</td> ";
     echo "<td align='right'>" .$row["ctotal"] .  "</td> ";
     echo "<td>" 
     ."<button class='btn btn-warning btn-block btn-xs n-radius'>รอชำระเงิน</button>".  "</td> ";
-    echo "<td>" .tranDate($row["order_date"]).  "</td> ";
+    echo "<td>" .$row["oid"] .  "</td> ";
      echo "<td><a href='order.php?order_id=$oid&act=show-order' class='btn btn-danger btn-xs n-radius'>เปิด</a>
     
     </td> ";

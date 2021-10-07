@@ -30,6 +30,13 @@
           </span>
         </a>
       </li>
+      <li>
+        <a href="staff.php">
+          <i class="fas fa-edit"></i> <span>จัดการพนักงาน</span>
+          <span class="pull-right-container">
+          </span>
+        </a>
+      </li>
            <li>
         <a href="bank.php">
           <i class="fas fa-cogs"></i> <span>จัดการธนาคาร</span>

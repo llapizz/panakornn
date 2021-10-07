@@ -149,7 +149,7 @@ input[type='radio']:checked:before {
     // $status =  $row_cartdone['order_status'];
       if($status > 1){ }else{ ?> 
   <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
-    <?php if($m_name!="พนักงาน"){ ?>
+
     <tr>
       <td colspan="6">
         <h4>รายละเอียดการโอนเงิน<br>
@@ -199,7 +199,6 @@ input[type='radio']:checked:before {
     <button type="submit" name="add" class="btn btn-success btn-block"> บันทึก</button>
   </p>
 </form>
-<?php } ?>
     </div>
   </div>
 </div>

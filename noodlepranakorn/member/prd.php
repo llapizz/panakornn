@@ -29,15 +29,8 @@ $f_id = $_GET["id"];
 <?php include('navbar.php');?>
   <div class="row">
     <?php
-<<<<<<< Updated upstream
-    $sql = "SELECT * FROM foods as f
-        INNER JOIN type  as t ON f.type_id=t.type_id 
-=======
     $sql = "SELECT * FROM foods as p 
-        INNER JOIN tbl_type  as t ON p.type_id=t.type_id 
->>>>>>> Stashed changes
-    AND f_id = $f_id
-    ";
+        INNER JOIN type  as t ON p.type_id=t.type_id AND f_id = $f_id";
     $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
     $row = mysqli_fetch_array($result);
     ?>
