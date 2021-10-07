@@ -3,12 +3,12 @@ error_reporting( error_reporting() & ~E_NOTICE );
 //1. เชื่อมต่อ database:
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 //2. query ข้อมูลจากตาราง tb_admin:
-$query_mm = "SELECT * FROM user WHERE user_id = $user_id";
-$mm = mysqli_query($con, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
-$row_mm = mysqli_fetch_assoc($mm);
-$totalRows_mm = mysqli_num_rows($mm);
+// $query_mm = "SELECT * FROM user WHERE user_id = $user_id";
+// $mm = mysqli_query($con, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
+// $row_mm = mysqli_fetch_assoc($mm);
+// $totalRows_mm = mysqli_num_rows($mm);
 
-$user_id = $row_mm['user_id'];
+// $user_id = $row_mm['user_id'];
 
 $query_mycart ="
 SELECT 

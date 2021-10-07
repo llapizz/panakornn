@@ -5,10 +5,10 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 $f_id = $_GET["ID"];
 //2. query ข้อมูลจากตาราง:
 $sql = "SELECT *
-FROM foods as p 
-INNER JOIN type as t ON p.type_id = t.type_id
-WHERE p.f_id = '$f_id'
-ORDER BY p.type_id asc";
+FROM foods as f 
+INNER JOIN type as t ON f.type_id = t.type_id
+WHERE f.f_id = '$f_id'
+ORDER BY f.type_id asc";
 $result2 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 $row = mysqli_fetch_array($result2);
 extract($row);

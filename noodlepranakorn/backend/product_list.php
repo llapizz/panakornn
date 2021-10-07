@@ -4,9 +4,9 @@ error_reporting( error_reporting() & ~E_NOTICE );
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 //2. query ข้อมูลจากตาราง tb_admin:
 $query = "
-SELECT * FROM foods as p 
-INNER JOIN type  as t ON p.type_id=t.type_id 
-ORDER BY p.f_id DESC" or die("Error:" . mysqli_error());
+SELECT * FROM foods as f
+INNER JOIN type  as t ON f.type_id=t.type_id 
+ORDER BY f.f_id DESC" or die("Error:" . mysqli_error());
 //3.เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result .
 $result = mysqli_query($con, $query);
 //4 . แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล:

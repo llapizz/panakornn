@@ -3,10 +3,10 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
   //print_r($_SESSION);
-$query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
-$buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
-$row_buyer = mysqli_fetch_assoc($buyer);
-$totalRows_buyer = mysqli_num_rows($buyer);
+// $query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
+// $buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
+// $row_buyer = mysqli_fetch_assoc($buyer);
+// $totalRows_buyer = mysqli_num_rows($buyer);
 
 $order_id = $_GET['order_id'];
 
@@ -14,12 +14,12 @@ $query_cartdone ="
 SELECT * FROM
 tbl_order as o,
 tbl_order_detail as d,
-foods as p,
-user  as m
+foods as f,
+user  as u
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id
-AND d.f_id=p.f_id
-AND o.user_id = m.user_id
+AND d.f_id=f.f_id
+AND o.user_id = u.user_id
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($con, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
  // echo($query_cartdone);
@@ -100,35 +100,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
     <td colspan="4" align="center">&nbsp;</td>
     <td align="center">&nbsp;</td>
   </tr>
-  <tr>
-    <td colspan="5">
-      <?php
-        //echo $status;
-      if($status > 1) {?>
-      
-      <?php $p =  $_GET['p'];
-      if($status==3){ }else{?>
-<h3> แจ้งเลขจัดส่งอาหาร </h3>
-      <form id="form1" name="form1" method="post" action="add_postcode_db.php">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="11%">เลขจัดส่งอาหาร</td>
-            <td width="42%">
-              
-              <input name="postcode" type="text" id="postcode" size="40"  value="<?php echo $row_cartdone['postcode'];?>" required="required" placeholder="<?php echo $row_cartdone['postcode'];?>"/>
-              <input name="order_id" type="hidden" id="order_id" value="<?php echo $_GET['order_id'];?>" />
-              <input name="order_status" type="hidden" id="order_status" value="3" /></td>
-              <td width="47%">
-                <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
-                
-              </td>
-            </tr>
-          </table>
-        </form>
-      <?php } ?>
-        <?php } ?>
-      </td>
-    </tr>
+  
     
   </table>
   
@@ -136,6 +108,6 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <p>&nbsp;</p>
 
 <?php
-mysqli_free_result($buyer);
+
 mysqli_free_result($cartdone);
 ?>
