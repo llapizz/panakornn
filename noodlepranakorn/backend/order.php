@@ -19,7 +19,7 @@ require_once('trandate.php');
         <h1>  
         <span class="glyphicon glyphicon-list-alt"></span> รายการสั่งซื้ออาหาร
         &nbsp; <a href="order.php" class="btn btn-info btn-xs n-radius"> รายการใหม่ </a>  ||
-        <a href="order.php?act=show-payed" class="btn btn-success btn-xs n-radius"> ชำระเงินแล้ว </a> ||
+        <a href="order.php?act=show-payed" class="btn btn-success btn-xs n-radius"> กำลังจัดเตรียมอาหาร </a> ||
         <a href="order.php?act=show-post" class="btn btn-warning btn-xs n-radius"> ส่งของแล้ว </a>
       </section>
       <!-- Main content -->

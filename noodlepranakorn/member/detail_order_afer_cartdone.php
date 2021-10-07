@@ -23,12 +23,12 @@ $query_cartdone ="
 SELECT * FROM 
 tbl_order as o, 
 tbl_order_detail as d, 
-foods as f,
-user  as u
+foods as p,
+user  as m
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id 
-AND d.f_id=f.f_id
-AND o.user_id = u.user_id 
+AND d.f_id=p.f_id
+AND o.user_id = m.user_id 
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
 
@@ -110,7 +110,7 @@ input[type='radio']:checked:before {
       <?php do { ?>
       <tr>
         <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-        <td><?php echo $row_cartdone['f_name'];?></td>
+        <td><?php echo $row_cartdone['p_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
@@ -118,7 +118,7 @@ input[type='radio']:checked:before {
       <?php 
           $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
           $total  += $sum;
-          // echo $total;
+          //echo $total;
           ?>
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
       <tr>
@@ -130,7 +130,7 @@ input[type='radio']:checked:before {
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
-       $mode = substr($row_check['pro_discount'],-1);
+      echo $mode = substr($row_check['pro_discount'],-1);
       if($mode=="%"){
         $total -= $total/100*intval(substr($row_check['pro_discount'],0,-1));
       }else{
@@ -149,7 +149,7 @@ input[type='radio']:checked:before {
     // $status =  $row_cartdone['order_status'];
       if($status > 1){ }else{ ?> 
   <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
-    <?php if($user_name!="พนักงาน"){ ?>
+    <?php if($m_name!="พนักงาน"){ ?>
     <tr>
       <td colspan="6">
         <h4>รายละเอียดการโอนเงิน<br>

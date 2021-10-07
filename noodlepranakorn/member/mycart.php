@@ -2,7 +2,7 @@
 require_once('../connect.php');
 require_once('../backend/trandate.php');
 // $m_user = $_GET['m_user'];
-$query_mm = "SELECT * FROM user WHERE user_id = $user_id";
+$query_mm ="SELECT * FROM user WHERE user_id = $user_id";
 $mm = mysqli_query($conn, $query_mm) or die ("Error in query: $query_mm " . mysqli_error());
 $row_mm = mysqli_fetch_assoc($mm);
 $totalRows_mm = mysqli_num_rows($mm);
@@ -37,9 +37,8 @@ $totalRows_mycart = mysqli_num_rows($mycart);
     <th>ชำระเงิน</th>
   </tr>
   <?php do { ?>
-    <tr>
+    <tr style="color:white !important;">
       <td><?php echo tranDate($row_mycart['order_date']); ?></td>
-     
       <td align="center">
       <?php echo $row_mycart['coid'];?>
       </td>
@@ -52,7 +51,6 @@ $totalRows_mycart = mysqli_num_rows($mycart);
           include('../backend/status.php');
         ?>
       </td>
-      
     <td>
       <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order">
      ชำระเงิน

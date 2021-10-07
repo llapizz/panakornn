@@ -5,7 +5,7 @@ if($status==1){
 		  echo "</button>";
 	  }elseif($status==2){
 		  echo "<button class='btn btn-success btn-block n-radius'>";
-		  echo "ชำระเงินแล้ว";
+		  echo "กำลังจัดเตรียมอาหาร";
 		  echo "</button>";
 	}elseif($status==3){
 		  echo "<button class='btn btn-warning btn-block n-radius'>";
