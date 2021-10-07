@@ -21,7 +21,7 @@ $totalRows_rb = mysqli_num_rows($rb);
   
 $query_cartdone ="
 SELECT * FROM 
-order as o, 
+orderr as o, 
 order_detail as d, 
 foods as p,
 user  as m
