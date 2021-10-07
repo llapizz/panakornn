@@ -110,7 +110,7 @@ input[type='radio']:checked:before {
       <?php do { ?>
       <tr>
         <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-        <td><?php echo $row_cartdone['p_name'];?></td>
+        <td><?php echo $row_cartdone['f_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
