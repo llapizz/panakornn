@@ -10,7 +10,7 @@ $order_id = $_POST['order_id'];
 $order_status = $_POST['order_status'];
 
  
-$sql ="UPDATE tbl_order SET	 
+$sql ="UPDATE orderr SET	 
 		postcode='$postcode',
 		order_status='$order_status'
 		WHERE order_id=$order_id

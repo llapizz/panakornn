@@ -43,7 +43,7 @@ require_once('../connect.php');
 	
 	//บันทึกการสั่งซื้อลงใน order_detail
 	 mysqli_query($conn, "BEGIN"); 
-	$sql1 = "INSERT  INTO tbl_order VALUES
+	$sql1 = "INSERT  INTO orderr VALUES
 	(NULL,
 	'$user_id',  
 	'$user_name',
@@ -64,7 +64,7 @@ require_once('../connect.php');
 
  
  
-	$sql2 = "SELECT MAX(order_id) AS order_id FROM tbl_order  WHERE user_id='$user_id'";
+	$sql2 = "SELECT MAX(order_id) AS order_id FROM orderr  WHERE user_id='$user_id'";
 	$query2	= mysqli_query($conn, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
 	$row = mysqli_fetch_array($query2);
 	$order_id = $row['order_id'];
@@ -84,7 +84,7 @@ require_once('../connect.php');
 		// if(isset($p_name[$k])){
 
 		
-		$sql4	= "INSERT INTO  tbl_order_detail 
+		$sql4	= "INSERT INTO  order_detail 
 		values(null, 
 		'$order_id', 
 		'$f_id',
@@ -94,7 +94,7 @@ require_once('../connect.php');
 		'$order_date')";
 		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error());
 
-		$sqlpname ="UPDATE tbl_order_detail t2, 
+		$sqlpname ="UPDATE order_detail t2, 
 		(
 		SELECT f_name, f_id FROM foods
 		) 

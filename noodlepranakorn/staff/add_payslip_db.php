@@ -53,7 +53,7 @@ $upload=$_FILES['pay_slip'];
  
 
  
-$sql ="UPDATE tbl_order SET
+$sql ="UPDATE order SET
 		order_status='$order_status',
 		pay_date='$pay_date',
 		pay_amount='$pay_amount',

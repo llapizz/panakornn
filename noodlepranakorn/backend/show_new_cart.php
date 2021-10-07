@@ -25,7 +25,7 @@ $query_mycart ="
 SELECT 
 o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
-FROM tbl_order  as o, tbl_order_detail as d 
+FROM orderr  as o, order_detail as d 
 WHERE o.order_id=d.order_id
 AND o.order_status=1
 GROUP BY o.order_id

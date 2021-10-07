@@ -3,17 +3,18 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
   //print_r($_SESSION);
-// $query_buyer ="SELECT * FROM tbl_member WHERE  member_id = $member_id";
+// $query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
 // $buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
 // $row_buyer = mysqli_fetch_assoc($buyer);
 // $totalRows_buyer = mysqli_num_rows($buyer);
+
 
 $order_id = $_GET['order_id'];
 
 $query_cartdone ="
 SELECT * FROM
-tbl_order as o,
-tbl_order_detail as d,
+orderr as o,
+order_detail as d,
 foods as p,
 user  as m
 WHERE o.order_id = $order_id
@@ -31,12 +32,12 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <tr>
     <td colspan="5" align="center"><p align="center">
       <button class="btn btn-info btn-block n-radius" onclick="window.print()">
-        <span class="fas fa-print"></span> พิมพ์ </button> 
+        <span  class="fas fa-print"></span> พิมพ์ </button> 
     </p></td>
   </tr>
   <tr>
     <td width="100%" colspan="5" align="center">
-      <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['f_name'];?>    <br />
+      <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['user_name'];?>    <br />
       เบอร์โทร :  <?php echo $row_cartdone['phone'];?> <br />
       ที่อยู่ :<?php echo $row_cartdone['address'];?>  <br />
       วันที่ทำรายการ :   <?php echo $row_cartdone['order_date'];?> <br />
@@ -82,13 +83,13 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <?php do { ?>
   <tr>
     <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-    <td><?php echo $row_cartdone['p_name'];?></td>
-    <td align="center"><?php echo $row_cartdone['p_price'];?></td>
-    <td align="center"><?php echo $row_cartdone['p_c_qty'];?></td>
+    <td><?php echo $row_cartdone['f_name'];?></td>
+    <td align="center"><?php echo $row_cartdone['f_price'];?></td>
+    <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
     <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
   </tr>
   <?php
-  $sum  = $row_cartdone['p_price']*$row_cartdone['p_c_qty'];
+  $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
   $total  += $sum;
   //echo $total;
   ?>
@@ -112,7 +113,8 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
             <td width="11%">เลขจัดส่งอาหาร</td>
             <td width="42%">
               
-              
+              <input name="postcode" type="text" id="postcode" size="40"  value="<?php echo $row_cartdone['postcode'];?>" required="required" placeholder="<?php echo $row_cartdone['postcode'];?>"/>
+              <input name="order_id" type="hidden" id="order_id" value="<?php echo $_GET['order_id'];?>" />
               <input name="order_status" type="hidden" id="order_status" value="3" /></td>
               <td width="47%">
                 <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
