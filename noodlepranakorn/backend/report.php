@@ -24,8 +24,7 @@
           <div class="col-xs-12">
             <div class="box" style="margin-top:0;">
               <div class="box-header">
-                <h3 class="box-title" style="color:white;">Data Table With Report
-               
+                <h3 class="box-title" style="color:white;">กราฟสรุปผลรายได้
               </div>
               <!-- /.box-header -->
               <div class="box-body">

@@ -23,12 +23,21 @@ $query_cartdone ="
 SELECT * FROM 
 tbl_order as o, 
 tbl_order_detail as d, 
+<<<<<<< Updated upstream
+foods as f,
+user  as u
+WHERE o.order_id = $order_id
+AND o.order_id=d.order_id 
+AND d.f_id=f._id
+AND o.user_id = u.user_id 
+=======
 foods as p,
 user  as m
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id 
-AND d.f_id=p._id
+AND d.f_id=p.f_id
 AND o.user_id = m.user_id 
+>>>>>>> Stashed changes
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
 

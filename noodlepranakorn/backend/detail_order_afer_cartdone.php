@@ -3,10 +3,23 @@
   error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
   //print_r($_SESSION);
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> 4a10a87cd9c71d4d8900dc31e1ad8081d77a092e
 // $query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
 // $buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
 // $row_buyer = mysqli_fetch_assoc($buyer);
 // $totalRows_buyer = mysqli_num_rows($buyer);
+<<<<<<< HEAD
+=======
+=======
+$query_buyer ="SELECT * FROM user WHERE  user_id = $user_id";
+$buyer =  mysqli_query($con, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
+$row_buyer = mysqli_fetch_assoc($buyer);
+$totalRows_buyer = mysqli_num_rows($buyer);
+>>>>>>> Stashed changes
+>>>>>>> 4a10a87cd9c71d4d8900dc31e1ad8081d77a092e
 
 $order_id = $_GET['order_id'];
 
@@ -14,12 +27,21 @@ $query_cartdone ="
 SELECT * FROM
 tbl_order as o,
 tbl_order_detail as d,
+<<<<<<< Updated upstream
+foods as f,
+user  as u
+WHERE o.order_id = $order_id
+AND o.order_id=d.order_id
+AND d.f_id=f.f_id
+AND o.user_id = u.user_id
+=======
 foods as p,
 user  as m
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id
 AND d.f_id=p.f_id
 AND o.user_id = m.user_id
+>>>>>>> Stashed changes
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($con, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
  // echo($query_cartdone);
@@ -82,6 +104,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <?php do { ?>
   <tr>
     <td align="center"><?php echo $row_cartdone['d_id'];?></td>
+<<<<<<< HEAD
     <td><?php echo $row_cartdone['p_name'];?></td>
     <td align="center"><?php echo $row_cartdone['p_price'];?></td>
     <td align="center"><?php echo $row_cartdone['p_c_qty'];?></td>
@@ -89,6 +112,23 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   </tr>
   <?php
   $sum  = $row_cartdone['p_price']*$row_cartdone['p_c_qty'];
+=======
+    <td><?php echo $row_cartdone['f_name'];?></td>
+    <td align="center"><?php echo $row_cartdone['f_price'];?></td>
+<<<<<<< Updated upstream
+    <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
+    <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
+  </tr>
+  <?php
+  $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
+=======
+    <td align="center"><?php echo $row_cartdone['f_qty'];?></td>
+    <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
+  </tr>
+  <?php
+  $sum  = $row_cartdone['f_price']*$row_cartdone['f_qty'];
+>>>>>>> Stashed changes
+>>>>>>> 4a10a87cd9c71d4d8900dc31e1ad8081d77a092e
   $total  += $sum;
   //echo $total;
   ?>
@@ -98,6 +138,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
     <td align="center"><b> <?php echo number_format($total,2);?></b></td>
   </tr>
   <tr>
+<<<<<<< HEAD
     <td colspan="5">
       <?php
         //echo $status;
@@ -125,9 +166,15 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
         <?php } ?>
       </td>
     </tr>
+=======
+    <td colspan="4" align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+  
+>>>>>>> 4a10a87cd9c71d4d8900dc31e1ad8081d77a092e
     
   </table>
 <?php
-mysqli_free_result($buyer);
+
 mysqli_free_result($cartdone);
 ?>
