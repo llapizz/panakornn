@@ -45,7 +45,11 @@
     <?php
 		if(!empty($_SESSION['shopping_cart'])){
 			require_once('../condb.php');
+<<<<<<< Updated upstream
 			foreach($_SESSION['shopping_cart'] as $f_id=>$f_qty){
+=======
+			foreach($_SESSION['shopping_cart'] as $f_id=>$p_qty){
+>>>>>>> Stashed changes
 				$sql = "select * from foods where f_id=$f_id";
 				$query = mysqli_query($conn, $sql);
 				while($row = mysqli_fetch_array($query)){

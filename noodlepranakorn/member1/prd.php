@@ -29,9 +29,15 @@ $f_id = $_GET["id"];
 <?php include('navbar.php');?>
   <div class="row">
     <?php
+<<<<<<< Updated upstream
     $sql = "SELECT * FROM foods as f 
         INNER JOIN type  as t ON f.type_id=t.type_id 
     AND f_ids = $f_ids
+=======
+    $sql = "SELECT * FROM foods as p 
+        INNER JOIN tbl_type  as t ON p.type_id=t.type_id 
+    AND f_id = $f_id
+>>>>>>> Stashed changes
     ";
     $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
     $row = mysqli_fetch_array($result);
@@ -57,7 +63,11 @@ $f_id = $_GET["id"];
               <!-- Go to www.addthis.com/dashboard to customize your tools --> 
             <div class="addthis_inline_share_toolbox_sf2w"></div>
             </p>
+<<<<<<< Updated upstream
             <a href="index.php?f_ids=<?php echo $row['f_ids'];?>&act=add" class="btn btn-danger btn-xs n-radius">
+=======
+            <a href="index.php?f_id=<?php echo $row['f_id'];?>&act=add" class="btn btn-danger btn-xs n-radius">
+>>>>>>> Stashed changes
               <span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า
             </a>
           </div>
