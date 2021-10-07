@@ -2,7 +2,7 @@
 include("../connect.php");
 $type_id = $_GET['type_id'];
 
-$sql = "SELECT * FROM foods
+$sql = "SELECT * FROM foods 
         WHERE type_id= $type_id
         ORDER BY f_id DESC
 ";

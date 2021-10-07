@@ -29,7 +29,9 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
         <a class="nav-link text-warning" href="my_order.php?page=mycart">ประวัติการสั่งซื้อ</a>
       </li>
     </ul>
+   <center>สำหรับพนักงาน</center> 
   </div>
+ 
   <form class="form-inline my-2 my-lg-0" name="qp" action="index.php" method="GET">
     <?php 
     if ($user_id!='') {

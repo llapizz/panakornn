@@ -19,8 +19,26 @@ $row_promotion = mysqli_fetch_assoc($promotion);
 </head>
 <body>
   <?php include('navbar.php'); ?>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
+      <div class="col-md-4">
+        <div class="container" style="margin-top: 10px">
+          <table align="center" class="n-table" style='color:white !important;'>
+            <tr align="center">
+              <th>โปรโมชั่น</th>
+            </tr>
+            <?php do{ ?>
+            <tr height="50" style="font-size: 15px;">
+              <td><?=$row_promotion['pro_name']?></td>
+            </tr>
+            <?php }while($row_promotion = mysqli_fetch_assoc($promotion)); ?>
+          </table>
+          <hr>
+          <?php
+          include('cart.php');
+          ?>
+        </div>
+      </div>
       <div class="col-md-8">
         <div class="container" style="margin-top: 10px">
           <div class="row">
@@ -37,24 +55,6 @@ $row_promotion = mysqli_fetch_assoc($promotion);
             }
             ?>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="container" style="margin-top: 10px">
-          <table align="center" class="n-table">
-            <tr align="center">
-              <th>โปรโมชั่น</th>
-            </tr>
-            <?php do{ ?>
-            <tr height="50" style="font-size: 15px;">
-              <td><?=$row_promotion['pro_name']?></td>
-            </tr>
-            <?php }while($row_promotion = mysqli_fetch_assoc($promotion)); ?>
-          </table>
-          <hr>
-          <?php
-          include('cart.php');
-          ?>
         </div>
       </div>
     </div>

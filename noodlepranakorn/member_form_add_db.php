@@ -3,7 +3,7 @@ include('connect.php');  //ไฟล์เชื่อมต่อกับ data
 	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
 // print_r($_POST);
 // exit();
-	$type_id_user = $_REQUEST[3];
+	$type_id_user = '3';
 	$user_email = $_REQUEST["user_email"];
 	$user_password = $_REQUEST["user_password"];
 	$user_name = $_REQUEST["user_name"];

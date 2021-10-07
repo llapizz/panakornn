@@ -21,7 +21,12 @@ session_start();
                         Header("Location: backend/");
 
                       }
-                  if ($_SESSION["type_id_user"]=="3"){ 
+                      if ($_SESSION["type_id_user"]=="2"){ 
+ 
+                        Header("Location: staff/");
+ 
+                      }
+                      if ($_SESSION["type_id_user"]=="3"){ 
  
                         Header("Location: member/");
  

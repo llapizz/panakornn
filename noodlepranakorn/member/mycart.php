@@ -26,7 +26,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
 
 ?>
 <?php include('datatable.php');?>
-<h4 class="text-light">ประวัติการสั่งซื้อ <button class="btn btn-danger btn-sm n-radius" onclick="window.print()">พิมพ์</button>  </h4>
+<h4 class="text-light">ประวัติการสั่งซื้อ   </h4>
 
 <table id="example3" class="n-table" cellspacing="0">
   <tr>
@@ -35,6 +35,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
     <th>ราคารวม</th>
     <th>สถานะ</th>
     <th>ชำระเงิน</th>
+    <th>พิมพ์</th>
   </tr>
   <?php do { ?>
     <tr style="color:white !important;">
@@ -55,6 +56,9 @@ $totalRows_mycart = mysqli_num_rows($mycart);
       <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order">
      ชำระเงิน
       </a>
+    </td>
+    <td>
+      <button class="btn btn-danger btn-sm n-radius" onclick="window.print()">พิมพ์</button>  </h4>
     </td>
     </tr>
     <?php } while ($row_mycart = mysqli_fetch_assoc($mycart)); ?>

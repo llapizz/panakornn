@@ -5,7 +5,7 @@ session_start();
 
     $user_email = $_SESSION['user_email'];
     $type_id_user = $_SESSION['type_id_user'];
-    if($type_id_user!='3'){
+    if($type_id_user!='2'){
       header("Location: ../logout.php");
     }
     $sql = "SELECT * FROM user WHERE user_email='$user_email'";

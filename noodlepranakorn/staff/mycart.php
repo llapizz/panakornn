@@ -15,7 +15,7 @@ $query_mycart ="
 SELECT 
 o.order_id as oid, o.user_id, o.order_status, o.order_date,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
-FROM order  as o, order_detail as d
+FROM tbl_order  as o, tbl_order_detail as d
 WHERE o.user_id =$user_id 
 AND o.order_id=d.order_id
 GROUP BY o.order_id
@@ -37,9 +37,8 @@ $totalRows_mycart = mysqli_num_rows($mycart);
     <th>ชำระเงิน</th>
   </tr>
   <?php do { ?>
-    <tr>
+    <tr style="color:white !important;">
       <td><?php echo tranDate($row_mycart['order_date']); ?></td>
-     
       <td align="center">
       <?php echo $row_mycart['coid'];?>
       </td>
@@ -52,7 +51,6 @@ $totalRows_mycart = mysqli_num_rows($mycart);
           include('../backend/status.php');
         ?>
       </td>
-      
     <td>
       <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order">
      ชำระเงิน

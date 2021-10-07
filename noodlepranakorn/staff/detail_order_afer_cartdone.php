@@ -23,21 +23,12 @@ $query_cartdone ="
 SELECT * FROM 
 tbl_order as o, 
 tbl_order_detail as d, 
-<<<<<<< Updated upstream
-foods as f,
-user  as u
-WHERE o.order_id = $order_id
-AND o.order_id=d.order_id 
-AND d.f_id=f._id
-AND o.user_id = u.user_id 
-=======
 foods as p,
 user  as m
 WHERE o.order_id = $order_id
 AND o.order_id=d.order_id 
 AND d.f_id=p.f_id
 AND o.user_id = m.user_id 
->>>>>>> Stashed changes
 ORDER BY o.order_date ASC";
 $cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
 
@@ -98,9 +89,11 @@ input[type='radio']:checked:before {
                   เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
                   จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
                   วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
-                  <h4 class="text-light">
-                    เลขที่ออเดอร์ :  <?php echo $row_cartdone['postcode'];?>
+                  <h4 class="text-white">
+                <font color="green"><?php if ($status != 1){ echo "เลขที่ออเดอร์ : " . $row_cartdone['order_id']; } ?></font> 
+                     <br>
                   </h4>
+                 <font color="red">*โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน*</font> 
                 </strong>
               </td>
             </tr>
@@ -117,7 +110,7 @@ input[type='radio']:checked:before {
       <?php do { ?>
       <tr>
         <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-        <td><?php echo $row_cartdone['f_name'];?></td>
+        <td><?php echo $row_cartdone['p_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
@@ -132,12 +125,12 @@ input[type='radio']:checked:before {
         <td colspan="4" align="right">รวม</td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
-    <?php if($pro_id){ 
+    <?php if($pro_id!="none"&&isset($_GET['pro_id'])){ 
       $sql_check = "SELECT * FROM promotion WHERE pro_id = $pro_id";
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
-       $mode = substr($row_check['pro_discount'],-1);
+      echo $mode = substr($row_check['pro_discount'],-1);
       if($mode=="%"){
         $total -= $total/100*intval(substr($row_check['pro_discount'],0,-1));
       }else{
@@ -156,6 +149,7 @@ input[type='radio']:checked:before {
     // $status =  $row_cartdone['order_status'];
       if($status > 1){ }else{ ?> 
   <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
+    <?php if($m_name!="พนักงาน"){ ?>
     <tr>
       <td colspan="6">
         <h4>รายละเอียดการโอนเงิน<br>
@@ -172,7 +166,7 @@ input[type='radio']:checked:before {
         <td width="17%"><?php echo $row_rb['b_number']; ?></td>
         <td width="15%"><strong>สาขา</strong> <?php echo $row_rb['bn_name']; ?></td>
         </tr>
-    <?php } while ($row_rb = mysqli_fetch_assoc($rb)); ?>
+    <?php } while ($row_rb = mysqli_fetch_assoc($rb)); } ?>
     <tr class="text-dark">
       <td colspan="5"><hr>
         <label for="pay_date">วันที่ชำระเงิน</label>

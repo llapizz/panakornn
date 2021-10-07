@@ -18,11 +18,15 @@ error_reporting( error_reporting() & ~E_NOTICE );
 
 
 //$bank = $_POST['bank'];
-
+if($_POST['bank']){
 $resultb = $_POST['bank'];
 $result_explode = explode('-', $resultb);
 $b_name = $result_explode[0];
 $b_number = $result_explode[1];
+}else{
+$b_name = "รับจากหน้าร้าน";
+$b_number = 0;
+}
 $pay_date = $_POST['pay_date'];
 $pay_amount = $_POST['pay_amount'];
 $order_id = $_POST['order_id'];

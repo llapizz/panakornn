@@ -66,7 +66,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
         $row_check = mysqli_fetch_assoc($check);
             echo "<tr>";
             echo "<td colspan='3'></td>";
-            echo "<td><button type='submit' class='btn btn-success btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ใช้สิทธินี้</button></td>";
+            echo "<td><button type='submit' class='btn btn-warning btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ไม่ใช้สิทธิ</button></td>";
             echo "<td align='right' height='70'><b>รวม</b></td>";
             echo "<td align='right'><b>".number_format($total,2)."</b></td>";
             echo "</tr>";
@@ -98,15 +98,17 @@ $totalRows_buyer = mysqli_num_rows($buyer);
   <div class="row">
     <div class="col-md-10 offset-md-1 n-radius" style="background-color:#f4f4f4">
       <h3 align="center" class="py-3 text-warning">
-      <span class="glyphicon glyphicon-shopping-cart"></span> รายละเอียดลูกค้า</h3>
+      <span class="glyphicon glyphicon-shopping-cart"></span> รายละเอียดสั่งซื้อ</h3>
         <div class="form-group">
+        <h4 align="center"><font color="black">ชื่อพนักงาน</font></h4>
           <div class="col-sm-12">
-            <input type="text" name="name" value="<?php echo $row_buyer['f_name']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" readonly/>
+            <input type="text" name="name" value="<?php echo $row_buyer['user_name']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" readonly/>
           </div>
         </div>
         <div class="form-group">
+        <h4 align="center"><font color="black">เลขโต๊ะ</font></h4>
           <div class="col-sm-12">
-            <input type="text" name="phone" value="<?php echo $row_buyer['f_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+          <input type="text" name="phone" value="<?php echo $row_buyer['user_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
           </div>
         </div>
         <div class="form-group">
