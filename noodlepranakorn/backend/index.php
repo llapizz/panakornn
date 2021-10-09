@@ -2,7 +2,7 @@
 <?php include('h.php');?>
 <body class="hold-transition skin-red sidebar-mini">
   <div class="wrapper">
-    <header class="main-header"></header>
+    <header class="main-header"><?php include('navbar.php');?></header>
     <?php include('menu_left.php');?>
     <div class="content-wrapper">
       <div class="box-body">

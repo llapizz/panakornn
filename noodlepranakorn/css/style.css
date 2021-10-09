@@ -14,7 +14,7 @@ body {
 	font-weight:300;
 	line-height:1.6em;
 	color:#fff;
-	background-color:#19050c;
+	background: #29150c url(../images/bg.jpg) center 90px no-repeat;
 	overflow-x:hidden;
 }
 
@@ -1094,6 +1094,7 @@ a.scrollup:hover{
 .form-control{
   border-radius: 3px !important;
 }
+
 //pri 1a2226
 //sec 374850
 //tri 1E282C

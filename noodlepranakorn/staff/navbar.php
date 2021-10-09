@@ -28,6 +28,7 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
       <li class="nav-item">
         <a class="nav-link text-warning" href="my_order.php?page=mycart">ประวัติการสั่งซื้อ</a>
       </li>
+     
     </ul>
    <center>สำหรับพนักงาน</center> 
   </div>

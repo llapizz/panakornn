@@ -16,7 +16,7 @@ $q = $_GET['q'];
         <h6 class="card-text text-danger">ราคา <?php echo $row_prd["f_price"];?> บาท</h6>
       </div>
       <div class="card-footer">
-        <a class="btn btn-block btn-warning n-link n-radius" href="">รายละเอียด</a>
+        <a class="btn btn-block btn-warning n-link n-radius" href="prd.php">รายละเอียด</a>
       </div>
     </div>
   </a>
