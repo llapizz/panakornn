@@ -85,8 +85,8 @@ input[type='radio']:checked:before {
             <tr>
               <td valign="top">
                 <strong>
-                  ชำระเงิน ธ.<?php echo $row_cartdone['b_name'];?> <br />
-                  เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
+                  <?php echo $row_cartdone['b_name'];?> <br />
+                  <!-- เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br /> -->
                   จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
                   วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
                   <h4 class="text-white">
