@@ -8,7 +8,7 @@ require_once('trandate.php');
       <!-- Logo -->
       <?php error_reporting( error_reporting() & ~E_NOTICE ); ?>
       <!-- Header Navbar: style can be found in header.less -->
-      <?php include('navbar.php');?>
+    
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <?php include('menu_left.php');?>

@@ -9,7 +9,7 @@ if($status==1){
 		  echo "</button>";
 	}elseif($status==3){
 		  echo "<button class='btn btn-warning btn-block n-radius'>";
-		  echo "ส่งของแล้ว";
+		  echo "จัดส่งอาหารแล้ว";
 		  echo "</button>";
 	  } 
 ?>

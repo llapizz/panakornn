@@ -37,7 +37,6 @@ require_once('../connect.php');
 	$pay_date ='';
 	$pay_amount ='';
 	$f_name = $_POST['f_name'];
-	$postcode='';
 	$pro_id = $_POST['btn_voucher'];
 
 	
@@ -56,7 +55,6 @@ require_once('../connect.php');
 	'$b_number',
 	'$pay_date',
 	'$pay_amount',
-	'$postcode',
 	'$order_date' 
 	)";
 	
