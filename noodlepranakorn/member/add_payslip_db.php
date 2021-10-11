@@ -76,7 +76,7 @@ $sql ="UPDATE orderr SET
 		if($result){
 			echo "<script>";
 			echo "alert('อัพโหลดสลิปเรียบร้อยแล้ว');";
-			echo "window.location ='my_order.php?order_id=$order_id&act=show-order'; ";
+			echo "window.location ='my_order_member.php?order_id=$order_id&act=show-order'; ";
 			echo "</script>";
 		} else {
 			

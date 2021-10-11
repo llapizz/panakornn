@@ -53,7 +53,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
         ?>
       </td>
     <td>
-      <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order">
+      <a class="btn btn-outline-warning n-radius" href="my_order_member.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order">
      ชำระเงิน
       </a>
     </td>
