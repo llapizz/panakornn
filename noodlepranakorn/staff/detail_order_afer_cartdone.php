@@ -113,7 +113,7 @@ input[type='radio']:checked:before {
         <td><?php echo $row_cartdone['f_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
-        <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
+        <td align="center"><?php echo number_format($row_cartdone['pay_amount'],2);?></td>
       </tr> 
       <?php 
           $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
