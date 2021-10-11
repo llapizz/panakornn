@@ -12,88 +12,6 @@
 			//return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
 		}	
     ?>
-<?php
-
-$query = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%d-%M-%Y') AS o_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y-%m-%d')
-ORDER BY DATE_FORMAT(datesave, '%Y-%m-%d') DESC
-";
-$result = mysqli_query($con, $query);
-$resultchart = mysqli_query($con, $query);
-
-$query2 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%d-%M-%Y') AS o_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y-%m-%d')
-ORDER BY DATE_FORMAT(datesave, '%Y-%m-%d') DESC
-";
-$result2 = mysqli_query($con, $query2);
-$resultchart = mysqli_query($con, $query2);
-
-$query3 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%M-%Y') AS o_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y-%m')
-ORDER BY DATE_FORMAT(datesave, '%Y-%m') DESC
-";
-$result3 = mysqli_query($con, $query3);
-$resultchart = mysqli_query($con, $query3);
-
-$query4 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%M-%Y') AS o_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y-%m')
-ORDER BY DATE_FORMAT(datesave, '%Y-%m') DESC
-";
-$result4 = mysqli_query($con, $query4);
-$resultchart = mysqli_query($con, $query3);
-
-$query5 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%Y') AS d_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y')
-ORDER BY DATE_FORMAT(datesave, '%Y') DESC
-";
-$result5 = mysqli_query($con, $query5);
-$resultchart = mysqli_query($con, $query5);
-// echo $query5;
-// exit();
-$query6 = "SELECT SUM(total) AS total, DATE_FORMAT(datesave, '%Y') AS o_date 
-FROM order_detail
-GROUP BY DATE_FORMAT(datesave, '%Y')
-ORDER BY DATE_FORMAT(datesave, '%Y') DESC
-";
-$result6 = mysqli_query($con, $query6);
-$resultchart = mysqli_query($con, $query6);
-
-// echo $query5;
-// exit();
-
-    $datax = array();
-    foreach ($result as $k) {
-      $datax[] = "['".$k['o_date']."'".", ".$k['total']."]";
-    }
-
-    //cut last commar
-    $datax = implode(",", $datax);
-    //echo $datax;
-
-      $datax2 = array();
-    foreach ($result4 as $k) {
-      $datax2[] = "['".$k['o_date']."'".", ".$k['total']."]";
-    }
-
-    //cut last commar
-    $datax2 = implode(",", $datax2);
-
-
-      $datax3 = array();
-    foreach ($result6 as $k) {
-      $datax3[] = "['".$k['o_date']."'".", ".$k['total']."]";
-    }
-
-    //cut last commar
-    $datax3 = implode(",", $datax3);
-
-?>
-
     <style>
         @media print{
 		#hid{
@@ -101,19 +19,8 @@ $resultchart = mysqli_query($con, $query6);
 		}
 	}
     </style>
-    
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-12" >
-		<a id="hid" href="report.php" class="btn btn-outline-primary n-radius">ย้อนกลับ</a>
-			<a id="hid" href="index.php?p=daily" class="btn btn-info n-radius">รายวัน</a> 
-			<a id="hid" href="index.php?p=monthy" class="btn btn-success n-radius">รายเดือน</a> 
-			<a id="hid" href="index.php?p=yearly" class="btn btn-danger n-radius">รายปี</a> 
-		</div>
-	</div>
-</div>
-<form action="" method="get" class="form-horizental">
+    <center>
+    <form action="" method="get" class="form-horizental">
         
         <div class="form-group col-sm-12" >
             <div id="hid" class="col-sm-2 control-label">
@@ -129,10 +36,11 @@ $resultchart = mysqli_query($con, $query6);
                 <input id="hid" type="date" name="date_end" required class="form-control">
             </div><br>
             <div class="col-sm-1">
-                <button id="hid" type="submit" name="p" value="day" class="btn btn-primary n-radius">ค้นหา</button>
+                <button id="hid" type="submit" name="p" value="day" class="btn btn-primary">ค้นหา</button>
             </div>
         </div>
 </form>
+</center>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -179,18 +87,14 @@ $resultchart = mysqli_query($con, $query6);
                 data: [<?php echo $totol;?>
                 ],
                 backgroundColor: [
-                'rgb(133, 203, 204)',
-                'rgb(168, 222, 224)',
-                'rgb(249, 226, 174)',
-                'rgb(251, 199, 141)',
+                'rgb(223, 57, 57)',
+                'rgb(231, 137, 25)',
+                'rgb(255, 187, 0)',
+                'rgb(79, 203, 24)',
                 'rgb(167, 214, 118)',
                 'rgb(151, 219, 174)',
                 'rgb(133, 203, 204)',
-                'rgb(168, 222, 224)',
-                'rgb(249, 226, 174)',
-                'rgb(251, 199, 141)',
-                'rgb(167, 214, 118)',
-                'rgb(151, 219, 174)'
+                
                 ]
                 }]
                 },
@@ -234,7 +138,7 @@ $resultchart = mysqli_query($con, $query6);
 					
 					?>
                     <tr>
-                        <td><?php echo DateThai2($row2['datesave']);?></td>
+                        <td><?php echo DateThai2($row2['datesave'])?></td>
                         
                         <td align="right"><?php echo $row2['totol'];?></td>
                         
@@ -256,8 +160,3 @@ $resultchart = mysqli_query($con, $query6);
         </div>
     </div>
 </div>
-
-
-
-
-

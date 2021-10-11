@@ -29,7 +29,31 @@
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="col-md-12">
-                  <?php include('report_list.php'); ?>
+                <div class="container">
+	<div class="row">
+		<div class="col-md-12" >
+		<a id="hid" href="report.php" class="btn btn-outline-primary n-radius">ย้อนกลับ</a>
+			<a id="hid" href="report.php?p=daily" class="btn btn-info n-radius">รายวัน</a> 
+			<a id="hid" href="report.php?p=monthy" class="btn btn-success n-radius">รายเดือน</a> 
+			<a id="hid" href="report.php?p=yearly" class="btn btn-danger n-radius">รายปี</a> 
+		</div>
+	</div>
+</div>
+                <?php
+                  $p = (isset($_GET['p']) ? $_GET['p'] : '');
+                    if($p=='daily'){
+                       include('r_daily.php');
+                      }elseif($p=='monthy'){
+                        include('r_monthy.php');
+                      }elseif($p=='yearly'){
+                        include('r_yearly.php');
+                      }elseif($p=='day'){
+                        include('r_day.php');
+                      }else{
+                        include('r_daily.php');
+                      }
+                        
+                      ?>
                 </div>
               </div>
               <!-- /.box-body -->
