@@ -3,7 +3,6 @@
 	error_reporting( error_reporting() & ~E_NOTICE );
     @session_start();  
 	
-
 	// echo "<pre>";
 	// print_r($_SESSION);
 	// echo "<hr>";
@@ -59,12 +58,12 @@ require_once('../connect.php');
 	'$order_date' 
 	)";
 	
-	$query1	= mysqli_query($conn, $sql1 ) or die ("Error in query: $query1 " . mysqli_error());
+	$query1	= mysqli_query($conn, $sql1 ) or die ("Error in query: $query1 " . mysqli_error($con));
 
  
  
 	$sql2 = "SELECT MAX(order_id) AS order_id FROM orderr  WHERE user_id='$user_id'";
-	$query2	= mysqli_query($conn, $sql2) or die ("Error in query: $sql2 " . mysqli_error());
+	$query2	= mysqli_query($conn, $sql2) or die ("Error in query: $sql2 " . mysqli_error($con));
 	$row = mysqli_fetch_array($query2);
 	$order_id = $row['order_id'];
 	
@@ -73,7 +72,7 @@ require_once('../connect.php');
 	 
 	{
 		$sql3	= "SELECT * FROM foods where f_id=$f_id";
-		$query3 = mysqli_query($conn, $sql3) or die ("Error in query: $sql3 " . mysqli_error());
+		$query3 = mysqli_query($conn, $sql3) or die ("Error in query: $sql3 " . mysqli_error($con));
 		$row3 = mysqli_fetch_array($query3);
 		$total=$row3['f_price']*$f_qty;
 		$count=mysqli_num_rows($query3);
@@ -91,7 +90,7 @@ require_once('../connect.php');
 		'$f_qty', 
 		'$total',
 		'$order_date')";
-		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error());
+		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error($con));
 
 		$sqlpname ="UPDATE order_detail t2, 
 		(
@@ -100,7 +99,7 @@ require_once('../connect.php');
 		t1 
 		SET t2.f_name = t1.f_name WHERE t1.f_id = t2.f_id";
 
-	    $querypanem	= mysqli_query($conn, $sqlpname) or die ("Error in query: $querypanem " . mysqli_error());
+	    $querypanem	= mysqli_query($conn, $sqlpname) or die ("Error in query: $querypanem " . mysqli_error($con));
 
 //ตัดสต๊อก
   for($i=0; $i<$count; $i++){
@@ -111,7 +110,7 @@ require_once('../connect.php');
   $sql9 = "UPDATE foods SET  
      f_qty=$stc
      WHERE  f_id=$f_id ";
-  $query9 = mysqli_query($conn, $sql9) or die ("Error in query: $query9 " . mysqli_error());
+  $query9 = mysqli_query($conn, $sql9) or die ("Error in query: $query9 " . mysqli_error($con));
  
   }
     

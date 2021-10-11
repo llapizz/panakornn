@@ -4,8 +4,8 @@
 session_start(); 
 // print_r($_SESSION);
 
-$query_buyer = "SELECT * FROM user WHERE  user_id=$user_id " or die("Error:" . mysqli_error());
-$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
+$query_buyer = "SELECT * FROM user WHERE  user_id=$user_id " or die("Error:" . mysqli_error($con));
+$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error($con));
 $row_buyer = mysqli_fetch_assoc($buyer);
 $totalRows_buyer = mysqli_num_rows($buyer);
 
