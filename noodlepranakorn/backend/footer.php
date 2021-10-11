@@ -3,7 +3,7 @@
   <div class="pull-right hidden-xs">
  <!--  <b>Version</b> 2.4.0 -->
   </div>
-  <strong>ร้านก๋วยเตี๋ยวเรือใหญ่พระนคร &copy;  <a href="#">"กระทิสด"</a></strong>
+  
 </footer>
 </div>
 <!-- ./wrapper -->
