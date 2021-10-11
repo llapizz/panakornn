@@ -24,9 +24,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="box">
+                
               <div class="box-header">
-                <h3 class="box-title"><strong style="color: white;">Data Table With ธนาคาร</strong>
-                <a href="bank.php?act=add" class="btn-info btn-sm n-radius"> +ADD</a> </h3>
+              <a href="bank.php?act=add" class="btn-info btn-sm n-radius"> +เพิ่มธนาคาร</a> 
               </div>
               <!-- /.box-header -->
               <div class="box-body">

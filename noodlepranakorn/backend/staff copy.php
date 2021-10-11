@@ -21,8 +21,8 @@
           <div class="col-xs-12">
             <div class="box" style="margin-top: 0;">
               <div class="box-header">
-                <h3 class="box-title" style="color:white;"></h3>
-                <a href="member.php?act=add" class="btn-info btn-sm n-radius">+เพิ่มพนักงาน</a> </h3>
+                <h3 class="box-title" style="color:white;">Data Table With Member
+                <a href="member.php?act=add" class="btn-info btn-sm n-radius">+ADD</a> </h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

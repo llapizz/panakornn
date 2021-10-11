@@ -20,10 +20,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="box" style="margin-top: 0;">
-              <div class="box-header">
-                <h3 class="box-title" style="color:white;">เพิ่มสมาชิก
-                <a href="member.php?act=add" class="btn-info btn-sm n-radius">+เพิ่ม</a> </h3>
-              </div>
+             
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="col-sm-12">
