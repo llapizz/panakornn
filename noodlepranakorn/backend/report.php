@@ -24,7 +24,7 @@
           <div class="col-xs-12">
             <div class="box" style="margin-top:0;">
               <div class="box-header">
-                <h3 class="box-title" style="color:white;">กราฟสรุปผลรายได้
+                <h3 class="box-title" style="color:white;">สรุปยอดขาย</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -32,13 +32,19 @@
                 <div class="container">
 	<div class="row">
 		<div class="col-md-12" >
-		<a id="hid" href="report.php" class="btn btn-outline-primary n-radius">ย้อนกลับ</a>
 			<a id="hid" href="report.php?p=daily" class="btn btn-info n-radius">รายวัน</a> 
 			<a id="hid" href="report.php?p=monthy" class="btn btn-success n-radius">รายเดือน</a> 
 			<a id="hid" href="report.php?p=yearly" class="btn btn-danger n-radius">รายปี</a> 
 		</div>
 	</div>
 </div>
+<section class="content">
+        <div class="row">
+          <div class="col-md-12">
+     
+       
+               
+             
                 <?php
                   $p = (isset($_GET['p']) ? $_GET['p'] : '');
                     if($p=='daily'){
@@ -54,6 +60,8 @@
                       }
                         
                       ?>
+              
+                
                 </div>
               </div>
               <!-- /.box-body -->

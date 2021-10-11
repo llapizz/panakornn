@@ -64,10 +64,10 @@
             $totol = implode(",", $totol);
             
             ?>
-            <h3 align="center">รายงานการบริการแยกรายวัน</h3>
+           
             
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-            <button id="hid" class="btn btn-warning" onclick="window.print()" type="hidden"><i class="fas fa-print"></i> พิมพ์</button>
+            <button id="hid" class="btn btn-warning btn-sm n-radius" onclick="window.print()" type="hidden"> พิมพ์</button>
             <hr>
             
             <p align="center" id="hid">

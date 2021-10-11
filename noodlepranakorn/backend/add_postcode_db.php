@@ -18,7 +18,7 @@ $sql ="UPDATE orderr SET
 		$result = mysqli_query($con, $sql);// or die ("Error in query: $sql " . mysqli_error());
 	
 	mysqli_close($con);
-//  echo $sql;
+ echo $sql;
 // exit();
 	
 		if($result){
@@ -30,7 +30,7 @@ $sql ="UPDATE orderr SET
 			
 			echo "<script>";
 			echo "alert('ERROR!');";
-			echo "window.location ='list_product.php'; ";
+			echo "window.location ='index.php'; ";
 			echo "</script>";
 		}
 		

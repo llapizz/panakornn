@@ -12,10 +12,10 @@ include("connect.php");
   ?>
   <div class="container">
     <div class="row">
-     
       <div class="col-md-12">
         <div class="container" style="margin-top: 20px">
           <div class="row">
+            
             <?php
             $act = (isset($_GET['act']) ? $_GET['act'] : '');
             $q = $_GET['q'];
@@ -31,6 +31,7 @@ include("connect.php");
             }
             ?>
           </div>
+          
         </div>
       </div>
     </div>
@@ -38,3 +39,4 @@ include("connect.php");
 </body>
 </html>
 <?php include('script4.php');?>
+
