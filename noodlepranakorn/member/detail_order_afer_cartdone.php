@@ -150,10 +150,9 @@ input[type='radio']:checked:before {
     if($status > 1){ }else{?> 
 
       <br /><br />
-  <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
-
+  <table class="table">
     <tr>
-      <td colspan="6">
+      <td colspan="6" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
         <small class="text-danger">*เลือกบัญชีที่โอนเงิน</small>
         </h4>
@@ -161,12 +160,11 @@ input[type='radio']:checked:before {
     </tr>
     <?php do { ?>
       <tr class="text-dark">
-        <td width="5%" align="center">
-          <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
-        </td>
-        <td width="22%">ธนาคาร <?php echo $row_rb['b_name']; ?></td>
-        <td width="17%"><?php echo $row_rb['b_number']; ?></td>
-        <td width="15%"><strong>สาขา</strong> <?php echo $row_rb['bn_name']; ?></td>
+        
+        <td width="65%"><input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
+        ธนาคาร <?php echo $row_rb['b_name']; ?></td>
+        <td width="35%"><?php echo $row_rb['b_number']; ?></td>
+        <td width="50%"><strong>สาขา</strong> <?php echo $row_rb['bn_name']; ?></td>
         </tr>
     <?php } while ($row_rb = mysqli_fetch_assoc($rb)); } ?>
     <tr class="text-dark">

@@ -24,7 +24,6 @@
         <div class="row">
           <div class="col-md-12">
             <div class="box">
-                
               <div class="box-header">
               <a href="bank.php?act=add" class="btn-info btn-sm n-radius"> +เพิ่มธนาคาร</a> 
               </div>

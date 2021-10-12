@@ -52,7 +52,7 @@
             
             
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-            <button id="hid" class="btn btn-danger btn-sm n-radius" onclick="window.print()" type="hidden"> พิมพ์</button>
+            <button id="hid" class="btn btn-warning btn-sm n-radius" onclick="window.print()" type="hidden"> พิมพ์</button>
             <hr>
             <p align="center" id="hid">
                 
