@@ -150,7 +150,8 @@ input[type='radio']:checked:before {
     if($status > 1){ }else{?> 
 
       <br /><br />
-  <table class="table">
+  <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
+
     <tr>
       <td colspan="6" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
