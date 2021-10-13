@@ -43,6 +43,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
       <font color="red">  สถานะ :
       <?php
       $status =  $row_cartdone['order_status'];
+      $pay_amount = $row_cartdone['pay_amount'];
       include('status.php');
       
       ?>
@@ -54,7 +55,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
             <strong>
             <?php echo $row_cartdone['b_name'];?> <br />
             <!-- เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br /> -->
-            จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
+            จำนวน <?php echo $pay_amount;?><br />
             วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br />
             เลขที่ออเดอร์ :  <?php echo $row_cartdone['order_id'];?>
             </strong>
@@ -95,8 +96,8 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   ?>
   <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
   <tr>
-    <td colspan="4" align="center">รวม</td>
-    <td align="center"><b> <?php echo number_format($total,2);?></b></td>
+    <td colspan="4" align="center">ราคารวมสุทธิ</td>
+    <td align="center"><b> <?php echo $pay_amount;?></b></td>
   </tr>
   <tr>
     <td colspan="5">
@@ -105,13 +106,17 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
       if($status > 1) {?>
       
       <?php $p =  $_GET['p'];
-      if($status==3){ }else{?>
+      if($status!=3){ ?>
       <h3><font color="white"> จัดส่งอาหาร</font> </h3>
       <form id="form1" name="form1" method="post" action="add_postcode_db.php">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
               <td width="100%" align="center">
-                <input type="submit" name="button" id="button" class="btn btn-primary" value="จัดส่งเลขสินค้า" />
+
+                <input type="hidden" name="order_status" value="<?=$status+1;?>" />
+                <input type="hidden" name="order_id" value="<?=$order_id;?>" />
+                <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
+
               </td>
             </tr>
           </table>

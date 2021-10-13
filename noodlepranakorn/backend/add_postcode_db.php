@@ -3,8 +3,6 @@
 include('connections.php'); 
 error_reporting(E_ALL ^ E_DEPRECATED);
 error_reporting( error_reporting() & ~E_NOTICE );
- 
-
 
 $order_id = $_POST['order_id'];
 $order_status = $_POST['order_status'];
@@ -12,8 +10,7 @@ $order_status = $_POST['order_status'];
  
 $sql ="UPDATE orderr SET	 
 		order_status='$order_status'
-		WHERE order_id=$order_id
-	 ";
+		WHERE order_id=$order_id";
 			
 		$result = mysqli_query($con, $sql);// or die ("Error in query: $sql " . mysqli_error());
 	

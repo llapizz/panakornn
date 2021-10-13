@@ -70,7 +70,7 @@
             <button id="hid" class="btn btn-warning btn-sm n-radius" onclick="window.print()" type="hidden"> พิมพ์</button>
             <hr>
             
-            <p align="center" id="hid">
+            <p align="center" id="hid" style="background-color: white;width: 90%;">
                 
                 
                 <canvas id="myChart" width="800px" height="300px"></canvas>
@@ -79,9 +79,7 @@
                 var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                labels: [<?php echo $datesave;?>
-                
-                ],
+                labels: [<?php echo $datesave;?>],
                 datasets: [{
                 label: 'รายงานรายได้ แยกตามวัน (บาท)',
                 data: [<?php echo $totol;?>

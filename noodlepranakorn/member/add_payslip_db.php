@@ -4,6 +4,10 @@ require_once('../connect.php');
 
 error_reporting( error_reporting() & ~E_NOTICE );
 
+if(isset($_GET['pro_id'])){
+	$col_id = $_GET['pro_id'];
+}
+
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
@@ -76,13 +80,13 @@ $sql ="UPDATE orderr SET
 		if($result){
 			echo "<script>";
 			echo "alert('อัพโหลดสลิปเรียบร้อยแล้ว');";
-			echo "window.location ='my_order.php?order_id=$order_id&act=show-order'; ";
+			echo "window.location ='my_order.php?pro_id=$col_id&order_id=$order_id&act=show-order'; ";
 			echo "</script>";
 		} else {
 			
 			echo "<script>";
 			echo "alert('ERROR!');";
-			echo "window.location ='my_order.php?order_id=$order_id&act=show-order'; ";
+			echo "window.location ='my_order.php?pro_id=$col_id&order_id=$order_id&act=show-order'; ";
 			echo "</script>";
 		}
 		
