@@ -112,9 +112,11 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
               <td width="100%" align="center">
+
                 <input type="hidden" name="order_status" value="<?=$status+1;?>" />
                 <input type="hidden" name="order_id" value="<?=$order_id;?>" />
                 <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
+
               </td>
             </tr>
           </table>

@@ -122,6 +122,7 @@ input[type='radio']:checked:before {
           $total  += $sum;
           //echo $total;
           ?>
+          
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
       <tr>
         <td colspan="4" align="right">รวม</td>
