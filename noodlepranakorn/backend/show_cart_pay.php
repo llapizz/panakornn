@@ -29,7 +29,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 $query_mycart ="
 SELECT 
 o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name,
-d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
+d.order_id , COUNT(d.order_id) as coid, o.pay_amount
 FROM orderr  as o, order_detail as d 
 WHERE o.order_id=d.order_id
 AND o.order_status=2
@@ -58,7 +58,7 @@ echo ' <table id="example1" class="table table-striped">';
     echo "<td>" .$row["oid"] .  "</td> ";
     echo "<td align='left'>" .$row["name"] .  "</td> ";
     echo "<td align='right'>" .$row["coid"] .  "</td> ";
-    echo "<td align='right'>" .$row["ctotal"] .  "</td> ";
+    echo "<td align='right'>" .$row["pay_amount"] .  "</td> ";
     echo "<td>" 
     ."<button class='btn btn-success btn-block btn-xs n-radius'>กำลังจัดเตรียมอาหาร</button>".  "</td> ";
     echo "<td>" .tranDate($row["order_date"])."</td> ";

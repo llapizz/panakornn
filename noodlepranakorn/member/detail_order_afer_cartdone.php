@@ -61,7 +61,7 @@ input[type='radio']:checked:before {
   background: red;
 }
 </style>
-<form class="form bg-light" action="add_payslip_db.php" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
+<form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
   <table class="table table-dark table-striped">
     <tr>
       <td colspan="5" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ<?php echo $row_cartdone['user_name'];?> <br />
@@ -81,7 +81,8 @@ input[type='radio']:checked:before {
                 <img src="pimg/<?php echo $row_cartdone['pay_slip'];?>" class="img w-100"/>
               </td>
             </tr>
-            <?php } ?>
+            <?php }
+            if($status!=1){ ?>
             <tr>
               <td valign="top">
                 <strong>
@@ -97,6 +98,7 @@ input[type='radio']:checked:before {
                 </strong>
               </td>
             </tr>
+            <?php } ?>
           </table>
         </td>
       </tr>
@@ -130,7 +132,7 @@ input[type='radio']:checked:before {
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
-      echo $mode = substr($row_check['pro_discount'],-1);
+      $mode = substr($row_check['pro_discount'],-1);
       if($mode=="%"){
         $total -= $total/100*intval(substr($row_check['pro_discount'],0,-1));
       }else{
@@ -147,11 +149,10 @@ input[type='radio']:checked:before {
   </table>
   <?php 
     // $status =  $row_cartdone['order_status'];
-    if($status > 1){ }else{?> 
-
-      <br /><br />
+  if($status==1){ ?> 
+  <br /><br />
   <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
-
+    <?php if($m_name!="พนักงาน"){ ?>
     <tr>
       <td colspan="6" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
@@ -199,6 +200,7 @@ input[type='radio']:checked:before {
   <p align="center"><br />
     <button type="submit" name="add" class="btn btn-success btn-block"> บันทึก</button>
   </p>
+<?php } ?>
 </form>
     </div>
   </div>
