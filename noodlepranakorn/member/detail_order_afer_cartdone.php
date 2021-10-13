@@ -172,13 +172,13 @@ input[type='radio']:checked:before {
     <tr class="text-dark">
       <td colspan="5"><hr>
         <label for="pay_date">วันที่ชำระเงิน</label>
-        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>"/>
+        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled>
       </td>
     </tr>
     <tr class="text-dark">
       <td colspan="5"><br>
         <label for="pay_amount">จำนวนเงิน</label>
-        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required"/>
+        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
       </td>
     </tr>
     <tr class="text-dark">

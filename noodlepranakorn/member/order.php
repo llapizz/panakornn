@@ -80,9 +80,15 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             }
             echo "<tr>";
             echo "<td align='left' colspan='3'>".$row_check['pro_name']."</td>";
+            if ($total != $totalsum[$j]){
             echo "<td><button type='submit' class='btn btn-success btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'>ใช้สิทธินี้</button></td>";
             echo "<td align='right'><b>เหลือ</b></td>";
             echo "<td align='right'><b>".number_format($totalsum[$j],2)."</b></td>";
+          }else{
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+          }
             echo "</tr>";
         $j++; }while($row_check=mysqli_fetch_assoc($check));
             echo "<tr>";
