@@ -111,7 +111,7 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
               <td width="100%" align="center">
-                <input type="submit" name="button" id="button" class="btn btn-primary" value="บันทึก" />
+                <input type="submit" name="button" id="button" class="btn btn-primary" value="จัดส่งเลขสินค้า" />
               </td>
             </tr>
           </table>
