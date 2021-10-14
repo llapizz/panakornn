@@ -23,7 +23,7 @@ require_once('../connect.php');
     date_default_timezone_set('Asia/Bangkok');
 	$user_id = $_POST['user_id'];
 	$user_name = $_POST["name"]; 
-	$address = $_POST["user_address"];
+	$table = $_POST["user_address"];
 	$email = $_POST["user_email"];
 	$phone = $_POST["phone"];
 	$f_qty = $_POST["f_qty"];
@@ -46,8 +46,7 @@ require_once('../connect.php');
 	(NULL,
 	'$user_id',  
 	'$user_name',
-	'$address',
-	'$email',
+	'$table',
 	'$phone',
 	'$status',
 	'$pay_slip',

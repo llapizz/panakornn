@@ -30,7 +30,7 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
       </li>
       <li class="nav-item">
       <font size="4px">
-        <a class="nav-link text-warning" href="my_order.php?page=mycart">ประวัติการสั่งซื้อ</a>
+        <a class="nav-link text-warning" href="my_order.php?page=mycart">รายการออเดอร์</a>
         </font> 
       </li>
     </ul>

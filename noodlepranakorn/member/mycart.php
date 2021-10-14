@@ -30,7 +30,8 @@ $totalRows_mycart = mysqli_num_rows($mycart);
 
 <table id="example3" class="n-table" cellspacing="0">
   <tr>
-    <th>วันที่ทำรายการ</th>
+    <th>วันที่</th>
+    <th>เวลา</th>
     <th>จำนวนรายการ</th>
     <th>ราคารวม</th>
     <th>สถานะ</th>
@@ -39,7 +40,8 @@ $totalRows_mycart = mysqli_num_rows($mycart);
   </tr>
   <?php do { ?>
     <tr style="color:white !important;">
-      <td><?php echo tranDate($row_mycart['order_date']); ?></td>
+      <td><?php echo date('d/m/', strtotime($row["order_date"])). (date('Y', strtotime($row_mycart["order_date"])) + 543) ?></td>
+      <td align="center"> <?php echo date('H:i:s', strtotime($row_mycart["order_date"]))?></td>
       <td align="center">
       <?php echo $row_mycart['coid'];?>
       </td>
