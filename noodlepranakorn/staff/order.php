@@ -137,7 +137,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
   </div>
 
   <p align="center"><br />
-          <button type="submit" name="add" class="btn btn-success btn n-radius"> บันทึก</button>
+          <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='none'> ยืนยัน</button>
     </p>
 
 

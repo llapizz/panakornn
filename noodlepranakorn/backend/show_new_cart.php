@@ -23,7 +23,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name, d.total_dis as discount,
+o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name, d.total_dis as discount, d.pro_id as promotion,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM orderr  as o, order_detail as d 
 WHERE o.order_id=d.order_id
@@ -46,7 +46,6 @@ echo ' <table id="example1" class="table table-striped">';
       <th width=20%>ชื่อลูกค้า</th>
       <th width='5%'>จำนวน</th>
       <th>ราคารวม</th>
-      <th>ราคาโปรโมชั่น</th>
       <th>สถานะ</th>
       <th>รหัสสั่งซื้อ</th>
       <th width='5%'>เปิด</th>
@@ -59,14 +58,21 @@ echo ' <table id="example1" class="table table-striped">';
     echo "<td align='left'>" . date('H:i:s', strtotime($row["order_date"]))."</td> ";
     echo "<td align='left'>" .$row["name"] .  "</td> ";
     echo "<td align='center'>" .$row["coid"] .  "</td> ";
-    echo "<td align='center'>" .$row["ctotal"] .  "</td> ";
-    echo "<td align='center'>" .$row["discount"] .  "</td> ";
+              if($row['promotion']!=0){
+                echo "<td align='center'>" .number_format($row['discount'],2).  "</td> ";
+              }else{
+                echo "<td align='center'>" .number_format($row['ctotal'],2). "</td> ";
+              }
+      
+   
+    
     echo "<td>" 
     ."<button class='btn btn-danger btn-block btn-xs n-radius'>รอชำระเงิน</button>".  "</td> ";
     echo "<td>" .$row["oid"] .  "</td> ";
     echo "<td><a href='order.php?order_id=$oid&act=show-order' class='btn btn-danger btn-xs n-radius'>เปิด</a></td> ";
   }
 echo "</table>";
+
 //5. close connection
 mysqli_close($con);
 ?>

@@ -48,7 +48,6 @@ echo ' <table id="example1" class="table table-striped">';
           <th width=20%>ชื่อลูกค้า</th>
           <th width='5%'>จำนวน</th>
           <th>ราคารวม</th>
-          <th>ราคาโปรโมชั่น</th>
           <th>สถานะ</th>
           <th>รหัสสั่งซื้อ</th>
           <th width='5%'>เปิด</th>
@@ -61,8 +60,11 @@ echo ' <table id="example1" class="table table-striped">';
   echo "<td align='left'>" . date('H:i:s', strtotime($row["order_date"]))."</td> ";
   echo "<td align='left'>" .$row["name"] .  "</td> ";
   echo "<td align='center'>" .$row["coid"] .  "</td> ";
-  echo "<td align='center'>" .$row["ctotal"] .  "</td> ";
-  echo "<td align='center'>" .$row["discount"] .  "</td> ";
+      if($row['promotion']!=0){
+        echo "<td align='center'>" .number_format($row['discount'],2).  "</td> ";
+      }else{
+        echo "<td align='center'>" .number_format($row['ctotal'],2). "</td> ";
+      }
   echo "<td>" 
   ."<button class='btn btn-warning btn-block btn-xs n-radius'>กำลังจัดเตรียมอาหาร</button>".  "</td> ";
   echo "<td>" .$row["oid"] .  "</td> ";

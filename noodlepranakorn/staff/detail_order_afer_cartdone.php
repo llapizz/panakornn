@@ -65,7 +65,8 @@ input[type='radio']:checked:before {
 <table class="table table-dark table-striped">
     <tr>
       <td colspan="5" align="center"><h4> <font color="#fffff">รายการสั่งซื้อล่าสุด</font></h4><br>
-      <h6><font color="#fffff">คุณ</font>  <font color="green">  <?php echo $row_cartdone['user_name'];?> </font> </h6><br />
+      <h5><font color="#fffff">คุณ : </font>  <font color="green">  <?php echo $row_cartdone['name'];?> </font> </h5><br />
+      <h5><font color="#fffff">โต๊ะ : </font>  <font color="green">  <?php echo $row_cartdone['table'];?> </font> </h5><br />
           <h6><font color="red"> สถานะ 
         </font></h6>
         <?php 
@@ -88,16 +89,13 @@ input[type='radio']:checked:before {
             <tr>
               <td valign="top">
                 <strong>
-                  <center>ชำระเงิน ธนาคาร<?php echo $row_cartdone['b_name'];?> <br />
-                  เลข บัญชีการชำระเงิน <?php echo $row_cartdone['b_number'];?> <br />
+                  <center>ชำระเงิน <?php echo $row_cartdone['b_name'];?> <br />
                   วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
                   <h4>
                   <strong><?php if ($status != 1){ echo "<font color='green'>เลขที่ออเดอร์ :  " .$row_cartdone['order_id']; } ?></strong>
                      <br>
                   </h4>
-                <strong>
-                 <font color="red">*โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน*</font> 
-                </strong>
+               
                 </center>
               </td>
             </tr>
@@ -192,7 +190,7 @@ input[type='radio']:checked:before {
         <center>
         <h4>หลักฐานการโอน<br></h4>
       <br>
-        <input name="pay_slip" type="file"  required="required"/><br>
+        <input name="pay_slip" type="file" /><br>
         <font class="text-danger">โปรดนำ slip ของท่านมาอัพโหลด<br>เพื่อยืนยันการสั่งซื้อ&nbsp;</font>
         </center>
         
