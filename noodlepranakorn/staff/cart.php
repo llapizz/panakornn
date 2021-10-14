@@ -1,3 +1,4 @@
+
 <?php
     error_reporting( error_reporting() & ~E_NOTICE );
     @session_start(); 
@@ -36,11 +37,11 @@
 		<th colspan="5"">ตะกร้าสินค้า</th>
 	</tr>
 	<tr align="center" height="50">
-		<td>สินค้า</td>
-		<td>ราคา</td>
-		<td>จำนวน</td>
-		<td>รวม</td>
-		<td>ลบ</td>
+		<td class="py-3 text-warning">สินค้า</td>
+		<td class="py-3 text-warning">ราคา</td>
+		<td class="py-3 text-warning">จำนวน</td>
+		<td class="py-3 text-warning">รวม</td>
+		<td class="py-3 text-warning">ลบ</td>
 	</tr>
     <?php
 		if(!empty($_SESSION['shopping_cart'])){
@@ -75,7 +76,7 @@
 		
 			}
 			echo "<tr>";
-			echo "<td colspan='3' align='center'> รวม</td>";
+			echo "<td colspan='3' align='center' class='py-3 text-warning'> รวม</td>";
 			echo "<td colspan='2'>";
 			echo "<b>";
 			echo  number_format($total,2);

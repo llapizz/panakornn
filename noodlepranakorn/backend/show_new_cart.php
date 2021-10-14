@@ -23,7 +23,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name,
+o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name, d.total_dis as discount,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM orderr  as o, order_detail as d 
 WHERE o.order_id=d.order_id
@@ -41,10 +41,12 @@ echo ' <table id="example1" class="table table-striped">';
   //หัวข้อตาราง
   echo "<thead>";
     echo "<tr align='center'>
-      <th>วันที่ทำรายการ</th>
-      <th width=20%>ลูกค้า</th>
-      <th width='10%'>จำนวน</th>
+      <th width='15%'>วันที่ทำรายการ</th>
+      <th>เวลา</th>
+      <th width=20%>ชื่อลูกค้า</th>
+      <th width='5%'>จำนวน</th>
       <th>ราคารวม</th>
+      <th>ราคาโปรโมชั่น</th>
       <th>สถานะ</th>
       <th>รหัสสั่งซื้อ</th>
       <th width='5%'>เปิด</th>
@@ -53,16 +55,16 @@ echo ' <table id="example1" class="table table-striped">';
   while($row = mysqli_fetch_array($mycart)) {
     $oid = $row['oid'];
   echo "<tr>";
-    echo "<td>" .tranDate($row["order_date"]).  "</td> ";
+    echo "<td align='left'>" . date('d/m/', strtotime($row["order_date"])). (date('Y', strtotime($row["order_date"])) + 543) . "</td> ";
+    echo "<td align='left'>" . date('H:i:s', strtotime($row["order_date"]))."</td> ";
     echo "<td align='left'>" .$row["name"] .  "</td> ";
-    echo "<td align='right'>" .$row["coid"] .  "</td> ";
-    echo "<td align='right'>" .$row["ctotal"] .  "</td> ";
+    echo "<td align='center'>" .$row["coid"] .  "</td> ";
+    echo "<td align='center'>" .$row["ctotal"] .  "</td> ";
+    echo "<td align='center'>" .$row["discount"] .  "</td> ";
     echo "<td>" 
-    ."<button class='btn btn-warning btn-block btn-xs n-radius'>รอชำระเงิน</button>".  "</td> ";
+    ."<button class='btn btn-danger btn-block btn-xs n-radius'>รอชำระเงิน</button>".  "</td> ";
     echo "<td>" .$row["oid"] .  "</td> ";
-     echo "<td><a href='order.php?order_id=$oid&act=show-order' class='btn btn-danger btn-xs n-radius'>เปิด</a>
-    
-    </td> ";
+    echo "<td><a href='order.php?order_id=$oid&act=show-order' class='btn btn-danger btn-xs n-radius'>เปิด</a></td> ";
   }
 echo "</table>";
 //5. close connection

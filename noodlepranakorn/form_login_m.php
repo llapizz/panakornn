@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <head>
   <?php include('h.php'); ?>
+  <?php include('boot4.php');?>
 </head>
-<body style="background-color:#19050c;">
+
+<body>
   <div class="container" style="padding-top:100px">
     <div class="row">
       <div class="col-md-4 offset-md-4">

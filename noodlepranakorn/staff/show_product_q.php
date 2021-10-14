@@ -27,7 +27,7 @@
   </div>
   <div>
   <button type="button" class="btn btn-success btn-sm">
-                        <a style="color: #fff" href="prd.php?id=<?php echo $row_prd[0]; ?>"> รายละเอียด </a></button>
+            
                        <?php include('outstock.php');?>
                      </div>
                      <br>

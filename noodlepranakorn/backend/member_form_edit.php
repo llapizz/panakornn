@@ -19,18 +19,7 @@ extract($row);
   
 
   <!-- แก้ -->
-   <div class="form-group">
-    <div class="col-md-4" align="right"> สถานะ </div>
-    <div class="col-md-6" align="left">
-         <select name="type_id_user" class="form-control" required>
-       <option value="<?php echo $form-group['type_id_user'];?>">
-          <?php echo $form-group['type_id_user'];?>
-        </option>
-        <option value="" selected>-เลือกข้อมูล-</option>
-        
-      </select>
-    </div>
-  </div>
+   
 
   
   <div class="form-group">

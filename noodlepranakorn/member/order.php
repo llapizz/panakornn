@@ -81,8 +81,8 @@ $totalRows_buyer = mysqli_num_rows($buyer);
               $totalsum[$j] = $total-$row_check['pro_discount'];
             }
             echo "<tr>";
-            echo "<td style='background-color:#33CC66' align='center' colspan='3'>".$row_check['pro_name']."</td>";
             if ($total != $totalsum[$j]){
+            echo "<td style='background-color:#33CC66' align='center' colspan='3'>".$row_check['pro_name']."</td>";
             echo "<td><center><button type='submit' class='btn btn-success btn n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'>ใช้สิทธินี้</button></center></td>";
             echo "<td align='center'><b>เหลือ</b></td>";
             echo "<td align='center'><b>".number_format($totalsum[$j],2)."</b></td>";

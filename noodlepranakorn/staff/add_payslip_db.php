@@ -4,6 +4,10 @@ require_once('../connect.php');
 
 error_reporting( error_reporting() & ~E_NOTICE );
 
+if(isset($_GET['pro_id'])){
+	$col_id = $_GET['pro_id'];
+}
+
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
@@ -27,8 +31,11 @@ $b_number = $result_explode[1];
 $b_name = "รับจากหน้าร้าน";
 $b_number = 0;
 }
+
 $pay_date = $_POST['pay_date'];
-$pay_amount = $_POST['pay_amount'];
+$pay_amount = $_POST['payment_amount'];
+
+
 $order_id = $_POST['order_id'];
 $order_status = 2;
 $pay_slip = (isset($_POST['pay_slip']) ? $_POST['pay_slip'] : '');
@@ -76,13 +83,13 @@ $sql ="UPDATE orderr SET
 		if($result){
 			echo "<script>";
 			echo "alert('อัพโหลดสลิปเรียบร้อยแล้ว');";
-			echo "window.location ='my_order.php?order_id=$order_id&act=show-order'; ";
+			echo "window.location ='my_order.php?pro_id=$col_id&order_id=$order_id&act=show-order'; ";
 			echo "</script>";
 		} else {
 			
 			echo "<script>";
 			echo "alert('ERROR!');";
-			echo "window.location ='my_order.php?order_id=$order_id&act=show-order'; ";
+			echo "window.location ='my_order.php?pro_id=$col_id&order_id=$order_id&act=show-order'; ";
 			echo "</script>";
 		}
 		
