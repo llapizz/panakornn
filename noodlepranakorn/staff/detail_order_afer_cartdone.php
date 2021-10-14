@@ -5,20 +5,20 @@
   //print_r($_SESSION);
 
 $query_buyer = "SELECT * FROM user WHERE user_id = $user_id";
-$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
+$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error($conn));
 $row_buyer = mysqli_fetch_assoc($buyer);
 $totalRows_buyer = mysqli_num_rows($buyer);
 
 
 $query_rb = "SELECT * FROM bank";
-$rb =mysqli_query($conn, $query_rb) or die ("Error in query: $query_rb " . mysqli_error());
+$rb =mysqli_query($conn, $query_rb) or die ("Error in query: $query_rb " . mysqli_error($conn));
 $row_rb = mysqli_fetch_assoc($rb);
 $totalRows_rb = mysqli_num_rows($rb);
 
 
-  $order_id = $_GET['order_id'];
-  $pro_id = $_GET['pro_id'];
-  
+$order_id = $_GET['order_id'];
+$pro_id = $_GET['pro_id'];
+
 $query_cartdone ="
 SELECT * FROM 
 orderr as o, 
@@ -30,7 +30,7 @@ AND o.order_id=d.order_id
 AND d.f_id=p.f_id
 AND o.user_id = m.user_id 
 ORDER BY o.order_date ASC";
-$cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
+$cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error($conn));
 
 $row_cartdone = mysqli_fetch_assoc($cartdone);
 $totalRows_cartdone = mysqli_num_rows($cartdone);
@@ -61,7 +61,7 @@ input[type='radio']:checked:before {
   background: red;
 }
 </style>
-<form class="form bg-light" action="add_payslip_db.php" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
+<form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
   <table class="table table-dark table-striped">
     <tr>
       <td colspan="5" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ<?php echo $row_cartdone['user_name'];?> <br />
@@ -73,6 +73,7 @@ input[type='radio']:checked:before {
         </font></strong></td>
     </tr>
     <tr>
+
         <td colspan="5" align="center">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <?php if($row_cartdone['pay_slip']){ ?>
@@ -100,6 +101,7 @@ input[type='radio']:checked:before {
           </table>
         </td>
       </tr>
+
       <tr class="success">
       <td width="99" align="center">รหัส</td>
         <td width="120" align="center">สินค้า</td>
@@ -113,7 +115,7 @@ input[type='radio']:checked:before {
         <td><?php echo $row_cartdone['f_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
-        <td align="center"><?php echo number_format($row_cartdone['pay_amount'],2);?></td>
+        <td align="center"><?php echo number_format($row_cartdone['total'],2); ?></td>
       </tr> 
       <?php 
           $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
@@ -127,10 +129,10 @@ input[type='radio']:checked:before {
       </tr>
     <?php if($pro_id!="none"&&isset($_GET['pro_id'])){ 
       $sql_check = "SELECT * FROM promotion WHERE pro_id = $pro_id";
-      $check = mysqli_query($conn, $sql_check)or die($sql_check);
+      $check = mysqli_query($conn, $sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
-      echo $mode = substr($row_check['pro_discount'],-1);
+      $mode = substr($row_check['pro_discount'],-1);
       if($mode=="%"){
         $total -= $total/100*intval(substr($row_check['pro_discount'],0,-1));
       }else{
@@ -170,13 +172,13 @@ input[type='radio']:checked:before {
     <tr class="text-dark">
       <td colspan="5"><hr>
         <label for="pay_date">วันที่ชำระเงิน</label>
-        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>"/>
+        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled/>
       </td>
     </tr>
     <tr class="text-dark">
       <td colspan="5"><br>
         <label for="pay_amount">จำนวนเงิน</label>
-        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required"/>
+        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
       </td>
     </tr>
     <tr class="text-dark">
@@ -196,7 +198,7 @@ input[type='radio']:checked:before {
     </tr>
   </table>
   <p align="center"><br />
-    <button type="submit" name="add" class="btn btn-success btn-block"> บันทึก</button>
+    <button type="submit" name="add" class="btn btn-success btn-block">บันทึก</button>
   </p>
 </form>
 <?php } ?>

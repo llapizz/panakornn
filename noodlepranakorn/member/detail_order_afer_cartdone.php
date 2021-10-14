@@ -125,7 +125,6 @@ input[type='radio']:checked:before {
           $total  += $sum;
           //echo $total;
           ?>
-          
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
       <tr>
         <td colspan="4" align="right">รวม</td>
@@ -178,8 +177,8 @@ input[type='radio']:checked:before {
       <td colspan="5"><hr>
         <div class="col-sm-5">
         <label for="pay_date">วันที่ชำระเงิน</label>
-        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled>
-        </div>
+        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled/>
+
       </td>
     </tr>
     <tr align="center" class="text-dark">
