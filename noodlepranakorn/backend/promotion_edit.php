@@ -64,28 +64,28 @@ if(isset($_POST['btn_edit'])){
                     </div>
                   </div>
                   <div class="row" style="margin-bottom: 2rem;">
-                    <div class="col-md-4">
-                      <select class="form-control" name="pro_type">
-                        <option value="0">ประเภทใดก็ได้</option>
-                        <?php do{ ?>
-                        <option value="<?=$row_type['type_id']?>" 
-                          <?=$row_promotion['type_id']==$row_type['type_id']?'selected':'';?>>
-                          <?=$row_type['type_name']?>
-                        </option> <?php }while($row_type=mysqli_fetch_assoc($type)); ?>
-                      </select>
+                    <div class="col-md-0">
+                      <!-- <select class="form-control" name="pro_type"> -->
+                        <option value="0"></option>
+                        <!-- <?php do{ ?> -->
+                        <!-- <option value="<?=$row_type['type_id']?>"  -->
+                          <!-- <?=$row_promotion['type_id']==$row_type['type_id']?'selected':'';?>> -->
+                          <!-- <?=$row_type['type_name']?> -->
+                        <!-- </option> <?php }while($row_type=mysqli_fetch_assoc($type)); ?> -->
+                      <!-- </select> -->
                     </div>
-                    <div class="col-md-3">เมื่อซื้อมากกว่า</div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">เมื่อซื้อมากกว่า</div>
+                    <div class="col-md-2">
                       <input class="form-control" type="number" name="pro_price" placeholder="ราคา" min="0" value="<?=$row_promotion['pro_price']?>"/>
                     </div>
                     <div class="col-md-2">บาท</div>
                   </div>
                   <div class="row" style="margin-bottom: 2rem;">
-                    <div class="col-md-2">ส่วนลด</div>
+                    <div class="col-md-1">ส่วนลด</div>
                     <div class="col-md-4">
                       <input class="form-control" type="text" name="pro_discount" placeholder="ส่วนลด"value="<?=$row_promotion['pro_discount']?>"/>
                     </div>
-                    <div class="col-md-6">(ใส่ % ตามหลังเพื่อลดเป็นเปอร์เซ็น)</div>
+                    <div class="col-md-4">(ใส่ % ตามหลังเพื่อลดเป็นเปอร์เซ็น)</div>
                   </div>
                   <div class="row" style="margin-bottom: 2rem;">
                     <div class="col-md-12">
