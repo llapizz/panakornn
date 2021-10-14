@@ -84,6 +84,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             echo "<td><center><button type='submit' class='btn btn-success btn n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'>ใช้สิทธินี้</button></center></td>";
             echo "<td align='center'><b>เหลือ</b></td>";
             echo "<td align='center'><b>".number_format($totalsum[$j],2)."</b></td>";
+            echo "<input type='hidden' id='total_dis' name='total_dis' value='".number_format($totalsum[$j],2)."'>";
           }else{
             echo "<td></td>";
             echo "<td></td>";

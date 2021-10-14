@@ -31,8 +31,12 @@ $b_number = $result_explode[1];
 $b_name = "รับจากหน้าร้าน";
 $b_number = 0;
 }
+
 $pay_date = $_POST['pay_date'];
-$pay_amount = $_POST['pay_amount'];
+// $pay_amount = $_POST['pay_amount'];
+
+$pay_amount = $_POST['payment_test'];
+
 $order_id = $_POST['order_id'];
 $order_status = 2;
 $pay_slip = (isset($_POST['pay_slip']) ? $_POST['pay_slip'] : '');

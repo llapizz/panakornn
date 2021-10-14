@@ -28,6 +28,7 @@ require_once('../connect.php');
 	$phone = $_POST["phone"];
 	$f_qty = $_POST["f_qty"];
 	$total = $_POST['total'];
+	$total_dis = $_POST['total_dis'];
 	$order_date = date("Y-m-d H:i:s");
 	$status = 1;
 	$pay_slip ='';
@@ -88,6 +89,7 @@ require_once('../connect.php');
 		'$f_name', 
 		'$f_qty', 
 		'$total',
+		'$total_dis',
 		'$order_date')";
 		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error($con));
 
