@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <div class="col-md-4" align="right"> สถานะ </div>
     <div class="col-md-6" align="left">
         <select name="m_level" class="form-control" required>
@@ -14,7 +14,7 @@
         <option value="member">member</option>
       </select>
     </div>
-  </div>
+  </div> -->
 
  <div class="form-group">
     <div class="col-md-4" align="right"> E-mail  </div>
