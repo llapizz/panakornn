@@ -18,15 +18,11 @@
       </li>
         <li>
         <a href="order.php">
-          <i class="fas fa-list"></i> <span>รายการสั่งซื้อกลับบ้าน</span>
+          <i class="fas fa-list"></i> <span>รายการอาหาร</span>
           <span class="pull-right-container">
           </span>
         </a>
-        <a href="order.php">
-          <i class="fas fa-list"></i> <span>รายการสั่งซื้อทานร้าน</span>
-          <span class="pull-right-container">
-          </span>
-        </a>
+        
       </li>
       <li>
         <a href="member.php">
