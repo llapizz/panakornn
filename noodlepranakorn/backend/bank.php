@@ -15,8 +15,8 @@
       <section class="content-header">
         <h1>
         <span class="glyphicon glyphicon-briefcase"></span>
-         จัดการธนาคาร
-      
+         จัดการธนาคาร  <a href="bank.php?act=add" class="btn btn-success n-radius"> +เพิ่มธนาคาร</a> 
+      </h1>
      
       </section>
       <!-- Main content -->
@@ -25,7 +25,7 @@
           <div class="col-md-12">
             <div class="box">
               <div class="box-header">
-              <a href="bank.php?act=add" class="btn-info btn-sm n-radius"> +เพิ่มธนาคาร</a> 
+      
               </div>
               <!-- /.box-header -->
               <div class="box-body">

@@ -36,7 +36,7 @@ $result = mysqli_query($con, $query);
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-      <strong> Edit Type </strong>
+      <strong> แก้ไขรายการอาหาร </strong>
     </div>
   </div>
   <div class="row">

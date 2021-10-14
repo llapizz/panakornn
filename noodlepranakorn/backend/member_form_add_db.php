@@ -1,7 +1,7 @@
 <?php
 include('connections.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
-	$type_id_user = $_REQUEST["type_id_user"];
+	$type_id_user = "3";
 
 	
 	$user_password = $_REQUEST["user_password"];

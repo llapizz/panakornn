@@ -49,8 +49,6 @@ $f_id = $_GET["id"];
               ราคา <font color="red"> <?php echo $row["f_price"];?> </font><br>
               <b>คงเหลือ</b> <?php echo $row["f_qty"];?> <?php echo $row["f_unit"];?> 
             </p>
-            <?php echo $row["f_detail"];?>
-            
             <a href="index.php?f_id=<?php echo $row['f_id'];?>&act=add" class="btn btn-danger btn-xs n-radius">
               <span class="glyphicon glyphicon-shopping-cart"></span> หยิบใส่ตะกร้า
             </a>

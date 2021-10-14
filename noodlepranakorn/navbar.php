@@ -8,7 +8,9 @@ $row_typeprd = mysqli_fetch_assoc($typeprd);
 $totalRows_typeprd = mysqli_num_rows($typeprd);
 ?>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-: #29150c;">
-  <a class="navbar-brand text-light" href="index.php">ก๋วยเตี๋ยวเรือใหญ่พระนคร</a>
+  
+  <a class="navbar-brand text-light" href="index.php"><font size="6px">ก๋วยเตี๋ยวเรือใหญ่พระนคร</font></a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,20 +18,24 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          เมนูอาหาร
+         <font size="4px">เมนูอาหาร</font> 
         </a>
-        <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" style="background-color: #29150c;">
           <?php do { ?>
+            <font size="4px">
             <a href="index.php?act=showbytype&type_id=<?php echo $row_typeprd['type_id'];?>" class="dropdown-item n-link" style="background-color: #29150c;"><?php echo $row_typeprd['type_name']; ?></a>
+            </font> 
             <?php } while ($row_typeprd = mysqli_fetch_assoc($typeprd)); ?>
         </div>
       </li>
       <li class="nav-item">
+        <font size="4px">
         <a class="nav-link text-warning" href="contact.php">เกี่ยวกับ</a>
+        </font> 
       </li>
     </ul>
   </div>
-  <form class="form-inline my-2 my-lg-0" name="qp" action="index.php" method="GET">
+  <form class="form-inline my-2 my-lg-2" name="qp" action="index.php" method="GET">
     <?php 
     if ($user_id!='') {
     ?>

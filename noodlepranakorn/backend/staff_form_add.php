@@ -1,4 +1,4 @@
-<form  name="register" action="member_form_add_db.php" method="POST" class="form-horizontal">
+<form  name="register" action="staff_form_add_db.php" method="POST" class="form-horizontal">
   <div class="form-group">
     <div class="col-md-12" align="center">
     

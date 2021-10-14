@@ -44,7 +44,7 @@ extract($row);
       <div class="col-md-3"></div>
       <div class="col-md-7">
         <input type="hidden" name="b_id" value="<?php echo $b_id; ?>" />
-        <button type="submit" class="btn btn-warning btn-block n-radius" id="btn"> <span class="fas fa-edit"></span> แก้ไข</button>
+        <button type="submit" class="btn btn-warning btn n-radius" id="btn"> <span class="fas fa-edit"></span> แก้ไข</button>
       </div>
     </div>
   </form>

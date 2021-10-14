@@ -88,7 +88,7 @@ input[type='radio']:checked:before {
                   <?php echo $row_cartdone['b_name'];?> <br />
                   <!-- เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br /> -->
                   จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
-                  วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
+                  วันที่ชำระ <?php echo date('d/m/y',strtotime($row_cartdone['pay_date']));?><br /><br />
                   <h4 class="text-white">
                 <font color="green"><?php if ($status != 1){ echo "เลขที่ออเดอร์ : " . $row_cartdone['order_id']; } ?></font> 
                      <br>

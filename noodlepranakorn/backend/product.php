@@ -13,7 +13,7 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1><span class="glyphicon glyphicon-shopping-cart"></span> จัดการอาหาร</h1>
+        <h1><span class="glyphicon glyphicon-shopping-cart"></span> จัดการอาหาร <a href="product.php?act=add" class="btn btn-success n-radius">+เพิ่มอาหาร</a> </h3></h1>
       </section>
       <!-- Main content -->
       <section class="content">
@@ -21,8 +21,8 @@
           <div class="col-xs-12">
             <div class="box" style="margin-top:0;">
               <div class="box-header">
-                <h3 class="box-title" style="color:white;">Data Table With Product
-                <a href="product.php?act=add" class="btn-info btn-sm n-radius">+ADD</a> </h3>
+                <h3 class="box-title" style="color:white;">
+                
               </div>
               <!-- /.box-header -->
               <div class="box-body">

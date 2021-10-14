@@ -64,13 +64,15 @@ input[type='radio']:checked:before {
 <form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
   <table class="table table-dark table-striped">
     <tr>
-      <td colspan="5" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ<?php echo $row_cartdone['user_name'];?> <br />
-          <font color="red"> สถานะ :
-          <?php 
+      <td colspan="5" align="center"><h4> <font color="#fffff">รายการสั่งซื้อล่าสุด</font></h4><br>
+      <h6><font color="#fffff">คุณ</font>  <font color="green">  <?php echo $row_cartdone['user_name'];?> </font> </h6><br />
+          <h6><font color="red"> สถานะ 
+        </font></h6>
+        <?php 
       $status =  $row_cartdone['order_status'];
       include('../backend/status.php');
       ?>
-        </font></strong></td>
+      </td>
     </tr>
     <tr>
         <td colspan="5" align="center">
@@ -86,16 +88,17 @@ input[type='radio']:checked:before {
             <tr>
               <td valign="top">
                 <strong>
-                  ชำระเงิน ธ.<?php echo $row_cartdone['b_name'];?> <br />
-                  เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
-                  จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
+                  <center>ชำระเงิน ธนาคาร<?php echo $row_cartdone['b_name'];?> <br />
+                  เลข บัญชีการชำระเงิน <?php echo $row_cartdone['b_number'];?> <br />
                   วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
-                  <h4 class="text-white">
-                <font color="green"><?php if ($status != 1){ echo "เลขที่ออเดอร์ : " . $row_cartdone['order_id']; } ?></font> 
+                  <h4>
+                  <strong><?php if ($status != 1){ echo "<font color='green'>เลขที่ออเดอร์ :  " .$row_cartdone['order_id']; } ?></strong>
                      <br>
                   </h4>
+                <strong>
                  <font color="red">*โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน*</font> 
                 </strong>
+                </center>
               </td>
             </tr>
             <?php } ?>
@@ -155,38 +158,47 @@ input[type='radio']:checked:before {
   <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
     <?php if($m_name!="พนักงาน"){ ?>
     <tr>
-      <td colspan="6" align="center">
+      <td colspan="100" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
-        <small class="text-danger">*เลือกบัญชีที่โอนเงิน</small>
+        <small class="text-danger">*โปรดเลือกบัญชีที่โอนเงิน*</small>
         </h4>
       </td>
+      
     </tr>
     <?php do { ?>
-      <tr class="text-dark">
+      <tr class="text-dark" align="center">
         
-        <td width="65%"><input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
-        ธนาคาร <?php echo $row_rb['b_name']; ?></td>
-        <td width="35%"><?php echo $row_rb['b_number']; ?></td>
-        <td width="50%"><strong>สาขา</strong> <?php echo $row_rb['bn_name']; ?></td>
+        <td width="28%" align="right"><input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
+        ธนาคาร :<?php echo $row_rb['b_name']; ?></td>
+        <td width="36%" align="center">เลขที่บัญชี  :<?php echo $row_rb['b_number']; ?></td>
+        <td width="36%" align="center"><strong>สาขา :</strong> <?php echo $row_rb['bn_name']; ?></td>
         </tr>
     <?php } while ($row_rb = mysqli_fetch_assoc($rb)); } ?>
-    <tr class="text-dark">
+    <tr align="center" class="text-dark">
       <td colspan="5"><hr>
+        <div class="col-sm-5">
         <label for="pay_date">วันที่ชำระเงิน</label>
         <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled>
+        </div>
       </td>
     </tr>
-    <tr class="text-dark">
+    <tr align="center" class="text-dark">
       <td colspan="5"><br>
+        <div class="col-sm-5">
         <label for="pay_amount">จำนวนเงิน</label>
         <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
-      </td>
-    </tr>
-    <tr class="text-dark">
-      <td colspan="5"><br>
-        <label for="pay_slip">หลักฐานการโอน</label>
+        <br>
+        <center>
+        <h4>หลักฐานการโอน<br></h4>
+      <br>
         <input name="pay_slip" type="file"  required="required"/><br>
-        (ไฟล์ .jpg, gif, png, pdf&nbsp;ไม่เกิน 2mb)
+        <font class="text-danger">โปรดนำ slip ของท่านมาอัพโหลด<br>เพื่อยืนยันการสั่งซื้อ&nbsp;</font>
+        </center>
+        
+        <p align="center"><br />
+          <button type="submit" name="add" class="btn btn-success btn n-radius"> บันทึก</button>
+        </p>
+        </div>
       </td>
     </tr>
     <tr>
@@ -196,11 +208,10 @@ input[type='radio']:checked:before {
       <td><input name="order_id" type="hidden" id="order_id" value="<?php echo $order_id; ?>" /></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
+      
     </tr>
   </table>
-  <p align="center"><br />
-    <button type="submit" name="add" class="btn btn-success btn-block"> บันทึก</button>
-  </p>
+  
 <?php } ?>
 </form>
     </div>

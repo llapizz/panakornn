@@ -10,7 +10,7 @@ $result = mysqli_query($con, $query);
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-      <strong> Edit Type </strong>
+      <strong> เพิ่มอาหาร </strong>
     </div>
   </div>
   <div class="row">

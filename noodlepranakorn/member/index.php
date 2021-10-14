@@ -19,6 +19,7 @@ $row_promotion = mysqli_fetch_assoc($promotion);
 </head>
 <body>
   <?php include('navbar.php'); ?>
+  <br><br>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">

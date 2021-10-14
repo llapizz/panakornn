@@ -13,7 +13,8 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1><span class="fas fa-user-cog"></span> จัดการสมาชิก</h1>
+        <h1><span class="fas fa-user-cog"></span> จัดการพนักงาน <a href="staff.php?act=add" class="btn btn-success n-radius">+เพิ่มพนักงาน</a> </h3></h1>
+        
       </section>
       <!-- Main content -->
       <section class="content">
@@ -22,7 +23,7 @@
             <div class="box" style="margin-top: 0;">
               <div class="box-header">
                 <h3 class="box-title" style="color:white;"></h3>
-                <a href="member.php?act=add" class="btn-info btn-sm n-radius">+เพิ่มพนักงาน</a> </h3>
+               
               </div>
               <!-- /.box-header -->
               <div class="box-body">
