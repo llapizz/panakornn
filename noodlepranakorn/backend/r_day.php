@@ -53,8 +53,8 @@
             
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
             <button id="hid" class="btn btn-warning btn-sm n-radius" onclick="window.print()" type="hidden"> พิมพ์</button>
-            <hr>
-            <p align="center" id="hid">
+            
+            <p align="center" id="hid" style="background-color: white;width: 90%;">
                 
                 
                 <canvas id="myChart" width="800px" height="300px"></canvas>
@@ -93,12 +93,12 @@
                 });
                 </script>
             </p>
-            <div class="col-sm-12">
+            <div class="col-sm-11">
                 <h3></h3>
                 <table  class="table table-striped" border="1" cellpadding="0"  cellspacing="0" align="center">
                     <thead>
                         <tr class="table-primary">
-                            <th width="20%">วัน/เดือน/ปี</th>
+                            <th width="10%"><center>วัน/เดือน/ปี</center></th>
                             
                             <th width="10%"><center>รายได้(บาท)</center></th>
                         </tr>

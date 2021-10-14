@@ -62,7 +62,7 @@ input[type='radio']:checked:before {
 }
 </style>
 <form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
-  <table class="table table-dark table-striped">
+<table class="table table-dark table-striped">
     <tr>
       <td colspan="5" align="center"><h4> <font color="#fffff">รายการสั่งซื้อล่าสุด</font></h4><br>
       <h6><font color="#fffff">คุณ</font>  <font color="green">  <?php echo $row_cartdone['user_name'];?> </font> </h6><br />
@@ -185,8 +185,10 @@ input[type='radio']:checked:before {
       <td colspan="5"><br>
         <div class="col-sm-5">
         <label for="pay_amount">จำนวนเงิน</label>
-        <input class="form-control" type="number" name="pay_amount1" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
-        <br>
+
+        <!-- <input type="text" name="payment_test" value="<?php echo $total; ?>"> -->
+        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
+
         <center>
         <h4>หลักฐานการโอน<br></h4>
       <br>
