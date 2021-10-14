@@ -157,7 +157,7 @@ input[type='radio']:checked:before {
   if($status==1){ ?> 
   <br /><br />
   <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
-    <?php if($type_id_user!="2"){ ?>
+    <?php if($type_id_user="3"){ ?>
     <tr>
       <td colspan="100" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
