@@ -38,7 +38,18 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <tr>
     <td width="100%" colspan="5" align="center">
       <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['user_name'];?>    <br />
-      เบอร์โทร :  <?php echo $row_cartdone['phone'];?> <br />
+
+      <?php
+              if($row_cartdone['phone']!=0){
+                 echo "เบอร์โทร :".$row_cartdone['phone']."<br>";
+              }else{
+                echo "โต๊ะ :".$row_cartdone['table']."<br>";
+              }
+          ?>
+
+      
+
+
       วันที่ทำรายการ :   <?php echo date('d/m/Y',strtotime($row_cartdone['order_date']));?> <br />
       <font color="red">  สถานะ :
       <?php
