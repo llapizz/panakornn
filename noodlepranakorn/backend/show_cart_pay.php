@@ -28,7 +28,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name, d.total_dis as discount,
+o.order_id as oid, o.user_id, o.order_status, o.order_date, o.name, d.total_dis as discount, d.pro_id as promotion,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM orderr  as o, order_detail as d 
 WHERE o.order_id=d.order_id
