@@ -47,7 +47,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
        <td align="center">
         
        <?php
-              if($row_mycart['discount']){
+              if($row_mycart['promotion']!=0){
                 echo number_format($row_mycart['discount'],2);
               }else{
                 echo number_format($row_mycart['ctotal'],2);
