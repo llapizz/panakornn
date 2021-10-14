@@ -123,7 +123,7 @@ input[type='radio']:checked:before {
       <?php 
           $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
           $total  += $sum;
-          //echo $total;
+          // echo $total;
           ?>
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
       <tr>
@@ -143,8 +143,8 @@ input[type='radio']:checked:before {
       }
     ?>
       <tr>
-        <td colspan="3"><?=$row_check['pro_name']?></td>
-        <td align="right">รวม</td>
+        <td colspan="3">โปรโมชั่นที่ใช้งาน <?=$row_check['pro_name']?></td>
+        <td align="right">ราคารวมโปรโมชั่น</td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
     <?php mysqli_free_result($check); } ?>
@@ -155,7 +155,7 @@ input[type='radio']:checked:before {
   if($status==1){ ?> 
   <br /><br />
   <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
-    <?php if($m_name!="พนักงาน"){ ?>
+    <?php if($type_id_user!="2"){ ?>
     <tr>
       <td colspan="100" align="center">
         <h4>รายละเอียดการโอนเงิน<br>
@@ -185,7 +185,7 @@ input[type='radio']:checked:before {
       <td colspan="5"><br>
         <div class="col-sm-5">
         <label for="pay_amount">จำนวนเงิน</label>
-        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
+        <input class="form-control" type="number" name="pay_amount1" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
         <br>
         <center>
         <h4>หลักฐานการโอน<br></h4>

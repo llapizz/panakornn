@@ -17,15 +17,16 @@ $totalRows_buyer = mysqli_num_rows($buyer);
     <div class="col-md-10 offset-md-1 n-radius">
       <table class="n-table">
         <tr align="center">
+          
           <th colspan="6">สั่งซื้อสินค้า</th>
         </tr>
         <tr class="success" height="50">
-          <td align="center">ลำดับ</td>
-          <td align="center">ภาพ</td>
-          <td align="center">สินค้า</td>
-          <td align="center">ราคา</td>
-          <td align="center">จำนวน</td>
-          <td align="center">รวม/รายการ</td>
+          <td align="center" class="py-3 text-warning">ลำดับ</td>
+          <td align="center" class="py-3 text-warning">ภาพ</td>
+          <td align="center" class="py-3 text-warning">สินค้า</td>
+          <td align="center" class="py-3 text-warning">ราคา</td>
+          <td align="center" class="py-3 text-warning">จำนวน</td>
+          <td align="center" class="py-3 text-warning">รวม/รายการ</td>
         </tr>
         <form  name="formlogin" action="saveorder.php" method="POST" id="login" class="form-horizontal">
         <?php
@@ -42,7 +43,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
           echo  $i += 1;
           echo "</td>";
           echo "<td align='center'>";
-          echo "<img src='../backend/img/".$row['f_img']."' width='30'>";
+          echo "<img src='../backend/img/".$row['f_img']."' width='70'>";
           echo "</td>";
           echo "<td align='center'>" . $row["f_name"] . "</td>";
           echo "<td align='center'>" .number_format($row['f_price'],2) ."</td>";
@@ -65,7 +66,8 @@ $totalRows_buyer = mysqli_num_rows($buyer);
         $check = mysqli_query($conn, $sql_check)or die($sql_check);
         $row_check = mysqli_fetch_assoc($check);
             echo "<tr>";
-            echo "<td colspan='3'></td>";
+            
+            echo "<td colspan='3' align='center'><h5 class='py-3 text-warning'>โปรโมชั่นแนะนำ</h5></td>";
             echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ไม่ใช้สิทธิ</button></td>";
             echo "<td align='center' height='70'><b>รวม</b></td>";
             echo "<td align='center'><b>".number_format($total,2)."</b></td>";
