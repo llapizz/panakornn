@@ -29,6 +29,11 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
         </div>
       </li>
       <li class="nav-item">
+      <font size="4px">
+        <a class="nav-link text-warning" href="my_order.php?page=mycart">ประวัติการสั่งซื้อ</a>
+        </font> 
+      </li>
+      <li class="nav-item">
         <font size="4px">
         <a class="nav-link text-warning" href="contact.php">เกี่ยวกับ</a>
         </font> 
