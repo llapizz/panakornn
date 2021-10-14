@@ -28,7 +28,7 @@ $result_explode = explode('-', $resultb);
 $b_name = $result_explode[0];
 $b_number = $result_explode[1];
 }else{
-$b_name = "รับจากหน้าร้าน";
+$b_name = "เงินสด";
 $b_number = 0;
 }
 
