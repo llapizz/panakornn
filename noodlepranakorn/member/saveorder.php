@@ -90,6 +90,7 @@ require_once('../connect.php');
 		'$f_qty', 
 		'$total',
 		'$total_dis',
+		'$pro_id',
 		'$order_date')";
 		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error($con));
 

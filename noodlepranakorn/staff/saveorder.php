@@ -80,7 +80,7 @@ require_once('../connect.php');
 	
 	 //  for($k=0; $k<$count; $k++){  	
 		// if(isset($p_name[$k])){
-
+			$pro_id = $_POST['btn_voucher'];
 		
 		$sql4	= "INSERT INTO  order_detail 
 		values(null, 
@@ -89,6 +89,8 @@ require_once('../connect.php');
 		'$f_name', 
 		'$f_qty', 
 		'$total',
+		'$total_dis',
+		'$pro_id',
 		'$order_date')";
 		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error());
 

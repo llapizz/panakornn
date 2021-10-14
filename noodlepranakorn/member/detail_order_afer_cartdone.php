@@ -130,6 +130,8 @@ input[type='radio']:checked:before {
         <td colspan="4" align="right">รวม</td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
+
+
     <?php if($pro_id!="none"&&isset($_GET['pro_id'])){ 
       $sql_check = "SELECT * FROM promotion WHERE pro_id = $pro_id";
       $check = mysqli_query($conn, $sql_check)or die($sql_check);
@@ -177,7 +179,7 @@ input[type='radio']:checked:before {
       <td colspan="5"><hr>
         <div class="col-sm-5">
         <label for="pay_date">วันที่ชำระเงิน</label>
-        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled/>
+        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" readonly/>
 
       </td>
     </tr>
@@ -186,8 +188,8 @@ input[type='radio']:checked:before {
         <div class="col-sm-5">
         <label for="pay_amount">จำนวนเงิน</label>
 
-        <!-- <input type="text" name="payment_test" value="<?php echo $total; ?>"> -->
-        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
+        
+        <input class="form-control" type="number" name="payment_amount" id="payment_amount"  value="<?php echo $total; ?>" required="required" readonly/>
 
         <center>
         <h4>หลักฐานการโอน<br></h4>

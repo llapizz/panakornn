@@ -29,5 +29,5 @@ include('connect.php');  //ไฟล์เชื่อมต่อกับ data
 	echo "<script type='text/javascript'>";
 	echo "alert('Error back to register again');";
 	echo "</script>";
-}
+	}
 ?>
