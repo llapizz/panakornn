@@ -89,9 +89,13 @@ input[type='radio']:checked:before {
             <tr style="font-size:17px">
               <td valign="top">
                 <strong>
-                  <center>ชำระเงิน : <font color="#1E88E5">ธนาคาร<?php echo $row_cartdone['b_name'];?></font> <br/>
+                  <center>ชำระเงิน : <font color="#1E88E5"><?php echo $row_cartdone['b_name'];?></font> <br/>
                   เลขที่บัญชีการชำระเงิน : <font color="#1E88E5"><?php echo $row_cartdone['b_number'];?> </font><br/>
                   วันที่ชำระ : <font color="#1E88E5"><?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?></font><br ><br/>
+                  <h4>
+                  <strong><?php if ($status != 1){ echo "<font color='#43A047'>เลขที่โต๊ะ : </font><font color='#FFD54F'> " .$row_cartdone['table']; } ?></strong>
+                     <br>
+                  </h4>
                   <h4>
                   <strong><?php if ($status != 1){ echo "<font color='#43A047'>เลขที่ออเดอร์ : </font><font color='#FFD54F'> " .$row_cartdone['order_id']; } ?></strong>
                      <br>
@@ -169,7 +173,7 @@ input[type='radio']:checked:before {
     </tr>
     <?php do { ?>
       <tr class="text-dark" align="center" style="font-size:17px">
-        <td width="33%" align="right"> <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
+        <td width="33%" align="right"> <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>"/>
         <i class="far fa-credit-card"></i> ธนาคาร : <font color="#2E7D32"><?php echo $row_rb['b_name']; ?></font></td>
         <td width="35%" align="center"><i class="far fa-credit-card"></i> เลขที่บัญชี  : <font color="#2E7D32"><?php echo $row_rb['b_number']; ?></font></td>
         <td width="32%" align="center"><i class="far fa-credit-card"></i> <strong> สาขา :</strong> <font color="#2E7D32"><?php echo $row_rb['bn_name']; ?></font></td>
@@ -195,7 +199,7 @@ input[type='radio']:checked:before {
         <h4><i class="fas fa-file-image"></i> หลักฐานการโอน</h4>
         <font class="text-danger">* แนบสลิป กรณีลูกค้าโอนจ่าย&nbsp; *</font></center>
         <br><br>
-        <i class="fas fa-file-import"></i>&nbsp;&nbsp;&nbsp;&nbsp; <input name="pay_slip" type="file"  required="required"/><br>
+        <i class="fas fa-file-import"></i>&nbsp;&nbsp;&nbsp;&nbsp; <input name="pay_slip" type="file"  /><br>
         
         
         <p align="center"><br />

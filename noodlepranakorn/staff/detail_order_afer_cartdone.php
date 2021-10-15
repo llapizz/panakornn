@@ -90,7 +90,11 @@ input[type='radio']:checked:before {
               <td valign="top">
                 <strong>
                   <center>ชำระเงิน <?php echo $row_cartdone['b_name'];?> <br />
-                  วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
+                  วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br/>
+                  <h4>
+                  <strong><?php if ($status != 1){ echo "<font color='green'>เลขที่ออเดอร์ :  " .$row_cartdone['table']; } ?></strong>
+                     <br>
+                  </h4>
                   <h4>
                   <strong><?php if ($status != 1){ echo "<font color='green'>เลขที่ออเดอร์ :  " .$row_cartdone['order_id']; } ?></strong>
                      <br>
