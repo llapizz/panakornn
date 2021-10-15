@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
         <h5 class="card-text text-danger">ราคา<font color="#2E7D32"><b> <?php echo $row_prd["f_price"];?>.- </b></font> บาท</h5>
       </div>
       <div class="card-footer">
-        <a class="btn btn-block btn-warning n-link n-radius" href="prd.php?id=<?php echo $row_prd[0]; ?>">รายละเอียด</a>
+        <a class="btn btn btn-warning n-link n-radius" href="prd.php?id=<?php echo $row_prd[0]; ?>"><i class="fas fa-eye"></i> รายละเอียด</a>
         <?php include('outstock.php');?>
       </div>
     </div>

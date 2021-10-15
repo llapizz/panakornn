@@ -63,11 +63,16 @@ $totalRows_mycart = mysqli_num_rows($mycart);
           $status =  $row_mycart['order_status'];
           include('../backend/status.php');
         ?>
-      </td>
-    <td>
-      <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
-     ชำระเงิน
-      </a>
+      <td align="center"> 
+<?php if($row_mycart['order_status']==1){?>
+<a class="btn btn-outline-danger n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
+  ชำระเงิน
+</a>
+<?php }else{ ?>
+  <a class="btn btn-outline-info n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
+  รายการสั่งซื้อ
+</a>
+<?php } ?>
     </td>
    
     </tr>

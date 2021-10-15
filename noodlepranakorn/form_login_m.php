@@ -10,19 +10,19 @@
 <body class="body">
   <div class="container" style="padding-top:100px">
     <div class="row">
-      <div class="col-md-4 offset-md-4">
+      <div class="col-md-4 offset-md-4" style="font-size:20px">
         <h3 align="center" class="text-warning py-3">
           <span class="glyphicon glyphicon-lock"></span><font size="6px">เข้าสู่ระบบ</font> 
         </h3>
         <form  name="formlogin" action="login_m.php" method="POST" id="login" class="form-horizontal">
           <div class="form-group">
             <div class="col-md-12" align="center">
-              <i class="far fa-envelope"></i> อีเมลล์ <input type="email"  name="user_email" class="form-control" required placeholder="อีเมลล์ ผู้ใช้งาน" />
+              <i class="far fa-envelope"></i><font color="#F4D03F"> อีเมลล์</font><input type="email"  name="user_email" class="form-control" required placeholder="อีเมลล์ ผู้ใช้งาน" />
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-12" align="center">
-            <i class="fas fa-key"></i> รหัสผ่าน <input type="password" name="user_password" class="form-control" required placeholder="รหัสผ่าน" />
+            <i class="fas fa-key"></i> <font color="#F4D03F">รหัสผ่าน </font><input type="password" name="user_password" class="form-control" required placeholder="รหัสผ่าน" />
             </div>
           </div>
           <div class="form-group">
@@ -36,6 +36,7 @@
                 <font color="#fffff">สมัครสมาชิก <i class="fas fa-address-card"></i></font>
               </a>
               </center>
+              <br>
             </div>
           
             <center><font color="red"> * <font color="#fffff">หากท่านยังไม่ได้เป็นสมัครสมาชิก</font> *</font></center>

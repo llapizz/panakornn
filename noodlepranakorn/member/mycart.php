@@ -29,13 +29,13 @@ $totalRows_mycart = mysqli_num_rows($mycart);
 <h4 class="text-light"><i class="fas fa-history"></i> ประวัติการสั่งซื้อ   </h4>
 
 <table id="example3" class="n-table" cellspacing="0">
-  <tr>
+  <tr align="center">
     <th width="10%">วันที่</th>
     <th width="10%">เวลา</th>
     <th width="15%">จำนวนรายการ</th>
     <th>ราคารวม</th>
     <th>สถานะ</th>
-    <th>ชำระเงิน</th>
+    <th>รายละเอียด</th>
   </tr>
   <?php do { ?>
     <tr style="font-size:17px !important;" >
@@ -63,10 +63,17 @@ $totalRows_mycart = mysqli_num_rows($mycart);
           include('../backend/status.php');
         ?>
       </td>
-    <td>
-      <a class="btn btn-outline-warning n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
-     ชำระเงิน
-      </a>
+    <td align="center"> 
+<?php if($row_mycart['order_status']==1){?>
+<a class="btn btn-outline-danger n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
+  ชำระเงิน
+</a>
+<?php }else{ ?>
+  <a class="btn btn-outline-info n-radius" href="my_order.php?order_id=<?php echo $row_mycart['oid']; ?>&act=show-order&pro_id=<?php echo $row_mycart['promotion']; ?>">
+  รายการสั่งซื้อ
+</a>
+    
+    <?php } ?>
     </td>
    
     </tr>
