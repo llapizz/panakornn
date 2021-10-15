@@ -13,7 +13,7 @@ $user_id = $row_mm['user_id'];
 
 $query_mycart ="
 SELECT 
-o.order_id as oid, o.user_id, o.order_status, o.order_date, o.table, o.name , d.total_dis as discount, d.pro_id as promotion, 
+o.order_id as oid, o.user_id, o.order_status, o.order_date, o.table, o.name , d.total_dis as discount, d.pro_id as promotion,
 d.order_id , COUNT(d.order_id) as coid, SUM(d.total) as ctotal
 FROM orderr  as o, order_detail as d
 WHERE o.user_id =$user_id 
@@ -26,12 +26,12 @@ $totalRows_mycart = mysqli_num_rows($mycart);
 
 ?>
 <?php include('datatable.php');?>
-<h4 class="text-light">ประวัติการสั่งซื้อ   </h4>
+<h4 class="text-light"><i class="fas fa-journal-whills"></i> รายการออเดอร์   </h4>
 
 <table id="example3" class="n-table" cellspacing="0">
   <tr>
-    <th>วันที่</th>
-    <th>เวลา</th>
+    <th width="10%">วันที่</th>
+    <th width="10%">เวลา</th>
     <th>ชื่อลูกค้า</th>
     <th>เลขที่โต๊ะ</th>
     <th>ราคารวม</th>
@@ -39,7 +39,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
     <th>ชำระเงิน</th>
   </tr>
   <?php do { ?>
-    <tr style="color:white !important;">
+    <tr style="font-size:17px !important;" >
       <td><?php echo date('d/m/', strtotime($row_mycart["order_date"])). (date('Y', strtotime($row_mycart["order_date"])) + 543) ?></td>
       <td align="center"> <?php echo date('H:i:s', strtotime($row_mycart["order_date"]))?></td>
       <td align="center">
@@ -48,12 +48,15 @@ $totalRows_mycart = mysqli_num_rows($mycart);
       <td align="center"><?php echo $row_mycart['table'];?></td>
        <td align="center">
        <?php
-              if($row_mycart['discount']){
+              if($row_mycart['promotion']!=0){
                 echo number_format($row_mycart['discount'],2);
               }else{
                 echo number_format($row_mycart['ctotal'],2);
               }
           ?>
+   
+
+
       </td>
       <td align="center">
         <?php 
@@ -66,9 +69,10 @@ $totalRows_mycart = mysqli_num_rows($mycart);
      ชำระเงิน
       </a>
     </td>
+   
     </tr>
     <?php } while ($row_mycart = mysqli_fetch_assoc($mycart)); ?>
-    <tr><td colspan="8" align="center">ก๋วยเตี๋ยวเรือใหญ่พระนคร</td></tr>
+    <tr><td colspan="7" align="center">ก๋วยเตี๋ยวเรือใหญ่พระนคร</td></tr>
 </table>
 
 

@@ -16,11 +16,10 @@ $result = mysqli_query($conn, $sql);
     <div class="card mb-3">
       <img class="card-img-top" src="<?php echo"../backend/img/".$row_prd['f_img'];?>">
       <div class="card-body">
-        <h5 class="card-title"><font color="#3E2723"><?php echo $row_prd["f_name"];?></font></h5>
-        <h5 class="card-text text-danger">ราคา<font color="#2E7D32"><b> <?php echo $row_prd["f_price"];?>.- </b></font> บาท</h5>
+        <h5 class="card-title"><?php echo $row_prd["f_name"];?></h5>
+        <p class="card-text text-danger">ราคา <?php echo $row_prd["f_price"];?> บาท</p>
       </div>
       <div class="card-footer">
-        <a class="btn btn-block btn-warning n-link n-radius" href="prd.php?id=<?php echo $row_prd[0]; ?>">รายละเอียด</a>
         <?php include('outstock.php');?>
       </div>
     </div>

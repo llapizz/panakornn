@@ -16,17 +16,17 @@ $totalRows_buyer = mysqli_num_rows($buyer);
   <div class="row">
     <div class="col-md-10 offset-md-1 n-radius">
       <table class="n-table">
-        <tr align="center" >
+        <tr align="center">
           
-          <th colspan="6"><font size="5px"color="#B0BEC5"><i class="fas fa-archive"></i> รายการสั่งซื้อ อาหาร </font></th>
+          <th colspan="6">สั่งซื้อสินค้า</th>
         </tr>
-        <tr class="success" height="50" style="font-size:17px">
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-list-ol"></i> ลำดับ </font></td>
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-file-image"></i> ภาพ </font></td>
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-utensils"></i> อาหาร </font></td>
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> ราคา</font></td>
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-archive"></i> จำนวน </font></td>
-          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวม </font></td>
+        <tr class="success" height="50">
+          <td align="center" class="py-3 text-warning">ลำดับ</td>
+          <td align="center" class="py-3 text-warning">ภาพ</td>
+          <td align="center" class="py-3 text-warning">สินค้า</td>
+          <td align="center" class="py-3 text-warning">ราคา</td>
+          <td align="center" class="py-3 text-warning">จำนวน</td>
+          <td align="center" class="py-3 text-warning">รวม/รายการ</td>
         </tr>
         <form  name="formlogin" action="saveorder.php" method="POST" id="login" class="form-horizontal">
         <?php
@@ -38,7 +38,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
           $row	= mysqli_fetch_array($query);
           $sum	= $row['f_price']*$f_qty;
           $total	+= $sum;
-          echo "<tr style='font-size:14px'>";
+          echo "<tr>";
           echo "<td align='center'>";
           echo  $i += 1;
           echo "</td>";
@@ -67,9 +67,9 @@ $totalRows_buyer = mysqli_num_rows($buyer);
         $row_check = mysqli_fetch_assoc($check);
             echo "<tr>";
             
-            echo "<td colspan='3' align='center'><h5><font size='4px'color='#EF5350'> <i class='fas fa-gift'></i>  โปรโมชั่นแนะนำ</font></h5></td>";
-            echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='none'><i class='fas fa-times-circle'></i> ไม่ใช้สิทธิ</button></td>";
-            echo "<td align='center' height='70'><b> <font size='3px'color='#FFC107'><i class='fas fa-money-bill-alt'></i> รวมสุทธิ </font></b></td>";
+            echo "<td colspan='3' align='center'><h5 class='py-3 text-warning'>โปรโมชั่นแนะนำ</h5></td>";
+            echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ไม่ใช้สิทธิ</button></td>";
+            echo "<td align='center' height='70'><b>รวม</b></td>";
             echo "<td align='center'><b>".number_format($total,2)."</b></td>";
             echo "</tr>";
         $j=0;
@@ -82,9 +82,9 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             }
             echo "<tr>";
             if ($total != $totalsum[$j]){
-            echo "<td style='background-color:#33CC66' align='center' colspan='3'> ".$row_check['pro_name']."</td>";
-            echo "<td><center><button type='submit' class='btn btn-success btn n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'><i class='fas fa-check'></i> ใช้สิทธินี้</button></center></td>";
-            echo "<td align='center'><b><font size='3px'color='#FFC107'><i class='fas fa-money-bill-alt'></i> รวมโปรโมชั่น </font></b></td>";
+            echo "<td style='background-color:#33CC66' align='center' colspan='3'>".$row_check['pro_name']."</td>";
+            echo "<td><center><button type='submit' class='btn btn-success btn n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'>ใช้สิทธินี้</button></center></td>";
+            echo "<td align='center'><b>เหลือ</b></td>";
             echo "<td align='center'><b>".number_format($totalsum[$j],2)."</b></td>";
             echo "<input type='hidden' id='total_dis' name='total_dis' value='".number_format($totalsum[$j],2)."'>";
           }else{
@@ -95,7 +95,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             echo "</tr>";
         $j++; }while($row_check=mysqli_fetch_assoc($check));
             echo "<tr align='right'>";
-            echo "<td colspan='6'><a href='index.php' class='btn btn-danger n-radius'><i class='fas fa-times-circle'></i> ยกเลิก</a></td>";
+            echo "<td colspan='6'><a href='index.php' class='btn btn-danger n-radius'>ยกเลิก</a></td>";
             echo "</tr>";
         ?>
       </table>
@@ -106,37 +106,41 @@ $totalRows_buyer = mysqli_num_rows($buyer);
   <div class="row">
     <div class="col-md-10 offset-md-1 n-radius" style="background-color:#f4f4f4" align="center">
       <h3 align="center" class="py-3 text-warning">
-      <span class="glyphicon glyphicon-shopping-cart"></span><i class="fas fa-address-card"></i> รายละเอียดการสั่งซื้อ</h3>
+      <span class="glyphicon glyphicon-shopping-cart"></span> รายละเอียดการสั่งซื้อ</h3>
         <div class="form-group" >
           <div class="col-sm-5">
-            <h5><font color="black"><i class="fas fa-user"></i> ชื่อลูกค้า</font></h5><input type="text" name="name" value="" class="form-control" required placeholder="ชื่อ-สกุล"/>
+            <h5><font color="black">ชื่อลูกค้า</font></h5><input type="text" name="name" value="" class="form-control" required placeholder="ชื่อลูกค้า" />
           </div>
         </div>
-
-        <div class="form-group">
-          <div class="col-sm-5"><h5><font color="black">เลขโต๊ะที่สั่งอาหาร</font></h5></div>
-            <div class="col-sm-3" align="left">
-              <select name="table" class="form-control" required ="กรุณากรอก เลขที่โต๊ะ">
-                <option value="">-เลือกเลขที่โต๊ะ-</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-                  <p align="center"><br />
-                    <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='none'> ยืนยัน</button>
-                  </p>
+        <!-- <div class="form-group">
+          <div class="col-sm-5">
+            <h5><font color="black">เลขโต๊ะที่สั่งอาหาร</font></h5><input type="text" name="phone" value="" class="form-control" required placeholder="กรุณากรอก เลขที่โต๊ะ" />
           </div>
-       
+        </div> -->
 
-        
+          
+   <div class="form-group">
+    <div class="col-sm-5"><h5><font color="black">เลขโต๊ะที่สั่งอาหาร</font></h5></div>
+    <div class="col-sm-3" align="left">
+        <select name="table" class="form-control" required ="กรุณากรอก เลขที่โต๊ะ">
+        <option value="">-เลือกเลขที่โต๊ะ-</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+  </div>
+
+  <p align="center"><br />
+          <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='none'> ยืนยัน</button>
+    </p>
+
+
 
         <div class="form-group">
           <div class="col-sm-12" align="center">

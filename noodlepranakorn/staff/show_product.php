@@ -12,8 +12,8 @@ $q = $_GET['q'];
     <div class="card mb-3">
       <img class="card-img-top" src="<?php echo"../backend/img/".$row_prd['f_img'];?>">
       <div class="card-body">
-        <h5 class="card-title"><?php echo $row_prd["f_name"];?></h5>
-        <p class="card-text text-danger">ราคา <?php echo $row_prd["f_price"];?> บาท</p>
+        <h5 class="card-title"><font color="#3E2723"><?php echo $row_prd["f_name"];?></font></h5>
+        <h5 class="card-text text-danger">ราคา<font color="#2E7D32"><b> <?php echo $row_prd["f_price"];?>.- </b></font> บาท</h5>
       </div>
       <div class="card-footer">
         <?php include('outstock.php');?>

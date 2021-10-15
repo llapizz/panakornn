@@ -26,11 +26,11 @@ $row_promotion = mysqli_fetch_assoc($promotion);
         <div class="container" style="margin-top: 10px">
           <table align="center" class="n-table" style='color:white !important;'>
             <tr align="center">
-              <th>*<font size="5px"color="#EF5350"> <i class="fas fa-gift"></i>  โปรโมชั่น</font> *</th>
+              <th>โปรโมชั่น</th>
             </tr>
             <?php do{ ?>
-            <tr height="50">
-              <td align="center"><font size="4px"><?=$row_promotion['pro_name']?></font></td>
+            <tr height="50" style="font-size: 15px;">
+              <td><?=$row_promotion['pro_name']?></td>
             </tr>
             <?php }while($row_promotion = mysqli_fetch_assoc($promotion)); ?>
           </table>

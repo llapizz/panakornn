@@ -38,6 +38,7 @@ require_once('../connect.php');
 	$f_name = $_POST['f_name'];
 	$pro_id = $_POST['btn_voucher'];
 
+
 	
 	//บันทึกการสั่งซื้อลงใน order_detail
 	 mysqli_query($conn, "BEGIN"); 

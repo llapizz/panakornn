@@ -15,9 +15,10 @@
   <img class="card-img-top">
   <a href="prd.php?id=<?php echo $row_prd[0]; ?>"> <?php echo"<img src='../backend/img/".$row_prd['f_img']."'width='100' height='100'>";?></a>
   <div class="card-body">
-    <a href="prd.php?id=<?php echo $row_prd[0]; ?>"> <?php echo $row_prd["f_name"];?> </a>   ราคา <font color="red"> <?php echo $row_prd["f_price"];?></font> บาท
-    
-    <br> 
+    <a href="prd.php?id=<?php echo $row_prd[0]; ?>"> <?php echo $row_prd["f_name"];?> </a>
+               
+                ราคา <font color="red"> <?php echo $row_prd["f_price"];?></font> บาท
+                 <br> 
                 
   คงเหลือ <span class="badge badge-info"><?php echo $row_prd["f_qty"];?></span>
   <span class="sr-only">unread messages</span><?php echo $row_prd["f_unit"];?>
@@ -26,7 +27,7 @@
   </div>
   <div>
   <button type="button" class="btn btn-success btn-sm">
-                        <a style="color: #fff" href="prd.php?id=<?php echo $row_prd[0]; ?>"> รายละเอียด </a></button>
+            
                        <?php include('outstock.php');?>
                      </div>
                      <br>
