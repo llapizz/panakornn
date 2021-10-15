@@ -64,10 +64,11 @@ input[type='radio']:checked:before {
 <form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
 <table class="table table-dark table-striped">
     <tr>
-      <td colspan="5" align="center"><h4> <font color="#fffff">รายการสั่งซื้อล่าสุด</font></h4><br>
-      <h6><font color="#fffff">คุณ</font>  <font color="green">  <?php echo $row_cartdone['user_name'];?> </font> </h6><br />
-          <h6><font color="red"> สถานะ 
-        </font></h6>
+      
+      <td colspan="5" align="center"><h4> <font color="#fffff"><i class="fas fa-archive"></i> รายการสั่งซื้อ อาหาร</font></h4><br>
+      <h5><font color="#fffff"><i class="fas fa-user"></i> คุณ</font>  <font color="#66BB6A">  <?php echo $row_cartdone['user_name'];?> </font> </h5><br />
+          <h5><font color="red"><i class="fas fa-lightbulb"></i> สถานะ 
+        </font></h5>
         <?php 
       $status =  $row_cartdone['order_status'];
       include('../backend/status.php');
@@ -85,18 +86,18 @@ input[type='radio']:checked:before {
             </tr>
             <?php }
             if($status!=1){ ?>
-            <tr>
+            <tr style="font-size:17px">
               <td valign="top">
                 <strong>
-                  <center>ชำระเงิน ธนาคาร<?php echo $row_cartdone['b_name'];?> <br />
-                  เลข บัญชีการชำระเงิน <?php echo $row_cartdone['b_number'];?> <br />
-                  วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br /><br />
+                  <center>ชำระเงิน : <font color="#1E88E5">ธนาคาร<?php echo $row_cartdone['b_name'];?></font> <br/>
+                  เลขที่บัญชีการชำระเงิน : <font color="#1E88E5"><?php echo $row_cartdone['b_number'];?> </font><br/>
+                  วันที่ชำระ : <font color="#1E88E5"><?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?></font><br ><br/>
                   <h4>
-                  <strong><?php if ($status != 1){ echo "<font color='green'>เลขที่ออเดอร์ :  " .$row_cartdone['order_id']; } ?></strong>
+                  <strong><?php if ($status != 1){ echo "<font color='#43A047'>เลขที่ออเดอร์ : </font><font color='#FFD54F'> " .$row_cartdone['order_id']; } ?></strong>
                      <br>
                   </h4>
                 <strong>
-                 <font color="red">*โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน*</font> 
+                 <font color="#FFFFF">* <font color="#E53935">โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน</font> *</font> 
                 </strong>
                 </center>
               </td>
@@ -106,16 +107,16 @@ input[type='radio']:checked:before {
         </td>
       </tr>
       <tr class="success">
-      <td width="99" align="center">รหัส</td>
-        <td width="120" align="center">สินค้า</td>
-        <td width="118" align="center">ราคา</td>
-        <td width="238" align="center">จำนวน</td>
-        <td width="100" align="center">รวม</td>
+      <td width="99" align="center"><font size="3px"color="#FFC107"><i class="fas fa-list-ol"></i> รหัสอาหาร </font></td>
+        <td width="120" align="center"><font size="3px"color="#FFC107"><i class="fas fa-utensils"></i> อาหาร </font></td>
+        <td width="118" align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> ราคา </font></td>
+        <td width="238" align="center"><font size="3px"color="#FFC107"><i class="fas fa-archive"></i> จำนวน </font></td>
+        <td width="100" align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวม </font></td>
       </tr>
       <?php do { ?>
-      <tr>
+      <tr style="font-size:17px">
         <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-        <td><?php echo $row_cartdone['f_name'];?></td>
+        <td align="center"><?php echo $row_cartdone['f_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
@@ -126,8 +127,8 @@ input[type='radio']:checked:before {
           // echo $total;
           ?>
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
-      <tr>
-        <td colspan="4" align="right">รวม</td>
+      <tr style="font-size:17px">
+        <td colspan="4" align="right"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวมสุทธิ </font></td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
 
@@ -144,9 +145,9 @@ input[type='radio']:checked:before {
         $total -= $row_check['pro_discount'];
       }
     ?>
-      <tr>
-        <td colspan="3">โปรโมชั่นที่ใช้งาน <?=$row_check['pro_name']?></td>
-        <td align="right">ราคารวมโปรโมชั่น</td>
+      <tr style="font-size:17px">
+        <td colspan="3"><font color="#66BB6A">โปรโมชั่นที่ใช้งาน</font> <?=$row_check['pro_name']?></td>
+        <td align="right"><font color="#66BB6A"><i class="fas fa-money-bill-alt"></i> รวมโปรโมชั่น </font></td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
     <?php mysqli_free_result($check); } ?>
@@ -160,46 +161,45 @@ input[type='radio']:checked:before {
       <?php if($type_id_user!="2"){ ?>
     <tr>
       <td colspan="100" align="center">
-        <h4>รายละเอียดการโอนเงิน<br>
+        <h4><i class="fas fa-wallet"></i> รายละเอียดการโอนเงิน<br>
         <small class="text-danger">*โปรดเลือกบัญชีที่โอนเงิน*</small>
         </h4>
       </td>
       
     </tr>
     <?php do { ?>
-      <tr class="text-dark" align="center">
-        
-        <td width="28%" align="right"><input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
-        ธนาคาร :<?php echo $row_rb['b_name']; ?></td>
-        <td width="36%" align="center">เลขที่บัญชี  :<?php echo $row_rb['b_number']; ?></td>
-        <td width="36%" align="center"><strong>สาขา :</strong> <?php echo $row_rb['bn_name']; ?></td>
+      <tr class="text-dark" align="center" style="font-size:17px">
+        <td width="33%" align="right"> <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
+        <i class="far fa-credit-card"></i> ธนาคาร : <font color="#2E7D32"><?php echo $row_rb['b_name']; ?></font></td>
+        <td width="35%" align="center"><i class="far fa-credit-card"></i> เลขที่บัญชี  : <font color="#2E7D32"><?php echo $row_rb['b_number']; ?></font></td>
+        <td width="32%" align="center"><i class="far fa-credit-card"></i> <strong> สาขา :</strong> <font color="#2E7D32"><?php echo $row_rb['bn_name']; ?></font></td>
         </tr>
     <?php } while ($row_rb = mysqli_fetch_assoc($rb)); } ?>
-    <tr align="center" class="text-dark">
+    <tr align="center" class="text-dark" style="font-size:17px">
       <td colspan="5"><hr>
         <div class="col-sm-5">
-        <label for="pay_date">วันที่ชำระเงิน</label>
+        <label for="pay_date"><i class="fas fa-clock"></i> วันที่ชำระเงิน</label>
         <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" readonly/>
 
       </td>
     </tr>
-    <tr align="center" class="text-dark">
+    <tr align="center" class="text-dark" style="font-size:17px">
       <td colspan="5"><br>
-        <div class="col-sm-5">
-        <label for="pay_amount">จำนวนเงิน</label>
+        <div class="col-sm-6">
+        <label for="pay_amount"><i class="fas fa-money-bill-alt"></i> จำนวนเงิน</label>
 
         
         <input class="form-control" type="number" name="payment_amount" id="payment_amount"  value="<?php echo $total; ?>" required="required" readonly/>
-
+        <br><br><br>
         <center>
-        <h4>หลักฐานการโอน<br></h4>
-      <br>
-        <input name="pay_slip" type="file"  required="required"/><br>
-        <font class="text-danger">โปรดนำ slip ของท่านมาอัพโหลด<br>เพื่อยืนยันการสั่งซื้อ&nbsp;</font>
-        </center>
+        <h4><i class="fas fa-file-image"></i> หลักฐานการโอน</h4>
+        <font class="text-danger">* โปรดนำ slip ของท่านมาอัพโหลด<br>เพื่อยืนยันการสั่งซื้อ&nbsp; *</font></center>
+        <br><br>
+        <i class="fas fa-file-import"></i>&nbsp;&nbsp;&nbsp;&nbsp; <input name="pay_slip" type="file"  required="required"/><br>
+        
         
         <p align="center"><br />
-          <button type="submit" name="add" class="btn btn-success btn n-radius"> บันทึก</button>
+          <button type="submit" name="add" class="btn btn-success btn n-radius"><i class="fas fa-save"></i> บันทึก</button>
         </p>
         </div>
       </td>
