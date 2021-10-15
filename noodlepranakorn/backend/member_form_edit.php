@@ -13,7 +13,7 @@ extract($row);
   <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
   <div class="form-group">
     <div class="col-md-12" align="center">
-      <strong> Edit Member </strong>
+      <strong> แก้ไขข้อมูลลูกค้า </strong>
     </div>
   </div>
   

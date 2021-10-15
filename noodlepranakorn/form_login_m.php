@@ -28,12 +28,12 @@
           <div class="form-group">
             <div class="col-md-12">
               <button type="submit" class="btn-lg btn-success btn-block n-radius" id="btn">
-                <span class="glyphicon glyphicon-log-in"></span> <font color="#fffff">เข้าสู่ระบบ</font>
+                <span class="glyphicon glyphicon-log-in"></span> <font color="#fffff">เข้าสู่ระบบ <i class="fas fa-sign-in-alt"></i></font>
               </button>
               <br>
               <center>
               <a class="btn btn-info btn n-radius" href="index.php?act=add">
-                <font color="#fffff">สมัครสมาชิก</font>
+                <font color="#fffff">สมัครสมาชิก <i class="fas fa-address-card"></i></font>
               </a>
               </center>
             </div>

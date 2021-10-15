@@ -9,7 +9,7 @@ $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_erro
 $row = mysqli_fetch_array($result);
 extract($row);
 ?>
-<form name="register" action="member_form_edit_db.php" method="POST" class="form-horizontal">
+<form name="register" action="staff_form_edit_db.php" method="POST" class="form-horizontal">
   <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
   <div class="form-group">
     <div class="col-md-12" align="center">
@@ -18,19 +18,6 @@ extract($row);
   </div>
   
 
-  <!-- แก้ -->
-   <!-- <div class="form-group">
-    <div class="col-md-4" align="right"> สถานะ </div>
-    <div class="col-md-6" align="left">
-         <select name="type_id_user" class="form-control" required>
-       <option value="<?php echo $form-group['type_id_user'];?>">
-          <?php echo $form-group['type_id_user'];?>
-        </option>
-        <option value="" selected>-เลือกข้อมูล-</option>
-        
-      </select>
-    </div>
-  </div> -->
 
   
   <div class="form-group">

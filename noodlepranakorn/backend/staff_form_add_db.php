@@ -22,7 +22,7 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('สมัครพนักงานเรียบร้อย');";
-	echo "window.location = 'member.php'; ";
+	echo "window.location = 'staff.php'; ";
 	echo "</script>";
 	}
 	else{

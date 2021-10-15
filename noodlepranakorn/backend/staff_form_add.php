@@ -5,17 +5,6 @@
     </div>
   </div>
 
-  <!-- <div class="form-group">
-    <div class="col-md-4" align="right"> สถานะ </div>
-    <div class="col-md-6" align="left">
-        <select name="m_level" class="form-control" required>
-        <option value="">เลือกข้อมูล</option>
-        <option value="admin">admin</option>
-        <option value="member">member</option>
-      </select>
-    </div>
-  </div> -->
-
  <div class="form-group">
     <div class="col-md-4" align="right"> E-mail  </div>
     <div class="col-md-6" align="left">

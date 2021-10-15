@@ -1,4 +1,9 @@
-
+<style>
+	table {
+		border-radius: 3em;
+		overflow: hidden;
+		}
+</style>
 <?php
     error_reporting( error_reporting() & ~E_NOTICE );
     @session_start(); 
@@ -34,7 +39,7 @@
 	<form id="frmcart" name="frmcart" method="post" action="?act=update">
 	<table align="center" class="n-table">
 	<tr align="center">
-		<th colspan="5""><font size="5px"color="#B0BEC5"><i class="fas fa-cart-plus"></i> ตระกร้า อาหาร </font></th>
+		<th colspan="5""><font size="5px"color="#B0BEC5"><i class="fas fa-shopping-cart"></i> ตระกร้า อาหาร </font></th>
 		
 	</tr>
 	<tr align="center" height="50">
@@ -91,11 +96,11 @@
        <p align="right">   
         <?php if($total > 0){ ?>
           <td colspan="4">
-          <button type="submit" name="button" id="button" class="btn btn-warning btn-block">คำนวณ</button>
+          <button type="submit" name="button" id="button" class="btn btn-warning btn-block n-radius"><i class="fas fa-calculator"></i> คำนวณ</button>
           <?php $chk = $_GET['act'];
 		      if($chk=='update'){?>
-            <button type="button" name="Submit2"  onclick="window.location='confirm_order.php';" class="btn btn-danger btn-block"> 
-            <span class="glyphicon glyphicon-shopping-cart"> </span> สั่งซื้อ </button>
+            <button type="button" name="Submit2"  onclick="window.location='confirm_order.php';" class="btn btn-danger btn-block n-radius"> 
+            <span class="glyphicon glyphicon-shopping-cart"> </span> <i class="fas fa-cart-plus"></i> สั่งซื้อ </button>
                <?php }else{ }?>
             </td>
             <?php }else { 

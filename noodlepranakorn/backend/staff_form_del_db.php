@@ -15,7 +15,7 @@ $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_erro
 	if($result){
 	echo "<script type='text/javascript'>";
 	//echo "alert('Delete Succesfuly');";
-	echo "window.location = 'member.php'; ";
+	echo "window.location = 'staff.php'; ";
 	echo "</script>";
 	}
 	else{

@@ -5,10 +5,9 @@ include('connections.php');  //ไฟล์เชื่อมต่อกับ 
 
 //สร้างตัวแปรสำหรับรับค่าที่นำมาแก้ไขจากฟอร์ม
 	$user_id = $_REQUEST["user_id"];
-	$type_id_user = $_REQUEST["type_id_user"];
+	$type_id_user = "2";
 	$user_name = $_REQUEST["user_name"];
 	$user_password = $_REQUEST["user_password"];
-	
 	$user_email = $_REQUEST["user_email"];
 	$user_tel = $_REQUEST["user_tel"];
 	$user_address = $_REQUEST["user_address"];
@@ -34,7 +33,7 @@ mysqli_close($con); //ปิดการเชื่อมต่อ database
 	if($result){
 	echo "<script type='text/javascript'>";
 	echo "alert('Update Succesfuly');";
-	echo "window.location = 'member.php'; ";
+	echo "window.location = 'staff.php'; ";
 	echo "</script>";
 	}
 	else{

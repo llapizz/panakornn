@@ -40,9 +40,9 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
     ?>
     <a class="btn btn-danger" href="logout.php" role="button" onclick="return confirm('คุณต้องการออกจากระบบหรือไม่ ?')">ออกจากระบบ</a>
     <?php }else{ ?>
-    <a class="btn btn-info btn-lg  n-radius" href="form_login_m.php" role="button">เข้าสู่ระบบ</a>
+    <a class="btn btn-info btn-lg  n-radius" href="form_login_m.php" role="button">เข้าสู่ระบบ <i class="fas fa-sign-in-alt"></i></a>
     &nbsp;
-    <a class="btn btn-success btn-lg n-radius" href="index.php?act=add" role="button">สมัครสมาชิก</a>
+    <a class="btn btn-success btn-lg n-radius" href="index.php?act=add" role="button">สมัครสมาชิก <i class="fas fa-address-card"></i></a>
     <?php } ?>
   </form>
 </nav>

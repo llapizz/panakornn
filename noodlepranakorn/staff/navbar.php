@@ -42,7 +42,7 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
     ?>
     <big><font color="#66BB6A" size="5px">ยินดี<font color="#AED581">ต้อนรับ</font> </font><br><font color="#FFC107" size="4px">คุณ : </font><font color="#FFFFF" size="4px"><?php echo $row["user_name"]; ?></font></span></big>&nbsp;
      
-    <a class="btn-lg btn-danger n-radius" href="../logout.php" role="button" onclick="return confirm('คุณต้องการออกจากระบบหรือไม่ ?')">ออกจากระบบ</a>
+    <a class="btn-sm btn-danger n-radius" href="../logout.php" role="button" onclick="return confirm('คุณต้องการออกจากระบบหรือไม่ ?')">ออกจากระบบ</a>
     <?php }else{ ?>
     <a class="btn btn-warning n-link n-radius" href="form_login_m.php" role="button">เข้าสู่ระบบ</a>
     &nbsp;
