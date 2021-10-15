@@ -19,7 +19,7 @@ extract($row);
   
 
   <!-- แก้ -->
-   <div class="form-group">
+   <!-- <div class="form-group">
     <div class="col-md-4" align="right"> สถานะ </div>
     <div class="col-md-6" align="left">
          <select name="type_id_user" class="form-control" required>
@@ -30,7 +30,7 @@ extract($row);
         
       </select>
     </div>
-  </div>
+  </div> -->
 
   
   <div class="form-group">

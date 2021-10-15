@@ -25,14 +25,14 @@
   <div class="form-group">
     <div class="col-md-4" align="right"> ชื่อ-สกุล  </div>
     <div class="col-md-6" align="left">
-      <input  name="user_name" type="text" required class="form-control" id="user_name" placeholder="ภาษาอังกฤษหรือภาษาไทย" />
+      <input  name="user_name" type="text" required class="form-control" id="user_name" placeholder="กรุณากรอก ชื่อพนักงาน" />
     </div>
   </div>
   
   <div class="form-group">
     <div class="col-md-4" align="right"> รหัสผ่าน </div>
     <div class="col-md-6" align="left">
-      <input  name="user_password" type="password" required class="form-control" id="user_password" placeholder="ภาษาอังกฤษหรือตัวเลข" pattern="^[a-zA-Z0-9]+$" minlength="2" />
+      <input  name="user_password" type="password" required class="form-control" id="user_password" placeholder="กรุณากรอก รหัสผ่าน" pattern="^[a-zA-Z0-9]+$" minlength="2" />
     </div>
   </div>
 

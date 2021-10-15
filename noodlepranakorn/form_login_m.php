@@ -15,7 +15,7 @@
         <form  name="formlogin" action="login_m.php" method="POST" id="login" class="form-horizontal">
           <div class="form-group">
             <div class="col-md-12">
-              <input type="text"  name="user_email" class="form-control" required placeholder="ชือผู้ใช้งาน" />
+              <input type="email"  name="user_email" class="form-control" required placeholder="ชือผู้ใช้งาน" />
             </div>
           </div>
           <div class="form-group">
