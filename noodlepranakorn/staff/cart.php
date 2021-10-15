@@ -1,6 +1,6 @@
 <style>
 	table {
-		border-radius: 3em;
+		border-radius: 2em;
 		overflow: hidden;
 		}
 </style>
@@ -96,7 +96,7 @@
        <p align="right">   
         <?php if($total > 0){ ?>
           <td colspan="4">
-          <button type="submit" name="button" id="button" class="btn btn-warning btn-block n-radius"><i class="fas fa-calculator"></i> คำนวณ</button>
+          <button type="submit" name="button" id="button" class="btn btn-warning btn-block n-radius"><i class="fas fa-cash-register"></i> คำนวณ</button>
           <?php $chk = $_GET['act'];
 		      if($chk=='update'){?>
             <button type="button" name="Submit2"  onclick="window.location='confirm_order.php';" class="btn btn-danger btn-block n-radius"> 

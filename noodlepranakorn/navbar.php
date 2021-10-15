@@ -29,7 +29,7 @@ $totalRows_typeprd = mysqli_num_rows($typeprd);
       </li>
       <li class="nav-item">
         <font size="5px">
-        <a class="nav-link text-warning" href="contact.php"><i class="fas fa-book"></i> เกี่ยวกับ</a>
+        <a class="nav-link text-danger" href="contact.php"><i class="fas fa-store"></i> เกี่ยวกับทางร้าน</a>
         </font> 
       </li>
     </ul>

@@ -1,6 +1,6 @@
 <style>
 	table {
-		border-radius: 3em;
+		border-radius: 2em;
 		overflow: hidden;
 		}
 </style>
