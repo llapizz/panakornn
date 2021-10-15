@@ -34,14 +34,15 @@
 	<form id="frmcart" name="frmcart" method="post" action="?act=update">
 	<table align="center" class="n-table">
 	<tr align="center">
-		<th colspan="5"">ตะกร้าสินค้า</th>
+		<th colspan="5""><font size="5px"color="#B0BEC5"><i class="fas fa-cart-plus"></i> ตระกร้า อาหาร </font></th>
+		
 	</tr>
 	<tr align="center" height="50">
-		<td class="py-3 text-warning">สินค้า</td>
-		<td class="py-3 text-warning">ราคา</td>
-		<td class="py-3 text-warning">จำนวน</td>
-		<td class="py-3 text-warning">รวม</td>
-		<td class="py-3 text-warning">ลบ</td>
+		<td><font size="4px"color="#00BCD4"> อาหาร </font></td>
+		<td><font size="4px"color="#FF9800"> ราคา </font></td>
+		<td><font size="4px"color="#FDD835"> จำนวน</font></td>
+		<td><font size="4px"color="#4CAF50"> ราคารวม</font></td>
+		<td><font size="4px"color="#EF5350"> ลบ</font></td>
 	</tr>
     <?php
 		if(!empty($_SESSION['shopping_cart'])){
@@ -76,7 +77,7 @@
 		
 			}
 			echo "<tr>";
-			echo "<td colspan='3' align='center' class='py-3 text-warning'> รวม</td>";
+			echo "<td colspan='3' align='center' class='py-3 text-warning'><font size='5px' color='#EC407A'> รวม </font></td>";
 			echo "<td colspan='2'>";
 			echo "<b>";
 			echo  number_format($total,2);
@@ -98,8 +99,12 @@
                <?php }else{ }?>
             </td>
             <?php }else { 
+			echo "<font color='#FFFFF' size='4px'>";
+			echo "*";
 			echo "<font color='red'>";
-			echo "ไม่มีรายการสั่งซื้อ";
+			echo " ลูกค้ายังไม่ได้ทำการเลือกเมนูอาหาร ";
+			echo "</font>";
+			echo "*";
 			echo "</font>";
 			} ?>
           </p>

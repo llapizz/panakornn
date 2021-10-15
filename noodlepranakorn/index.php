@@ -6,7 +6,7 @@ include("connect.php");
 <head>
   <?php include('boot4.php');?>
 </head>
-<body>
+<body class="body">
  <?php
   include('navbar.php');
   ?>
@@ -15,7 +15,6 @@ include("connect.php");
       <div class="col-md-12">
         <div class="container" style="margin-top: 20px">
           <div class="row">
-            
             <?php
             $act = (isset($_GET['act']) ? $_GET['act'] : '');
             $q = $_GET['q'];

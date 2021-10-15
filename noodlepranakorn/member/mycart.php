@@ -26,13 +26,13 @@ $totalRows_mycart = mysqli_num_rows($mycart);
 
 ?>
 <?php include('datatable.php');?>
-<h4 class="text-light">ประวัติการสั่งซื้อ   </h4>
+<h4 class="text-light"><i class="fas fa-history"></i> ประวัติการสั่งซื้อ   </h4>
 
 <table id="example3" class="n-table" cellspacing="0">
   <tr>
-    <th>วันที่</th>
-    <th>เวลา</th>
-    <th>จำนวนรายการ</th>
+    <th width="10%">วันที่</th>
+    <th width="10%">เวลา</th>
+    <th width="15%">จำนวนรายการ</th>
     <th>ราคารวม</th>
     <th>สถานะ</th>
     <th>ชำระเงิน</th>
@@ -42,7 +42,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
       <td><?php echo date('d/m/', strtotime($row_mycart["order_date"])). (date('Y', strtotime($row_mycart["order_date"])) + 543) ?></td>
       <td align="center"> <?php echo date('H:i:s', strtotime($row_mycart["order_date"]))?></td>
       <td align="center">
-      <?php echo $row_mycart['coid'];?>
+      <?php echo $row_mycart['coid'];?>  <font color="#4CAF50">ชิ้น</font>
       </td>
        <td align="center">
         
