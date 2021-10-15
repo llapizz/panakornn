@@ -5,20 +5,20 @@
   //print_r($_SESSION);
 
 $query_buyer = "SELECT * FROM user WHERE user_id = $user_id";
-$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error($conn));
+$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
 $row_buyer = mysqli_fetch_assoc($buyer);
 $totalRows_buyer = mysqli_num_rows($buyer);
 
 
 $query_rb = "SELECT * FROM bank";
-$rb =mysqli_query($conn, $query_rb) or die ("Error in query: $query_rb " . mysqli_error($conn));
+$rb =mysqli_query($conn, $query_rb) or die ("Error in query: $query_rb " . mysqli_error());
 $row_rb = mysqli_fetch_assoc($rb);
 $totalRows_rb = mysqli_num_rows($rb);
 
 
-$order_id = $_GET['order_id'];
-$pro_id = $_GET['pro_id'];
-
+  $order_id = $_GET['order_id'];
+  $pro_id = $_GET['pro_id'];
+  
 $query_cartdone ="
 SELECT * FROM 
 orderr as o, 
@@ -30,7 +30,7 @@ AND o.order_id=d.order_id
 AND d.f_id=p.f_id
 AND o.user_id = m.user_id 
 ORDER BY o.order_date ASC";
-$cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error($conn));
+$cartdone = mysqli_query($conn, $query_cartdone) or die ("Error in query: $query_cartdone " . mysqli_error());
 
 $row_cartdone = mysqli_fetch_assoc($cartdone);
 $totalRows_cartdone = mysqli_num_rows($cartdone);
@@ -62,74 +62,80 @@ input[type='radio']:checked:before {
 }
 </style>
 <form class="form bg-light" action="add_payslip_db.php?pro_id=<?=$_GET['pro_id']?>" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
-  <table class="table table-dark table-striped">
+<table class="table table-dark table-striped">
     <tr>
-      <td colspan="5" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ<?php echo $row_cartdone['user_name'];?> <br />
-          <font color="red"> สถานะ :
-          <?php 
+      
+      <td colspan="5" align="center"><h4> <font color="#fffff"><i class="fas fa-archive"></i> รายการสั่งซื้อ อาหาร</font></h4><br>
+      <h5><font color="#fffff"><i class="fas fa-user"></i> คุณ</font>  <font color="#66BB6A">  <?php echo $row_cartdone['name'];?> </font> </h5><br />
+          <h5><font color="red"><i class="fas fa-lightbulb"></i> สถานะ 
+        </font></h5>
+        <?php 
       $status =  $row_cartdone['order_status'];
       include('../backend/status.php');
       ?>
-        </font></strong></td>
+      </td>
     </tr>
     <tr>
-
         <td colspan="5" align="center">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <?php if($row_cartdone['pay_slip']){ ?>
             <tr>
-              <td>
-                <img src="pimg/<?php echo $row_cartdone['pay_slip'];?>" class="img w-100"/>
+              <td align="center">
+                <img src="pimg/<?php echo $row_cartdone['pay_slip'];?>" width="35%"/>
+              </td>
+            </tr>
+            <?php }
+            if($status!=1){ ?>
+            <tr style="font-size:17px">
+              <td valign="top">
+                <strong>
+                  <center>ชำระเงิน : <font color="#1E88E5">ธนาคาร<?php echo $row_cartdone['b_name'];?></font> <br/>
+                  เลขที่บัญชีการชำระเงิน : <font color="#1E88E5"><?php echo $row_cartdone['b_number'];?> </font><br/>
+                  วันที่ชำระ : <font color="#1E88E5"><?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?></font><br ><br/>
+                  <h4>
+                  <strong><?php if ($status != 1){ echo "<font color='#43A047'>เลขที่ออเดอร์ : </font><font color='#FFD54F'> " .$row_cartdone['order_id']; } ?></strong>
+                     <br>
+                  </h4>
+                <strong>
+                 <font color="#FFFFF">* <font color="#E53935">โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน</font> *</font> 
+                </strong>
+                </center>
               </td>
             </tr>
             <?php } ?>
-            <tr>
-              <td valign="top">
-                <strong>
-                  <?php echo $row_cartdone['b_name'];?> <br />
-                  <!-- เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br /> -->
-                  จำนวน <?php echo $row_cartdone['pay_amount'];?><br />
-                  วันที่ชำระ <?php echo date('d/m/y',strtotime($row_cartdone['pay_date']));?><br /><br />
-                  <h4 class="text-white">
-                <font color="green"><?php if ($status != 1){ echo "เลขที่ออเดอร์ : " . $row_cartdone['order_id']; } ?></font> 
-                     <br>
-                  </h4>
-                 <font color="red">*โปรดนำเลขที่ออเดอร์ของท่านไปแสดงที่หน้าเค้าเตอร์ของทางร้าน*</font> 
-                </strong>
-              </td>
-            </tr>
           </table>
         </td>
       </tr>
-
       <tr class="success">
-      <td width="99" align="center">รหัส</td>
-        <td width="120" align="center">สินค้า</td>
-        <td width="118" align="center">ราคา</td>
-        <td width="238" align="center">จำนวน</td>
-        <td width="100" align="center">รวม</td>
+      <td width="99" align="center"><font size="3px"color="#FFC107"><i class="fas fa-list-ol"></i> รหัสอาหาร </font></td>
+        <td width="120" align="center"><font size="3px"color="#FFC107"><i class="fas fa-utensils"></i> อาหาร </font></td>
+        <td width="118" align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> ราคา </font></td>
+        <td width="238" align="center"><font size="3px"color="#FFC107"><i class="fas fa-archive"></i> จำนวน </font></td>
+        <td width="100" align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวม </font></td>
       </tr>
       <?php do { ?>
-      <tr>
+      <tr style="font-size:17px">
         <td align="center"><?php echo $row_cartdone['d_id'];?></td>
-        <td><?php echo $row_cartdone['f_name'];?></td>
+        <td align="center"><?php echo $row_cartdone['f_name'];?></td>
         <td align="center"><?php echo $row_cartdone['f_price'];?></td>
         <td align="center"><?php echo $row_cartdone['f_c_qty'];?></td>
-        <td align="center"><?php echo number_format($row_cartdone['total'],2); ?></td>
+        <td align="center"><?php echo number_format($row_cartdone['total'],2);?></td>
       </tr> 
       <?php 
           $sum  = $row_cartdone['f_price']*$row_cartdone['f_c_qty'];
           $total  += $sum;
-          //echo $total;
+          // echo $total;
           ?>
     <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
-      <tr>
-        <td colspan="4" align="right">รวม</td>
+      <tr style="font-size:17px">
+        <td colspan="4" align="right"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวมสุทธิ </font></td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
+
+
     <?php if($pro_id!="none"&&isset($_GET['pro_id'])){ 
       $sql_check = "SELECT * FROM promotion WHERE pro_id = $pro_id";
-      $check = mysqli_query($conn, $sql_check);
+      $check = mysqli_query($conn, $sql_check)or die($sql_check);
       $row_check = mysqli_fetch_assoc($check);
 
       $mode = substr($row_check['pro_discount'],-1);
@@ -139,9 +145,9 @@ input[type='radio']:checked:before {
         $total -= $row_check['pro_discount'];
       }
     ?>
-      <tr>
-        <td colspan="3"><?=$row_check['pro_name']?></td>
-        <td align="right">รวม</td>
+      <tr style="font-size:17px">
+        <td colspan="3"><font color="#66BB6A">โปรโมชั่นที่ใช้งาน</font> <?=$row_check['pro_name']?></td>
+        <td align="right"><font color="#66BB6A"><i class="fas fa-money-bill-alt"></i> รวมโปรโมชั่น </font></td>
         <td align="center"><b> <?php echo number_format($total,2);?></b></td>
       </tr>
     <?php mysqli_free_result($check); } ?>
@@ -149,43 +155,53 @@ input[type='radio']:checked:before {
   </table>
   <?php 
     // $status =  $row_cartdone['order_status'];
-      if($status > 1){ }else{ ?> 
-  <table class="" border="0" align="center" cellpadding="0" cellspacing="0">
-    <?php if($user_name!="Staff"){ ?>
+  if($status==1){ ?> 
+  <br /><br />
+  <table class="" border="0" align="center" cellpadding="5" cellspacing="0">
+      <?php if($type_id_user!="3"){ ?>
     <tr>
-      <td colspan="6">
-        <h4>รายละเอียดการโอนเงิน<br>
-        <small class="text-danger">*เลือกบัญชีที่โอนเงิน</small>
+      <td colspan="100" align="center">
+        <h4><i class="fas fa-wallet"></i> รายละเอียดการชำระเงิน<br>
+        <small class="text-danger">*กรณีลูกค้าโอนจ่าย*</small>
         </h4>
       </td>
+      
     </tr>
     <?php do { ?>
-      <tr class="text-dark">
-        <td width="5%" align="center">
-          <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
-        </td>
-        <td width="22%">ธนาคาร <?php echo $row_rb['b_name']; ?></td>
-        <td width="17%"><?php echo $row_rb['b_number']; ?></td>
-        <td width="15%"><strong>สาขา</strong> <?php echo $row_rb['bn_name']; ?></td>
+      <tr class="text-dark" align="center" style="font-size:17px">
+        <td width="33%" align="right"> <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'-'.$row_rb['b_number'];?>" required="required" />
+        <i class="far fa-credit-card"></i> ธนาคาร : <font color="#2E7D32"><?php echo $row_rb['b_name']; ?></font></td>
+        <td width="35%" align="center"><i class="far fa-credit-card"></i> เลขที่บัญชี  : <font color="#2E7D32"><?php echo $row_rb['b_number']; ?></font></td>
+        <td width="32%" align="center"><i class="far fa-credit-card"></i> <strong> สาขา :</strong> <font color="#2E7D32"><?php echo $row_rb['bn_name']; ?></font></td>
         </tr>
     <?php } while ($row_rb = mysqli_fetch_assoc($rb)); } ?>
-    <tr class="text-dark">
+    <tr align="center" class="text-dark" style="font-size:17px">
       <td colspan="5"><hr>
-        <label for="pay_date">วันที่ชำระเงิน</label>
-        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" disabled/>
+        <div class="col-sm-5">
+        <label for="pay_date"><i class="fas fa-clock"></i> วันที่ชำระเงิน</label>
+        <input class="form-control" type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>" readonly/>
+
       </td>
     </tr>
-    <tr class="text-dark">
+    <tr align="center" class="text-dark" style="font-size:17px">
       <td colspan="5"><br>
-        <label for="pay_amount">จำนวนเงิน</label>
-        <input class="form-control" type="number" name="pay_amount" id="pay_amount"  value="<?php echo $total; ?>" required="required" disabled/>
-      </td>
-    </tr>
-    <tr class="text-dark">
-      <td colspan="5"><br>
-        <label for="pay_slip">หลักฐานการโอน</label>
-        <input name="pay_slip" type="file"  required="required"/><br>
-        (ไฟล์ .jpg, gif, png, pdf&nbsp;ไม่เกิน 2mb)
+        <div class="col-sm-6">
+        <label for="pay_amount"><i class="fas fa-money-bill-alt"></i> จำนวนเงิน</label>
+
+        
+        <input class="form-control" type="number" name="payment_amount" id="payment_amount"  value="<?php echo $total; ?>"  readonly/>
+        <br><br><br>
+        <center>
+        <h4><i class="fas fa-file-image"></i> หลักฐานการโอน</h4>
+        <font class="text-danger">* แนบสลิป กรณีลูกค้าโอนจ่าย&nbsp; *</font></center>
+        <br><br>
+        <i class="fas fa-file-import"></i>&nbsp;&nbsp;&nbsp;&nbsp; <input name="pay_slip" type="file"  required="required"/><br>
+        
+        
+        <p align="center"><br />
+          <button type="submit" name="add" class="btn btn-success btn n-radius"><i class="fas fa-save"></i> บันทึก</button>
+        </p>
+        </div>
       </td>
     </tr>
     <tr>
@@ -195,13 +211,12 @@ input[type='radio']:checked:before {
       <td><input name="order_id" type="hidden" id="order_id" value="<?php echo $order_id; ?>" /></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
+      
     </tr>
   </table>
-  <p align="center"><br />
-    <button type="submit" name="add" class="btn btn-success btn-block">บันทึก</button>
-  </p>
-</form>
+  
 <?php } ?>
+</form>
     </div>
   </div>
 </div>

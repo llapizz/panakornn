@@ -19,17 +19,18 @@ $row_promotion = mysqli_fetch_assoc($promotion);
 </head>
 <body>
   <?php include('navbar.php'); ?>
+  <br><br>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
         <div class="container" style="margin-top: 10px">
           <table align="center" class="n-table" style='color:white !important;'>
             <tr align="center">
-              <th>โปรโมชั่น</th>
+              <th>*<font size="5px"color="#EF5350"> <i class="fas fa-gift"></i>  โปรโมชั่น</font> *</th>
             </tr>
             <?php do{ ?>
-            <tr height="50" style="font-size: 15px;">
-              <td><?=$row_promotion['pro_name']?></td>
+            <tr height="50">
+              <td align="center"><font size="4px"><?=$row_promotion['pro_name']?></font></td>
             </tr>
             <?php }while($row_promotion = mysqli_fetch_assoc($promotion)); ?>
           </table>

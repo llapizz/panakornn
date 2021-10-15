@@ -38,7 +38,7 @@ $totalRows_mycart = mysqli_num_rows($mycart);
     <th>ชำระเงิน</th>
   </tr>
   <?php do { ?>
-    <tr style="color:white !important;">
+    <tr style="font-size:17px !important;" >
       <td><?php echo date('d/m/', strtotime($row_mycart["order_date"])). (date('Y', strtotime($row_mycart["order_date"])) + 543) ?></td>
       <td align="center"> <?php echo date('H:i:s', strtotime($row_mycart["order_date"]))?></td>
       <td align="center">

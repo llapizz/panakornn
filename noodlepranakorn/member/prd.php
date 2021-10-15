@@ -6,6 +6,9 @@ $f_id = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <head>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="../fontawesome/css/all.css">
+<!-- Font Awesome -->
   <?php include('boot4.php');?>
   <style>
   * {

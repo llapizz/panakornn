@@ -4,8 +4,8 @@
 session_start(); 
 // print_r($_SESSION);
 
-$query_buyer = "SELECT * FROM user WHERE  user_id=$user_id " or die("Error:" . mysqli_error());
-$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error());
+$query_buyer = "SELECT * FROM user WHERE  user_id=$user_id " or die("Error:" . mysqli_error($con));
+$buyer = mysqli_query($conn, $query_buyer) or die ("Error in query: $query_buyer " . mysqli_error($con));
 $row_buyer = mysqli_fetch_assoc($buyer);
 $totalRows_buyer = mysqli_num_rows($buyer);
 
@@ -16,16 +16,17 @@ $totalRows_buyer = mysqli_num_rows($buyer);
   <div class="row">
     <div class="col-md-10 offset-md-1 n-radius">
       <table class="n-table">
-        <tr align="center">
-          <th colspan="6">สั่งซื้อสินค้า</th>
+        <tr align="center" >
+          
+          <th colspan="6"><font size="5px"color="#B0BEC5"><i class="fas fa-archive"></i> รายการสั่งซื้อ อาหาร </font></th>
         </tr>
-        <tr class="success" height="50">
-          <td align="center">ลำดับ</td>
-          <td align="center">ภาพ</td>
-          <td align="center">สินค้า</td>
-          <td align="center">ราคา</td>
-          <td align="center">จำนวน</td>
-          <td align="center">รวม/รายการ</td>
+        <tr class="success" height="50" style="font-size:17px">
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-list-ol"></i> ลำดับ </font></td>
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-file-image"></i> ภาพ </font></td>
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-utensils"></i> อาหาร </font></td>
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> ราคา</font></td>
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-archive"></i> จำนวน </font></td>
+          <td align="center"><font size="3px"color="#FFC107"><i class="fas fa-money-bill-alt"></i> รวม </font></td>
         </tr>
         <form  name="formlogin" action="saveorder.php" method="POST" id="login" class="form-horizontal">
         <?php
@@ -37,17 +38,17 @@ $totalRows_buyer = mysqli_num_rows($buyer);
           $row	= mysqli_fetch_array($query);
           $sum	= $row['f_price']*$f_qty;
           $total	+= $sum;
-          echo "<tr>";
+          echo "<tr style='font-size:14px'>";
           echo "<td align='center'>";
           echo  $i += 1;
           echo "</td>";
           echo "<td align='center'>";
-          echo "<img src='../backend/img/".$row['f_img']."' width='30'>";
+          echo "<img src='../backend/img/".$row['f_img']."' width='70'>";
           echo "</td>";
-          echo "<td>" . $row["f_name"] . "</td>";
-          echo "<td align='right'>" .number_format($row['f_price'],2) ."</td>";
-          echo "<td align='right'>$f_qty</td>";
-          echo "<td align='right'>".number_format($sum,2)."</td>";
+          echo "<td align='center'>" . $row["f_name"] . "</td>";
+          echo "<td align='center'>" .number_format($row['f_price'],2) ."</td>";
+          echo "<td align='center'>$f_qty</td>";
+          echo "<td align='center'>".number_format($sum,2)."</td>";
           echo "</tr>";
           $type_count[$i] = $row['type_id'];
         ?>
@@ -65,10 +66,11 @@ $totalRows_buyer = mysqli_num_rows($buyer);
         $check = mysqli_query($conn, $sql_check)or die($sql_check);
         $row_check = mysqli_fetch_assoc($check);
             echo "<tr>";
-            echo "<td colspan='3'></td>";
-            echo "<td><button type='submit' class='btn btn-warning btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='none'>ไม่ใช้สิทธิ</button></td>";
-            echo "<td align='right' height='70'><b>รวม</b></td>";
-            echo "<td align='right'><b>".number_format($total,2)."</b></td>";
+            
+            echo "<td colspan='3' align='center'><h5><font size='4px'color='#EF5350'> <i class='fas fa-gift'></i>  โปรโมชั่นแนะนำ</font></h5></td>";
+            echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='none'><i class='fas fa-times-circle'></i> ไม่ใช้สิทธิ</button></td>";
+            echo "<td align='center' height='70'><b> <font size='3px'color='#FFC107'><i class='fas fa-money-bill-alt'></i> รวมสุทธิ </font></b></td>";
+            echo "<td align='center'><b>".number_format($total,2)."</b></td>";
             echo "</tr>";
         $j=0;
         do{
@@ -79,38 +81,63 @@ $totalRows_buyer = mysqli_num_rows($buyer);
               $totalsum[$j] = $total-$row_check['pro_discount'];
             }
             echo "<tr>";
-            echo "<td align='left' colspan='3'>".$row_check['pro_name']."</td>";
-            echo "<td><button type='submit' class='btn btn-success btn-block n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'>ใช้สิทธินี้</button></td>";
-            echo "<td align='right'><b>เหลือ</b></td>";
-            echo "<td align='right'><b>".number_format($totalsum[$j],2)."</b></td>";
+            if ($total != $totalsum[$j]){
+            echo "<td style='background-color:#33CC66' align='center' colspan='3'> ".$row_check['pro_name']."</td>";
+            echo "<td><center><button type='submit' class='btn btn-success btn n-radius btn-sm' id='btn' name='btn_voucher' value='".$row_check['pro_id']."'><i class='fas fa-check'></i> ใช้สิทธินี้</button></center></td>";
+            echo "<td align='center'><b><font size='3px'color='#FFC107'><i class='fas fa-money-bill-alt'></i> รวมโปรโมชั่น </font></b></td>";
+            echo "<td align='center'><b>".number_format($totalsum[$j],2)."</b></td>";
+            echo "<input type='hidden' id='total_dis' name='total_dis' value='".number_format($totalsum[$j],2)."'>";
+          }else{
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td></td>";
+          }
             echo "</tr>";
         $j++; }while($row_check=mysqli_fetch_assoc($check));
-            echo "<tr>";
-            echo "<td colspan='6'><a href='index.php' class='btn btn-danger btn-block n-radius'>ยกเลิก</a></td>";
+            echo "<tr align='right'>";
+            echo "<td colspan='6'><a href='index.php' class='btn btn-danger n-radius'><i class='fas fa-times-circle'></i> ยกเลิก</a></td>";
             echo "</tr>";
         ?>
       </table>
 		</div>
 	</div>
-</div>
-
-<div class="container py-3">
+<tr align="center">
+<div class="container py-3 " >
   <div class="row">
-    <div class="col-md-10 offset-md-1 n-radius" style="background-color:#f4f4f4">
+    <div class="col-md-10 offset-md-1 n-radius" style="background-color:#f4f4f4" align="center">
       <h3 align="center" class="py-3 text-warning">
-      <span class="glyphicon glyphicon-shopping-cart"></span> รายละเอียดสั่งซื้อ</h3>
-        <div class="form-group">
-        <h4 align="center"><font color="black">ชื่อพนักงาน</font></h4>
-          <div class="col-sm-12">
-            <input type="text" name="name" value="<?php echo $row_buyer['user_name']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" readonly/>
+      <span class="glyphicon glyphicon-shopping-cart"></span><i class="fas fa-address-card"></i> รายละเอียดการสั่งซื้อ</h3>
+        <div class="form-group" >
+          <div class="col-sm-5">
+            <h5><font color="black"><i class="fas fa-user"></i> ชื่อลูกค้า</font></h5><input type="text" name="name" value="" class="form-control" required placeholder="ชื่อ-สกุล"/>
           </div>
         </div>
+
         <div class="form-group">
-        <h4 align="center"><font color="black">เลขโต๊ะ</font></h4>
-          <div class="col-sm-12">
-          <input type="text" name="phone" value="<?php echo $row_buyer['user_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+          <div class="col-sm-5"><h5><font color="black">เลขโต๊ะที่สั่งอาหาร</font></h5></div>
+            <div class="col-sm-3" align="left">
+              <select name="table" class="form-control" required ="กรุณากรอก เลขที่โต๊ะ">
+                <option value="">-เลือกเลขที่โต๊ะ-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+                  <p align="center"><br />
+                    <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='none'> ยืนยัน</button>
+                  </p>
           </div>
-        </div>
+       
+
+        
+
         <div class="form-group">
           <div class="col-sm-12" align="center">
             <input name="user_id" type="hidden" id="user_id" value="<?php echo $row_buyer['user_id']; ?>">
@@ -119,7 +146,8 @@ $totalRows_buyer = mysqli_num_rows($buyer);
       </form>
     </div>
   </div>
-</div>
+</tr>
+
 <?php
 mysqli_free_result($buyer);
 mysqli_free_result($check);
