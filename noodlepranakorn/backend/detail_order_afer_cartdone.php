@@ -30,20 +30,17 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
 ?>
 <table border="0" align="center" class="table">
   <tr>
-    <td colspan="5" align="center"><p align="center">
-      <button class="btn btn-info btn-block n-radius" onclick="window.print()">
-        <span  class="fas fa-print"></span> พิมพ์ </button> 
-    </p></td>
+    <td colspan="5" align="center"></td>
   </tr>
   <tr>
     <td width="100%" colspan="5" align="center">
-      <strong>รายการสั่งซื้อคุณ<?php echo $row_cartdone['user_name'];?>    <br />
+      <strong>รายการสั่งซื้อคุณ : <?php echo $row_cartdone['user_name'];?>    <br />
 
       <?php
               if($row_cartdone['phone']!=0){
-                 echo "เบอร์โทร :".$row_cartdone['phone']."<br>";
+                 echo "เบอร์โทร : ".$row_cartdone['phone']."<br>";
               }else{
-                echo "โต๊ะ :".$row_cartdone['table']."<br>";
+                echo "โต๊ะ : ".$row_cartdone['table']."<br>";
               }
           ?>
 
@@ -62,18 +59,20 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
       </font></strong>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td align="left" valign="top">
+          <td align="center" valign="top">
             <strong>
             <?php echo $row_cartdone['b_name'];?> <br />
             <!-- เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br /> -->
-            จำนวน <?php echo $pay_amount;?><br />
-            วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br />
+            จำนวนเงิน :  <?php echo $pay_amount;?><br />
+            วันที่ชำระ : <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?><br />
             เลขที่ออเดอร์ :  <?php echo $row_cartdone['order_id'];?>
             </strong>
           </td>
           
-          <td>
-          <img src="../member/pimg/<?php echo $row_cartdone['pay_slip'];?>" width="45%"/>
+          <td align="center">
+          หลักฐานการโอน
+            <br>
+          <img src="../member/pimg/<?php echo $row_cartdone['pay_slip'];?>" width="35%"/>
         </td>
         </tr>
       </table>

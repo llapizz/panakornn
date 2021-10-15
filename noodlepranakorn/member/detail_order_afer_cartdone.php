@@ -79,8 +79,8 @@ input[type='radio']:checked:before {
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <?php if($row_cartdone['pay_slip']){ ?>
             <tr>
-              <td>
-                <img src="pimg/<?php echo $row_cartdone['pay_slip'];?>" class="img w-100"/>
+              <td align="center">
+                <img src="pimg/<?php echo $row_cartdone['pay_slip'];?>" width="35%"/>
               </td>
             </tr>
             <?php }

@@ -6,7 +6,7 @@ include("connect.php");
 <head>
   <?php include('boot4.php');?>
 </head>
-<body class="b">
+<body>
  <?php
   include('navbar.php');
   ?>
