@@ -3,6 +3,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" href="images/logo1.png">
 <!-- Required meta tags -->
 
 <!-- Bootstrap CSS -->
@@ -30,5 +31,5 @@
 
 
 <!-- likeboxFacebook -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v11.0" nonce="npFah1YV"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v12.0" nonce="QoE4MjdZ"></script>
 <!-- likeboxFacebook -->

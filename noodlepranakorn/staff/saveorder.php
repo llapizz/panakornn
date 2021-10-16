@@ -23,18 +23,23 @@ require_once('../connect.php');
     date_default_timezone_set('Asia/Bangkok');
 	$user_id = $_POST['user_id'];
 	$user_name = $_POST["name"]; 
-	$table = $_POST["table"];
+	$table = $_POST["table"]; 
 	$phone = $_POST["phone"];
 	$f_qty = $_POST["f_qty"];
 	$total = $_POST['total'];
-	$total_dis = $_POST['total_dis'];
+	if($_POST['total_dis']){
+		$total_dis = $_POST['total_dis'];	
+	}
+	else{
+		$total_dis = 0;
+	}
 	$order_date = date("Y-m-d H:i:s");
 	$status = 1;
 	$pay_slip ='';
 	$b_name ='';
 	$b_number ='';
-	$pay_date ='';
-	$pay_amount ='';
+	$pay_date = date("Y-m-d H:i:s");
+	$pay_amount = '';
 	$f_name = $_POST['f_name'];
 	$pro_id = $_POST['btn_voucher'];
 
@@ -53,16 +58,16 @@ require_once('../connect.php');
 	'$b_name',
 	'$b_number',
 	'$pay_date',
-	'$pay_amount',
+	NULL,
 	'$order_date' 
 	)";
 	
-	$query1	= mysqli_query($conn, $sql1 ) or die ("Error in query: $query1 " . mysqli_error($con));
+	$query1	= mysqli_query($conn, $sql1 ) or die ("Error in query1: $query1 " . mysqli_error($conn));
 
  
  
 	$sql2 = "SELECT MAX(order_id) AS order_id FROM orderr  WHERE user_id='$user_id'";
-	$query2	= mysqli_query($conn, $sql2) or die ("Error in query: $sql2 " . mysqli_error($con));
+	$query2	= mysqli_query($conn, $sql2) or die ("Error in query2: $sql2 " . mysqli_error($conn));
 	$row = mysqli_fetch_array($query2);
 	$order_id = $row['order_id'];
 	
@@ -71,7 +76,7 @@ require_once('../connect.php');
 	 
 	{
 		$sql3	= "SELECT * FROM foods where f_id=$f_id";
-		$query3 = mysqli_query($conn, $sql3) or die ("Error in query: $sql3 " . mysqli_error($con));
+		$query3 = mysqli_query($conn, $sql3) or die ("Error in query3: $sql3 " . mysqli_error($con));
 		$row3 = mysqli_fetch_array($query3);
 		$total=$row3['f_price']*$f_qty;
 		$count=mysqli_num_rows($query3);
@@ -91,7 +96,7 @@ require_once('../connect.php');
 		'$total_dis',
 		'$pro_id',
 		'$order_date')";
-		$query4	= mysqli_query($conn, $sql4) or die ("Error in query: $query4 " . mysqli_error($con));
+		$query4	= mysqli_query($conn, $sql4) or die ("Error in query4: $query4 " . mysqli_error($conn));
 
 		$sqlpname ="UPDATE order_detail t2, 
 		(
@@ -100,7 +105,7 @@ require_once('../connect.php');
 		t1 
 		SET t2.f_name = t1.f_name WHERE t1.f_id = t2.f_id";
 
-	    $querypanem	= mysqli_query($conn, $sqlpname) or die ("Error in query: $querypanem " . mysqli_error($con));
+	    $querypanem	= mysqli_query($conn, $sqlpname) or die ("Error in query5: $querypanem " . mysqli_error($conn));
 
 //ตัดสต๊อก
   for($i=0; $i<$count; $i++){
@@ -111,7 +116,7 @@ require_once('../connect.php');
   $sql9 = "UPDATE foods SET  
      f_qty=$stc
      WHERE  f_id=$f_id ";
-  $query9 = mysqli_query($conn, $sql9) or die ("Error in query: $query9 " . mysqli_error($con));
+  $query9 = mysqli_query($conn, $sql9) or die ("Error in query6: $query9 " . mysqli_error($con));
  
   }
     

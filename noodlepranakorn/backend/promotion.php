@@ -63,13 +63,13 @@ if(isset($_POST['btn_del'])){
                     </div>
                   </div>
                   <div class="row" style="margin-bottom: 2rem;">
-                    <div class="col-md-0">
-                      <!-- <select class="form-control" name="pro_type"> -->
-                        <!-- <option selected>เลือกหมวดหมู่</option> -->
-                        <option  value="0"></option>
-                        <!-- <?php do{ ?> -->
-                        <!-- <option value="<?=$row_type['type_id']?>"><?=$row_type['type_name']?></option> <?php }while($row_type=mysqli_fetch_assoc($type)); ?> -->
-                      <!-- </select> -->
+                    <div class="col-md-4">
+                      <select class="form-control" name="pro_type"> 
+                        <option selected >เลือกหมวดหมู่</option>
+                        <option  value="0">หมวดหมู่ใดก็ได้</option>
+                        <!-- <?php do{ ?> 
+                         <option value="<?=$row_type['type_id']?>"><?=$row_type['type_name']?></option> <?php }while($row_type=mysqli_fetch_assoc($type)); ?>  -->
+                      </select> 
                     </div>
                     <div class="col-md-2">เมื่อซื้อมากกว่า</div>
                     <div class="col-md-2">
@@ -98,7 +98,7 @@ if(isset($_POST['btn_del'])){
               <thead>
                 <tr align="center">
                   <td>ชื่อโปรโมชั่น</td>
-                  <td>สินค้า</td>
+                  <!-- <td>สินค้า</td> -->
                   <td>เมื่อซื้อมากกว่า</td>
                   <td>ส่วนลด</td>
                   <td colspan="2">จัดการ</td>
@@ -109,7 +109,7 @@ if(isset($_POST['btn_del'])){
                 <form method="post" action="">
                   <tr>
                     <td><?=$row_promotion['pro_name']?></td>
-                    <td><?=$row_promotion['type_name']?></td>
+                    <!-- <td><?=$row_promotion['type_name']?></td> -->
                     <td align="right"><?=$row_promotion['pro_price']?> บาท</td>
                     <td align="right"><?=$row_promotion['pro_discount']?></td>
                     <td>

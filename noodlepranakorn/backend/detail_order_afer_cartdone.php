@@ -52,6 +52,9 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
       <?php
       $status =  $row_cartdone['order_status'];
       $pay_amount = $row_cartdone['pay_amount'];
+      $total = $row_cartdone['total'];
+      $total_dis = $row_cartdone['total_dis'];
+      $promotion = $row_cartdone['pro_id'];
       include('status.php');
       
       ?>
@@ -107,7 +110,24 @@ $totalRows_cartdone = mysqli_num_rows($cartdone);
   <?php } while ($row_cartdone = mysqli_fetch_assoc($cartdone)); ?>
   <tr>
     <td colspan="4" align="center">ราคารวมสุทธิ</td>
-    <td align="center"><b> <?php echo $pay_amount;?></b></td>
+    <td align="center"><b>
+    <?php 
+    if($status==1){
+      
+    }elseif($status==2){
+      echo $pay_amount;
+    }elseif($status==3){
+      echo $pay_amount;
+    } 
+    ?>
+        <!-- <?php
+              if($status!=1){
+                echo $pay_amount;
+              }else{
+                echo $total_dis;
+              }
+          ?> -->
+    <!-- <?php echo $total_dis;?></b></td> -->
   </tr>
   <tr>
     <td colspan="5">

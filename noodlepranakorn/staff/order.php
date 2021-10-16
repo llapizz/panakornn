@@ -68,7 +68,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
             echo "<tr>";
             
             echo "<td colspan='3' align='center'><h5><font size='4px'color='#EF5350'> <i class='fas fa-gift'></i>  โปรโมชั่นแนะนำ</font></h5></td>";
-            echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='none'><i class='fas fa-times-circle'></i> ไม่ใช้สิทธิ</button></td>";
+            echo "<td align='center'><button type='submit' class='btn btn-warning btn n-radius btn-sm' id='btn' name='btn_voucher' value='0'><i class='fas fa-times-circle'></i> ไม่ใช้สิทธิ</button></td>";
             echo "<td align='center' height='70'><b> <font size='3px'color='#FFC107'><i class='fas fa-money-bill-alt'></i> รวมสุทธิ </font></b></td>";
             echo "<td align='center'><b>".number_format($total,2)."</b></td>";
             echo "</tr>";
@@ -131,7 +131,7 @@ $totalRows_buyer = mysqli_num_rows($buyer);
               </select>
             </div>
                   <p align="center"><br />
-                    <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='none'> ยืนยัน</button>
+                    <button type="submit" name="btn_voucher" class="btn btn-success btn n-radius" value='0'> ยืนยัน</button>
                   </p>
           </div>
        
